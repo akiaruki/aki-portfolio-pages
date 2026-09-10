@@ -28,3 +28,16 @@
 .showcase-dot::before{content:'';width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.3}
 .showcase-dot[aria-current=true]::before,.showcase-dot:hover::before{opacity:1}
 .showcase-dot:focus-visible{outline:1px solid var(--accent);outline-offset:-5px;border-radius:12px}
+
+/* A compact desktop opening, using real dimensions and full-photo containment. */
+.opening-text{grid-template-columns:minmax(0,1fr)}
+@media(min-width:1001px){
+  .opening{max-width:1314px;margin-inline:auto;padding:48px 5.3% 0}
+  .opening-text{margin-bottom:32px}
+  .opening-text .eyebrow{margin-bottom:16px}
+  .opening h1#intro{font-size:clamp(46px,4.4vw,66px)}
+  .showcase-track{padding-bottom:4px}
+  .showcase-track .photo-button{height:clamp(280px,36vw,544px);max-height:54.4svh}
+  .opening .below-hero{padding-top:6px}
+  .opening + .archive{padding-top:96px}
+}
