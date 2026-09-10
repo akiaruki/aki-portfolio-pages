@@ -23,6 +23,6 @@ yearList.addEventListener('click',event=>{const option=event.target.closest('[ro
 yearList.addEventListener('keydown',event=>{const index=yearOptions.indexOf(document.activeElement);if(['ArrowDown','ArrowUp','Home','End'].includes(event.key)){event.preventDefault();const next=event.key==='Home'?0:event.key==='End'?yearOptions.length-1:(index+(event.key==='ArrowDown'?1:-1)+yearOptions.length)%yearOptions.length;yearOptions[next].focus({preventScroll:true});yearOptions[next].scrollIntoView({block:'nearest'})}else if(event.key==='Enter'||event.key===' '){event.preventDefault();if(index>=0)selectYear(yearOptions[index])}else if(event.key==='Escape'){event.preventDefault();closeYears(true)}else if(event.key==='Tab'){closeYears(true)}});
 document.addEventListener('pointerdown',event=>{if(!yearPicker.contains(event.target))closeYears()});
 yearPicker.addEventListener('focusout',event=>{if(!yearPicker.contains(event.relatedTarget))closeYears()});
-yearSelect.addEventListener('change',updateYearLabel);updateYearLabel();
+yearSelect.addEventListener('change',updateYearLabel);yearSelect.addEventListener('portfolio-year-sync',updateYearLabel);updateYearLabel();
 
 })();
