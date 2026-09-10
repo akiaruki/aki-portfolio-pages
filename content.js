@@ -1,6 +1,6 @@
 window.PORTFOLIO = {
   "name": "アキ",
-  "intro": "We do not remember days,\nwe remember moments",
+  "intro": "We do not remember days, we remember moments.",
   "about": "I’m at the beginning of a photography journey. Learning to notice the light, to stay a little longer, and to make photographs that remember how a place felt.",
   "copy": {
     "siteLabel": "Photographs & field notes",
