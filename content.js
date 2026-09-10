@@ -5,21 +5,21 @@ window.PORTFOLIO = {
   "copy": {
     "siteLabel": "Photographs & field notes",
     "heroEyebrow": "A collection of quiet things",
-    "heroNote": "A photography journey, just beginning.\nA little closer. A little slower.",
+    "heroNote": "",
     "featuredLabel": "Selected photographs",
     "archiveLink": "Wander through",
     "japaneseNote": "自然の中で、立ち止まる。",
     "archiveTitle": "The days, as they unfold",
     "archiveEyebrow": "A photographic journal",
-    "aboutLabel": "A note from アキ",
+    "aboutLabel": "",
     "journalNav": "Journal",
     "journalEyebrow": "Not everything becomes a photograph",
-    "journalTitle": "Notes from\nout there.",
-    "journalNote": "Loose thoughts, written down\nbefore they disappear.",
+    "journalTitle": "",
+    "journalNote": "Loose thoughts will be written here soon.",
     "backToTop": "Back to the beginning",
-    "collectionsTitle": "Small bodies of work",
-    "collectionsNote": "Photographs in conversation with one another.",
-    "sampleNotice": "Sample exhibition · Photographs courtesy of Unsplash. Sample posts and collections are for demonstration."
+    "collectionsTitle": "My collections will appear here soon.",
+    "collectionsNote": "",
+    "sampleNotice": ""
   },
   "photos": [
     {
