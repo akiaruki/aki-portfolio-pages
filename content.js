@@ -23,96 +23,6 @@ window.PORTFOLIO = {
   },
   "photos": [
     {
-      "id": "forest-light",
-      "title": "Where the light settles",
-      "place": "Among the trees",
-      "date": "Late summer",
-      "src": "photos/forest-light.jpg",
-      "alt": "Sunlight drifting through a misty forest canopy",
-      "credit": "Pascal Debrunner",
-      "source": "https://unsplash.com/photos/sunlight-streams-through-a-misty-forest-canopy-vBtJYXG6yPA",
-      "year": 2026,
-      "shape": "wide",
-      "capturedOn": "",
-      "story": "",
-      "sample": true
-    },
-    {
-      "id": "first-light",
-      "title": "Before the world wakes",
-      "place": "At the water’s edge",
-      "date": "Early summer",
-      "src": "photos/first-light.jpg",
-      "alt": "A still mountain lake wrapped in morning mist",
-      "credit": "Anthony Gomez",
-      "source": "https://unsplash.com/photos/misty-lake-with-mountains-and-trees-at-dawn-uyxJl4SBE3s",
-      "year": 2026,
-      "shape": "landscape",
-      "capturedOn": "",
-      "story": "",
-      "sample": true
-    },
-    {
-      "id": "little-green",
-      "title": "A small unfolding",
-      "place": "Along the trail",
-      "date": "Spring",
-      "src": "photos/little-green.jpg",
-      "alt": "A close view of the delicate green fronds of a fern",
-      "credit": "Catarina Carvalho",
-      "source": "https://unsplash.com/photos/close-up-photography-of-fern-plant-nDTPFJeP8Zw",
-      "year": 2026,
-      "shape": "portrait",
-      "capturedOn": "",
-      "story": "",
-      "sample": true
-    },
-    {
-      "id": "tideline",
-      "title": "Nothing stays, nothing leaves",
-      "place": "The coast",
-      "date": "Autumn",
-      "src": "photos/tideline.jpg",
-      "alt": "Ocean waves breaking into layers of white foam",
-      "credit": "Christoffer Engström",
-      "source": "https://unsplash.com/photos/photo-of-ocean-waves-at-daytime-wc9avd2RaN0",
-      "year": 2025,
-      "shape": "wide",
-      "capturedOn": "",
-      "story": "A sample photograph from the water-and-air collection. Add your own words here when you replace it with a photograph from your journey.",
-      "sample": true
-    },
-    {
-      "id": "woodland",
-      "title": "Taking the long way",
-      "place": "In the woods",
-      "date": "Summer",
-      "src": "photos/woodland.jpg",
-      "alt": "Green trees and dense foliage in a quiet woodland",
-      "credit": "William Daigneault",
-      "source": "https://unsplash.com/photos/green-trees-in-forest-Omlu0KHlUiQ",
-      "year": 2025,
-      "shape": "portrait",
-      "capturedOn": "",
-      "story": "",
-      "sample": true
-    },
-    {
-      "id": "snowline",
-      "title": "A quieter kind of distance",
-      "place": "Above the snowline",
-      "date": "Winter",
-      "src": "photos/snowline.jpg",
-      "alt": "A rugged mountain summit covered in snow",
-      "credit": "Austin Smart",
-      "source": "https://unsplash.com/photos/snow-covered-mountain--rIC_DZaUW8",
-      "year": 2024,
-      "shape": "wide",
-      "capturedOn": "",
-      "story": "",
-      "sample": true
-    },
-    {
       "id": "2f0a5ada-2984-4e1e-88c3-1ebcaae2b815",
       "title": "Gumamela",
       "place": "",
@@ -182,36 +92,6 @@ window.PORTFOLIO = {
     "671e1313-2765-45fb-a5ae-f1b94ea4c939",
     "2f0a5ada-2984-4e1e-88c3-1ebcaae2b815"
   ],
-  "posts": [
-    {
-      "id": "first-field-notes",
-      "title": "A first walk, a slower look",
-      "description": "A sample entry for the beginning of a journey. Three photographs, one quiet walk. Replace these with your own images and a few words about what caught your attention.",
-      "photoIds": [
-        "forest-light",
-        "little-green",
-        "woodland"
-      ],
-      "published": true,
-      "sample": true,
-      "date": "2026-09-09",
-      "location": "Among the trees"
-    }
-  ],
-  "collections": [
-    {
-      "id": "water-and-air",
-      "title": "Between water and air",
-      "description": "A sample collection. A lake, the sea, a snow-covered ridge: three photographs brought together as a visual conversation. Collections live independently of the dated journal.",
-      "photoIds": [
-        "tideline",
-        "first-light",
-        "snowline"
-      ],
-      "published": true,
-      "sample": true,
-      "subtitle": "Studies in stillness and movement",
-      "coverId": "tideline"
-    }
-  ]
+  "posts": [],
+  "collections": []
 };
