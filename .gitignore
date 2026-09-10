@@ -1,0 +1,19 @@
+# Only generated public files belong here.
+/*
+!/index.html
+!/style.css
+!/exhibition.css
+!/app.js
+!/year-menu.js
+!/content-model.js
+!/content.js
+!/.gitignore
+!/.nojekyll
+!/photos/
+/photos/*
+!/photos/forest-light.jpg
+!/photos/first-light.jpg
+!/photos/little-green.jpg
+!/photos/tideline.jpg
+!/photos/woodland.jpg
+!/photos/snowline.jpg
