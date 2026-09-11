@@ -81,6 +81,51 @@ window.PORTFOLIO = {
       "capturedOn": "",
       "story": "",
       "sample": false
+    },
+    {
+      "id": "791c9eba-38e4-42d7-84b4-b3b98eac41c4",
+      "title": "",
+      "place": "",
+      "date": "",
+      "src": "photos/791c9eba-_MG_0020.jpg",
+      "alt": "",
+      "credit": "",
+      "source": "",
+      "year": 2026,
+      "shape": "wide",
+      "capturedOn": "",
+      "story": "",
+      "sample": false
+    },
+    {
+      "id": "38aafe70-418f-4784-9ca1-8e89e01084b2",
+      "title": "",
+      "place": "",
+      "date": "",
+      "src": "photos/38aafe70-_MG_0082.jpg",
+      "alt": "",
+      "credit": "",
+      "source": "",
+      "year": 2026,
+      "shape": "wide",
+      "capturedOn": "",
+      "story": "",
+      "sample": false
+    },
+    {
+      "id": "4c49a546-c106-460a-81f5-a8ecf100165b",
+      "title": "",
+      "place": "",
+      "date": "",
+      "src": "photos/4c49a546-_MG_9950.jpg",
+      "alt": "",
+      "credit": "",
+      "source": "",
+      "year": 2026,
+      "shape": "wide",
+      "capturedOn": "",
+      "story": "",
+      "sample": false
     }
   ],
   "journal": [],
@@ -92,6 +137,39 @@ window.PORTFOLIO = {
     "51bca699-2cb7-4eef-a4b4-9dac76b95c98",
     "671e1313-2765-45fb-a5ae-f1b94ea4c939"
   ],
-  "posts": [],
+  "posts": [
+    {
+      "id": "027afc90-d7dd-42cd-9b51-716c465aadc1",
+      "title": "",
+      "description": "at least a million consciousness\nmost are sleeping\nfew still awake\ncould be busy\nhalf awake?\nwho's suffering?\nwho doesn't?\nwho became self-aware?\nare they alone?\nwith friends?\ninlove\nheartbroken\nresented\nforgiven\nat their worst\nat their best\nare they happy?\ndepressed?\nforgotten\nbeing missed\ndriven by a dream\nhanging by a thread\nbored\nexcited\nwill they travel the world?\nsome do\nsome did\nsome can\nsome can't\nsome would\nsome won't\nshould I?\nwill I be able to?\nthis view is overwhelming\nmaybe I should sleep\nbut I can't\nI shouldn't\nstay awake, aki",
+      "photoIds": [
+        "4c49a546-c106-460a-81f5-a8ecf100165b",
+        "791c9eba-38e4-42d7-84b4-b3b98eac41c4",
+        "38aafe70-418f-4784-9ca1-8e89e01084b2"
+      ],
+      "published": true,
+      "sample": false,
+      "date": "2023-02-20",
+      "location": "",
+      "layout": [
+        {
+          "key": "photo:4c49a546-c106-460a-81f5-a8ecf100165b",
+          "align": "auto"
+        },
+        {
+          "key": "photo:791c9eba-38e4-42d7-84b4-b3b98eac41c4",
+          "align": "auto"
+        },
+        {
+          "key": "photo:38aafe70-418f-4784-9ca1-8e89e01084b2",
+          "align": "auto"
+        },
+        {
+          "key": "text",
+          "align": "auto"
+        }
+      ]
+    }
+  ],
   "collections": []
 };

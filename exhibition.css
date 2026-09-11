@@ -55,3 +55,61 @@ body:not(.studio) :is(figcaption h3,.sample-label,.lightbox-caption #lightbox-st
   /* Top-align contained photographs: no empty letterbox above landscape images. */
   .showcase-track .photo-button img{object-position:center top}
 }
+
+/* Preserve the author's line breaks and stanza spacing in plain-text writing. */
+:is(.post-excerpt,.story-introduction,.story-subtitle,.collection-caption p,.collections-note,.entry-body,#about-copy,.journal-heading>p,.lightbox-caption #lightbox-story){white-space:pre-wrap;overflow-wrap:anywhere}
+
+/* Optional titles leave no empty heading gap. */
+.post-summary h3:has(a:empty),figure figcaption h3:empty{display:none}
+
+/* Complete editorial posts: readable writing followed by uncropped photo sets. */
+.post-feed{min-width:0}
+.post-feed .post-summary{max-width:820px;margin:0 auto 72px;padding-bottom:48px;border-bottom:1px solid var(--line)}
+.post-feed .post-summary:last-child{margin-bottom:0}
+.post-summary .post-summary-text{padding:0;max-width:none}
+.post-summary .post-excerpt{max-width:68ch;font-size:16px;line-height:1.8;margin-bottom:28px}
+.post-photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start;max-width:820px;margin:24px auto 0}
+.post-photos>figure{grid-column:1/-1;width:100%;max-width:none;margin:0;min-width:0}
+.post-photos>figure[data-narrow=true]{width:75%;justify-self:center}
+.post-photos>figure[data-narrow=true]:has(+figure[data-narrow=true]),.post-photos>figure[data-narrow=true]+figure[data-narrow=true]{grid-column:auto;width:100%}
+.post-photos .photo-button{height:auto;aspect-ratio:auto;background:transparent}
+.post-photos .photo-button img,.post-photos .photo-button:hover img{width:100%;height:auto;object-fit:contain;transform:none}
+.post-photos figcaption{padding-top:10px}
+.post-summary>.story-link{margin-top:18px}
+.magazine .story-heading{max-width:820px;margin:48px auto 28px;text-align:left}
+.magazine .story-heading h1{font-size:clamp(36px,5vw,60px);margin:18px 0 24px}
+.magazine .story-introduction{max-width:68ch;margin:24px 0 0;text-align:left;line-height:1.8}
+.magazine .story-end{margin-top:48px}
+@media(max-width:760px){
+  .archive .year-section{grid-template-columns:1fr;gap:18px}
+  .archive .year-section:before{display:none}
+  .archive .year-marker{position:static;display:flex;align-items:baseline;gap:12px}
+  .archive .year-marker small{margin:0}
+  .archive .post-feed{border:0;padding-left:0}
+  .post-feed .post-summary{margin-bottom:44px;padding-bottom:32px}
+  .post-photos{gap:12px}
+  .post-photos>figure[data-narrow=true]{width:100%}
+  .magazine .story-heading{margin-top:32px}
+}
+.post-summary .post-photos figcaption h3{font:400 14px/1.5 var(--utility);margin:0}
+.post-photos>figure:is(.wide,.portrait,.landscape){grid-column:1/-1;max-width:100%;margin:0}
+.post-photos>figure[data-narrow=true]:has(+figure[data-narrow=true]),.post-photos>figure[data-narrow=true]+figure[data-narrow=true]{grid-column:auto;width:100%}
+/* Small image gutters and author-controlled composition. */
+.post-photos{gap:8px}
+.composed-content{margin-top:24px;gap:8px}
+.content-block{grid-column:1/-1;min-width:0}
+.content-block[data-align=left]{grid-column:1}
+.content-block[data-align=right]{grid-column:2}
+.content-block[data-align=center]{width:75%;justify-self:center}
+.content-block[data-align=full]{width:100%}
+.writing-block{padding:16px 0}
+.writing-block .post-excerpt,.writing-block .story-introduction{margin:0;max-width:68ch;text-align:left;white-space:pre-wrap;font-size:16px;line-height:1.8}
+.writing-block[data-align=center] p{text-align:center}
+.content-block figure,.content-block figure.portrait,.content-block figure.wide{width:100%;max-width:none;margin:0}
+.content-block .photo-button{aspect-ratio:auto;height:auto}
+.content-block .photo-button img{width:100%;height:auto;object-fit:contain}
+.composed-content figcaption{display:none}
+@media(max-width:600px){.content-block[data-align=left],.content-block[data-align=right]{grid-column:1/-1}.content-block[data-align=center]{width:100%}}
+.photo-block[data-align=auto][data-narrow=true]:has(+.photo-block[data-align=auto][data-narrow=true]),.photo-block[data-align=auto][data-narrow=true]+.photo-block[data-align=auto][data-narrow=true]{grid-column:auto}
+.photo-block[data-align=auto][data-narrow=true]:not(:has(+.photo-block[data-align=auto][data-narrow=true])):not(.photo-block[data-align=auto][data-narrow=true]+.photo-block){width:75%;justify-self:center}
+@media(max-width:600px){.photo-block[data-align=auto][data-narrow=true]{width:100%}}
