@@ -15,7 +15,7 @@ window.PORTFOLIO = {
     "journalNav": "Journal",
     "journalEyebrow": "Not everything becomes a photograph",
     "journalTitle": "",
-    "journalNote": "Loose thoughts will be written here soon.",
+    "journalNote": "",
     "backToTop": "Back to the beginning",
     "collectionsTitle": "My collections will appear here soon.",
     "collectionsNote": "",

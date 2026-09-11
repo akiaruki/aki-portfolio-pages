@@ -29,15 +29,29 @@
 .showcase-dot[aria-current=true]::before,.showcase-dot:hover::before{opacity:1}
 .showcase-dot:focus-visible{outline:1px solid var(--accent);outline-offset:-5px;border-radius:12px}
 
-/* A compact desktop opening, using real dimensions and full-photo containment. */
+/* Serif editorial display with a shared field-notes utility voice. */
+:root{--utility:'Source Code Pro',monospace}
+body:not(.studio) :is(nav,button,select,.header-label,.eyebrow,figcaption,.below-hero,.story-link,.post-excerpt,.collections-note,.collection-caption p,.journal-heading>p,.entry-body,.story-introduction,.story-location,.story-end,.lightbox-caption p,.lightbox-caption span,footer>span,footer>a:last-of-type,.demo-note,.quiet-empty,.showcase-empty,.year-marker,.year-option,.year-marker small,.journal-entry time,.preview-notice){font-family:var(--utility)}
+body:not(.studio) :is(figcaption h3,.sample-label,.lightbox-caption #lightbox-story){font-family:var(--utility)}
 .opening-text{grid-template-columns:minmax(0,1fr)}
 @media(min-width:1001px){
-  .opening{max-width:1314px;margin-inline:auto;padding:48px 5.3% 0}
-  .opening-text{margin-bottom:32px}
+  body:not(.studio)>header{grid-template-columns:auto auto 1fr;gap:32px;min-height:80px;margin-top:0;padding:12px 0;top:0;border:0;border-bottom:1px solid var(--line);border-radius:0;box-shadow:none}
+  body:not(.studio)>header>.wordmark{grid-column:1;grid-row:1;font-size:28px}
+  body:not(.studio)>header>.header-label{grid-column:2;grid-row:1;font-size:12px}
+  body:not(.studio)>header>nav{grid-column:3;grid-row:1;justify-content:flex-start;gap:12px;margin-left:20px;font-size:13px}
+  body:not(.studio)>header nav a{background:transparent;border-color:transparent;box-shadow:none;padding-inline:12px}
+  body:not(.studio)>header .year-picker{order:1;margin-left:auto}
+  .opening{max-width:1400px;margin-inline:auto;padding:20px 5.3% 0}
+  .opening-text{margin-bottom:24px}
   .opening-text .eyebrow{margin-bottom:16px}
-  .opening h1#intro{font-size:clamp(46px,4.4vw,66px)}
+  .opening h1#intro{font-size:clamp(48px,4.8vw,72px)}
   .showcase-track{padding-bottom:4px}
-  .showcase-track .photo-button{height:clamp(280px,36vw,544px);max-height:54.4svh}
+  .showcase-track .photo-button{height:clamp(300px,40vw,580px);max-height:max(280px,calc(100svh - 340px))}
   .opening .below-hero{padding-top:6px}
   .opening + .archive{padding-top:96px}
+}
+@media(max-width:760px){
+  .opening-text{margin-bottom:56px}
+  /* Top-align contained photographs: no empty letterbox above landscape images. */
+  .showcase-track .photo-button img{object-position:center top}
 }
