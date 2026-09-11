@@ -113,3 +113,6 @@ body:not(.studio) :is(figcaption h3,.sample-label,.lightbox-caption #lightbox-st
 .photo-block[data-align=auto][data-narrow=true]:has(+.photo-block[data-align=auto][data-narrow=true]),.photo-block[data-align=auto][data-narrow=true]+.photo-block[data-align=auto][data-narrow=true]{grid-column:auto}
 .photo-block[data-align=auto][data-narrow=true]:not(:has(+.photo-block[data-align=auto][data-narrow=true])):not(.photo-block[data-align=auto][data-narrow=true]+.photo-block){width:75%;justify-self:center}
 @media(max-width:600px){.photo-block[data-align=auto][data-narrow=true]{width:100%}}
+/* Composed images size their frames; legacy wide/portrait ratios must not add space. */
+.post-photos figure:is(.wide,.portrait,.landscape) .photo-button{aspect-ratio:auto;height:auto;max-height:none}
+.post-photos,.composed-content{gap:6px}
