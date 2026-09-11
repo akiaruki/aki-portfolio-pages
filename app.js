@@ -19,7 +19,7 @@ $('#intro').textContent=data.intro;$('#intro').style.whiteSpace='pre-line';$('#a
 const copyTargets={siteLabel:'.header-label,footer>span',heroEyebrow:'.opening-text>.eyebrow',heroNote:'.intro-note',japaneseNote:'.japanese',archiveTitle:'#archive-title',archiveEyebrow:'#photographs .section-heading>.eyebrow',aboutLabel:'.about>.eyebrow',journalEyebrow:'.journal-heading>.eyebrow',journalTitle:'.journal-heading>h2',journalNote:'.journal-heading>p',sampleNotice:'.demo-note',collectionsTitle:'#collections-title',collectionsNote:'.collections-note'};
 for(const [key,selector]of Object.entries(copyTargets))document.querySelectorAll(selector).forEach(el=>el.textContent=data.copy[key]);
 function linkText(selector,text,arrow){const el=$(selector);el.replaceChildren(document.createTextNode(text+' '));const span=document.createElement('span');span.textContent=arrow;span.setAttribute('aria-hidden','true');el.append(span)}
-linkText('.journal-link',data.copy.journalNav,'↗');linkText('.below-hero>a',data.copy.archiveLink,'↓');linkText('footer>a:last-of-type',data.copy.backToTop,'↑');
+linkText('.journal-link',data.copy.journalNav,'↗');linkText('footer>a:last-of-type',data.copy.backToTop,'↑');
 
 document.title=data.name+' — '+data.copy.siteLabel;
 const showcase=data.showcaseIds.map(id=>photoMap.get(id));
@@ -57,7 +57,7 @@ const posts=data.posts.filter(p=>p.published).sort((a,b)=>b.date.localeCompare(a
 const years=[...new Set(posts.map(p=>Number(p.date.slice(0,4))).filter(Number.isFinite))].sort((a,b)=>b-a);
 function postPhotos(items){return '<div class="post-photos">'+items.map((p,i)=>photoMarkup(p,{index:i})).join('')+'</div>';}
 function arrangePostPhotos(root){root.querySelectorAll('.post-photos img').forEach(img=>{const size=()=>{if(img.naturalWidth)(img.closest('.photo-block')||img.closest('figure')).dataset.narrow=String(img.naturalWidth/img.naturalHeight<=1.05);};if(img.complete)size();else img.addEventListener('load',size,{once:true});});}
-function composedContent(item){return '<div class="post-photos composed-content">'+PortfolioContent.layoutFor(item).map((block,i)=>{if(block.key==='text')return item.description?'<div class="content-block writing-block" data-align="'+block.align+'"><p class="post-excerpt story-introduction">'+escape(item.description)+'</p></div>':'';const p=photoMap.get(block.key.slice(6));return '<div class="content-block photo-block" data-align="'+block.align+'">'+photoMarkup(p,{index:item.photoIds.indexOf(p.id)})+'</div>';}).join('')+'</div>';}
+function composedContent(item){if(item.composition==='split')return '<div class="split-entry"><div class="split-photo-stack post-photos">'+item.photoIds.map(id=>'<div class="content-block photo-block" data-align="full">'+photoMarkup(photoMap.get(id),{index:item.photoIds.indexOf(id)})+'</div>').join('')+'</div>'+(item.description?'<div class="split-writing"><p class="post-excerpt story-introduction">'+escape(item.description)+'</p></div>':'')+'</div>';return '<div class="post-photos composed-content">'+PortfolioContent.layoutFor(item).map((block,i)=>{if(block.key==='text')return item.description?'<div class="content-block writing-block" data-align="'+block.align+'"><p class="post-excerpt story-introduction">'+escape(item.description)+'</p></div>':'';const p=photoMap.get(block.key.slice(6));return '<div class="content-block photo-block" data-align="'+block.align+'">'+photoMarkup(p,{index:item.photoIds.indexOf(p.id)})+'</div>';}).join('')+'</div>';}
 function postSummary(post){const items=post.photoIds.map(id=>photoMap.get(id));return `<article class="post-summary reveal" data-post-id="${escape(post.id)}"><div class="post-summary-text"><p class="eyebrow"><time datetime="${escape(post.date)}">${escape(formatDate(post.date))}</time> ${sampleLabel(post)}</p>${post.title.trim()?`<h3><a href="#post/${encodeURIComponent(post.id)}">${escape(post.title)}</a></h3>`:''}${post.location?`<p class="story-location">${escape(post.location)}</p>`:''}</div>${composedContent(post)}<a class="story-link" href="#post/${encodeURIComponent(post.id)}">Open post <span aria-hidden="true">↗</span></a></article>`;}
 
 for(const year of years){const option=document.createElement('option');option.value=year;option.textContent=year;$('#year-select').append(option);}
@@ -67,6 +67,11 @@ $('#view-all-photographs').setAttribute('href',photographsDestination);$('#view-
 let overviewHash=location.hash.startsWith('#post/')?photographsDestination:location.hash.startsWith('#collection/')?collectionsDestination:location.hash;
 let renderedMode=null;
 function renderOverview(){
+ const view=overviewHash==='#collections'?'collections':overviewHash==='#journal'?'journal':overviewHash==='#photographs'||/^#year-/.test(overviewHash)?'posts':'home';
+ document.body.dataset.view=view;
+ $('.opening').hidden=view!=='home';$('.about').hidden=view!=='home';$('#photographs').hidden=!['home','posts'].includes(view);$('#collections').hidden=view!=='collections';$('#journal').hidden=view!=='journal';
+ document.querySelectorAll('header nav a').forEach(link=>{if(link.hash===(view==='posts'?'#photographs':'#'+view))link.setAttribute('aria-current','page');else link.removeAttribute('aria-current')});
+
  const allPosts=overviewHash===photographsDestination||/^#year-[0-9]{4}$/.test(overviewHash),allCollections=overviewHash===collectionsDestination;
  const mode=String(allPosts)+String(allCollections);
  if(mode!==renderedMode){
@@ -99,7 +104,7 @@ function route(){
  if(match){try{openStory(match[1],decodeURIComponent(match[2]));}catch{closeStory();}}
  else{
   if(story.open)closeStory(false);overviewHash=location.hash;renderOverview();
-  if(/^#(?:photographs|collections|year-\d{4})$/.test(overviewHash)){const target=document.getElementById(overviewHash.slice(1));requestAnimationFrame(()=>{target?.focus({preventScroll:true});target?.scrollIntoView({behavior:motion()});});}
+  if(/^#(?:photographs|collections|journal|year-\d{4})$/.test(overviewHash)){const target=document.getElementById(overviewHash.slice(1));requestAnimationFrame(()=>{target?.focus({preventScroll:true});target?.scrollIntoView({behavior:motion()});});}
  }
 }
 window.addEventListener('hashchange',route);route();if(previewTarget)openStory(previewTarget.kind,previewTarget.id,true);
