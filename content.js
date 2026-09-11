@@ -151,6 +151,7 @@ window.PORTFOLIO = {
       "sample": false,
       "date": "2023-02-20",
       "location": "",
+      "composition": "split",
       "layout": [
         {
           "key": "photo:4c49a546-c106-460a-81f5-a8ecf100165b",

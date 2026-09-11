@@ -127,6 +127,20 @@ header nav a[aria-current=page]{text-decoration:underline;text-underline-offset:
 .split-photo-stack>.photo-block{width:100%}
 .split-photo-stack figcaption{display:none}
 .split-writing{min-width:0}
-.split-writing .post-excerpt,.split-writing .story-introduction{margin:0;max-width:none;white-space:pre-wrap;font-size:16px;line-height:1.8;text-align:left}
+.split-writing .post-excerpt,.split-writing .story-introduction{margin:0;max-width:none;white-space:pre-wrap;font-size:14px;line-height:1.7;text-align:left}
 .post-feed .post-summary:has(.split-entry){max-width:1100px}
 @media(max-width:760px){.split-entry{grid-template-columns:1fr;gap:24px}.studio [data-composition]{max-width:none;width:100%}}
+
+/* Mobile Showcase follows the active photograph, keeping dots close without cropping. */
+@media(max-width:760px){.showcase-track{padding-bottom:4px}.showcase-track .photo-button{height:var(--showcase-mobile-height, min(440px,65svh));max-height:none}}
+
+/* Keep the following section below the mobile opening while bringing dots to the photo. */
+@media(max-width:760px){#featured:has(.showcase-track){min-height:calc(min(440px,65svh) + 54px)}}
+
+/* Keep Showcase hover unobstructed. */
+.showcase-track .photo-button{cursor:default}.showcase-track .photo-button::after{content:none;display:none}
+
+.showcase-dots{position:relative}.showcase-playback{position:absolute;right:0;min-height:44px;border:0;padding:0 8px;background:transparent;color:var(--muted);font:11px var(--utility);cursor:pointer}
+
+.showcase-playback{width:44px;display:grid;place-items:center}.showcase-playback::before{content:'';width:8px;height:10px;border-left:2px solid currentColor;border-right:2px solid currentColor}.showcase-playback[data-paused=true]::before{width:0;height:0;border:5px solid transparent;border-left:8px solid currentColor;border-right:0}
+
