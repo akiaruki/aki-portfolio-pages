@@ -30,7 +30,7 @@
 .showcase-dot:focus-visible{outline:1px solid var(--accent);outline-offset:-5px;border-radius:12px}
 
 /* Serif editorial display with a shared field-notes utility voice. */
-:root{--utility:'Source Code Pro',monospace}
+/* --utility and its shared --sans alias are defined in style.css for both pages. */
 body:not(.studio) :is(nav,button,select,.header-label,.eyebrow,figcaption,.below-hero,.story-link,.post-excerpt,.collections-note,.collection-caption p,.journal-heading>p,.entry-body,.story-introduction,.story-location,.story-end,.lightbox-caption p,.lightbox-caption span,footer>span,footer>a:last-of-type,.demo-note,.quiet-empty,.showcase-empty,.year-marker,.year-option,.year-marker small,.journal-entry time,.preview-notice){font-family:var(--utility)}
 body:not(.studio) :is(figcaption h3,.sample-label,.lightbox-caption #lightbox-story){font-family:var(--utility)}
 .opening-text{grid-template-columns:minmax(0,1fr)}
