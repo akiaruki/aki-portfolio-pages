@@ -144,3 +144,13 @@ header nav a[aria-current=page]{text-decoration:underline;text-underline-offset:
 
 .showcase-playback{width:44px;display:grid;place-items:center}.showcase-playback::before{content:'';width:8px;height:10px;border-left:2px solid currentColor;border-right:2px solid currentColor}.showcase-playback[data-paused=true]::before{width:0;height:0;border:5px solid transparent;border-left:8px solid currentColor;border-right:0}
 
+
+/* Individual gallery frames keep every photograph complete and evenly spaced. */
+.collection-frame.collection-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:stretch;max-width:760px;margin-inline:auto;padding:0;border:0;background:none;box-shadow:none;transform:none}
+.collection-frame.collection-grid:hover{box-shadow:none;transform:none}
+.collection-frame.collection-grid[data-count="1"]{grid-template-columns:1fr;max-width:460px}
+.collection-photo-frame{display:block;min-width:0;aspect-ratio:4/3;padding:18px;border:1px solid var(--line);background:#fff;box-shadow:0 2px 8px #292d2906}
+.collection-frame.collection-grid .collection-photo-frame img{display:block;width:100%;height:100%;max-height:none;aspect-ratio:auto;object-fit:contain}
+@media(max-width:760px){.collection-frame.collection-grid{gap:12px}.collection-photo-frame{padding:10px}}
+
+button.collection-photo-frame{width:100%;border-radius:0;cursor:pointer;appearance:none}button.collection-photo-frame:focus-visible{outline:2px solid var(--accent);outline-offset:4px}

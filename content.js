@@ -17,7 +17,7 @@ window.PORTFOLIO = {
     "journalTitle": "",
     "journalNote": "",
     "backToTop": "Back to the beginning",
-    "collectionsTitle": "My collections will appear here soon.",
+    "collectionsTitle": "",
     "collectionsNote": "",
     "sampleNotice": ""
   },
@@ -172,5 +172,21 @@ window.PORTFOLIO = {
       ]
     }
   ],
-  "collections": []
+  "collections": [
+    {
+      "id": "inconspicuous",
+      "title": "inconspicuous",
+      "description": "",
+      "photoIds": [
+        "2f0a5ada-2984-4e1e-88c3-1ebcaae2b815",
+        "331ca134-a3e8-48ba-8bed-4742bbee169d",
+        "51bca699-2cb7-4eef-a4b4-9dac76b95c98",
+        "671e1313-2765-45fb-a5ae-f1b94ea4c939"
+      ],
+      "published": true,
+      "sample": false,
+      "subtitle": "",
+      "coverId": "2f0a5ada-2984-4e1e-88c3-1ebcaae2b815"
+    }
+  ]
 };
