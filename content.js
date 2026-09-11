@@ -69,7 +69,7 @@ window.PORTFOLIO = {
     },
     {
       "id": "671e1313-2765-45fb-a5ae-f1b94ea4c939",
-      "title": "Gumamela",
+      "title": "Rose",
       "place": "",
       "date": "",
       "src": "photos/644477af-Rose.jpg",
