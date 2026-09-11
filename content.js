@@ -8,7 +8,7 @@ window.PORTFOLIO = {
     "heroNote": "",
     "featuredLabel": "Selected photographs",
     "archiveLink": "Wander through",
-    "japaneseNote": "自然の中で、立ち止まる。",
+    "japaneseNote": "",
     "archiveTitle": "The days, as they unfold",
     "archiveEyebrow": "A photographic journal",
     "aboutLabel": "",
@@ -69,7 +69,7 @@ window.PORTFOLIO = {
     },
     {
       "id": "671e1313-2765-45fb-a5ae-f1b94ea4c939",
-      "title": "Rose",
+      "title": "Gumamela",
       "place": "",
       "date": "",
       "src": "photos/644477af-Rose.jpg",
