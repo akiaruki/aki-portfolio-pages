@@ -1,20 +1,26 @@
-# Only generated public files belong here.
+# Generated public files only.
 /*
-!/index.html
-!/style.css
-!/exhibition.css
+!/.nojekyll
 !/app.js
-!/year-menu.js
 !/content-model.js
 !/content.js
-!/.gitignore
-!/.nojekyll
-!/photos/
-/photos/*
-!/photos/420deb37-Gumamela.jpg
+!/exhibition.css
+!/index.html
 !/photos/2aaabcf1-Alternanthera-Brasiliana.jpg
-!/photos/fe243388-Crape-Myrtle.jpg
+!/photos/38aafe70-_MG_0082.jpg
+!/photos/420deb37-Gumamela.jpg
+!/photos/4c49a546-_MG_9950.jpg
 !/photos/644477af-Rose.jpg
 !/photos/791c9eba-_MG_0020.jpg
+!/photos/fe243388-Crape-Myrtle.jpg
+!/style.css
+!/year-menu.js
+!/photos/
+/photos/*
+!/photos/2aaabcf1-Alternanthera-Brasiliana.jpg
 !/photos/38aafe70-_MG_0082.jpg
+!/photos/420deb37-Gumamela.jpg
 !/photos/4c49a546-_MG_9950.jpg
+!/photos/644477af-Rose.jpg
+!/photos/791c9eba-_MG_0020.jpg
+!/photos/fe243388-Crape-Myrtle.jpg
