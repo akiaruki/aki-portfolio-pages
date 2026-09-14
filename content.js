@@ -130,9 +130,17 @@ window.PORTFOLIO = {
   ],
   "journal": [
     {
+      "date": "2026-09-14",
+      "title": "-",
+      "body": "About 80% in the Photo Editor mobile app that I'm building. Looking forward to launch next week!",
+      "id": "f15108c2-4a9c-488a-8246-fb0eeb4f6aa3",
+      "published": true,
+      "sample": false
+    },
+    {
       "date": "2026-09-12",
-      "title": "A new note",
-      "body": "Hello, world",
+      "title": "-",
+      "body": "Hello, world.",
       "id": "ba7b6156-9199-478d-881a-739b9950e1dc",
       "published": true,
       "sample": false
