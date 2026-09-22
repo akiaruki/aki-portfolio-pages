@@ -126,6 +126,36 @@ window.PORTFOLIO = {
       "capturedOn": "",
       "story": "",
       "sample": false
+    },
+    {
+      "id": "07252074-cb7e-48d8-9ce5-1101f089c767",
+      "title": "",
+      "place": "",
+      "date": "",
+      "src": "photos\/07252074-IMG_2944.jpg",
+      "alt": "",
+      "credit": "",
+      "source": "",
+      "year": 2026,
+      "shape": "portrait",
+      "capturedOn": "",
+      "story": "",
+      "sample": false
+    },
+    {
+      "id": "9a02adc6-7852-424d-85f6-d3e14fb5ef34",
+      "title": "",
+      "place": "",
+      "date": "",
+      "src": "photos\/9a02adc6-Aki-10858817-2318-489C-90CF-EFC3D5525392.jpg",
+      "alt": "",
+      "credit": "",
+      "source": "",
+      "year": 2026,
+      "shape": "portrait",
+      "capturedOn": "",
+      "story": "",
+      "sample": false
     }
   ],
   "journal": [
@@ -155,6 +185,20 @@ window.PORTFOLIO = {
     "671e1313-2765-45fb-a5ae-f1b94ea4c939"
   ],
   "posts": [
+    {
+      "id": "d60d4fc3-560a-4c62-a9d5-60479aa4d01d",
+      "title": "アキ Studio - Chrome",
+      "description": "Before and after comparison of a photograph when my photo editor's Chrome look has been applied.",
+      "photoIds": [
+        "07252074-cb7e-48d8-9ce5-1101f089c767",
+        "9a02adc6-7852-424d-85f6-d3e14fb5ef34"
+      ],
+      "published": true,
+      "sample": false,
+      "date": "2026-09-22",
+      "location": "",
+      "composition": "split"
+    },
     {
       "id": "027afc90-d7dd-42cd-9b51-716c465aadc1",
       "title": "",
