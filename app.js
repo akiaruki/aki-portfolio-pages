@@ -3,8 +3,17 @@
 const $=s=>document.querySelector(s);
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 let raw=window.PORTFOLIO,overrides={},previewTarget=null;
-if(location.hash==='#studio-preview'&&window.opener){
-  const draft=await new Promise(resolve=>{const timeout=setTimeout(()=>resolve(null),4000);function receive(event){if(event.source!==window.opener||event.data?.type!=='aki-preview-data')return;if(location.origin!=='null'&&event.origin!==location.origin)return;clearTimeout(timeout);window.removeEventListener('message',receive);resolve(event.data)}window.addEventListener('message',receive);window.opener.postMessage({type:'aki-preview-ready'},location.origin==='null'?'*':location.origin)});
+const previewHost=window.parent!==window?window.parent:window.opener;
+if(location.hash==='#studio-preview'&&previewHost&&location.origin!=='null'){
+  // The explicit preview route accepts one snapshot from its same-origin host.
+  // Standalone pages never read editor storage or accept unsolicited drafts.
+  const draft=await new Promise(resolve=>{
+    function finish(value){clearTimeout(timeout);window.removeEventListener('message',receive);resolve(value)}
+    function receive(event){if(event.source!==previewHost||event.origin!==location.origin||event.data?.type!=='aki-preview-data'||!event.data.content)return;finish(event.data)}
+    const timeout=setTimeout(()=>finish(null),4000);
+    window.addEventListener('message',receive);
+    previewHost.postMessage({type:'aki-preview-ready'},location.origin);
+  });
   if(draft){raw=draft.content;overrides=draft.images||{};previewTarget=draft.target;const note=document.createElement('p');note.className='preview-notice';note.textContent='Studio preview · unsaved content · not published';document.body.prepend(note)}
 }
 let data;try{data=PortfolioContent.normalize(raw)}catch(error){$('#featured').textContent='This collection could not be opened. Please check the content file in the studio.';return}

@@ -154,3 +154,24 @@ header nav a[aria-current=page]{text-decoration:underline;text-underline-offset:
 @media(max-width:760px){.collection-frame.collection-grid{gap:12px}.collection-photo-frame{padding:10px}}
 
 button.collection-photo-frame{width:100%;border-radius:0;cursor:pointer;appearance:none}button.collection-photo-frame:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+
+/* Final reading and control balance, using only locally available typefaces. */
+.opening h1#intro{line-height:1.08;letter-spacing:-.045em;text-wrap:balance}
+.showcase-dots{padding-inline:44px}
+.showcase-dot{width:36px}
+.showcase-playback{top:0}
+.lightbox-stage{grid-template-columns:44px minmax(0,1fr) 44px}
+.lightbox-stage img{grid-column:2;grid-row:1;min-width:0}
+.lightbox-stage .previous{grid-column:1;grid-row:1}
+.lightbox-stage .next{grid-column:3;grid-row:1}
+.lightbox-stage:has(.previous[hidden]) img{grid-column:1/-1}
+.journal-entry summary{min-height:44px;align-items:center}
+.post-summary h3,.collection-caption h3{line-height:1.25}
+@media(max-width:760px){
+  .opening h1#intro{font-size:clamp(35px,10.5vw,46px)}
+  .opening-text{margin-bottom:36px}
+  .opening .japanese{display:block;font-size:10px;line-height:1.8}
+  .collection-caption{gap:16px}
+  .story-toolbar{gap:12px}
+  .story-toolbar .wordmark{flex-shrink:0}
+}
