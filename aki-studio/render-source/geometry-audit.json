@@ -1,0 +1,2412 @@
+{
+  "frames": 480,
+  "fps": 60,
+  "bezel_side_units": 0.023,
+  "body_width_units": 2.4,
+  "min_depth_clearance": 0.4931509792804718,
+  "collision_frames": 0,
+  "clipped_frames": 0,
+  "maximum_visible_panels": 1,
+  "records": [
+    {
+      "frame": 0,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 1,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 2,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 3,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 4,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 5,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 6,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 7,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 8,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 9,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 10,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 11,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 12,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 13,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 14,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 15,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 16,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 17,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 18,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 19,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 20,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 21,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 22,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 23,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 24,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 25,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 26,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 27,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 28,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 29,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 30,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 31,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 32,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 33,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 34,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 35,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 36,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 37,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 38,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 39,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 40,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 41,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 42,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 43,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 44,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 45,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 46,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.4931509792804718
+    },
+    {
+      "frame": 47,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.5052312016487122
+    },
+    {
+      "frame": 48,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.519229531288147
+    },
+    {
+      "frame": 49,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.5361076295375824
+    },
+    {
+      "frame": 50,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.5565183013677597
+    },
+    {
+      "frame": 51,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.5808362811803818
+    },
+    {
+      "frame": 52,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.6091891378164291
+    },
+    {
+      "frame": 53,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.6414871960878372
+    },
+    {
+      "frame": 54,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.6774535477161407
+    },
+    {
+      "frame": 55,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.7166526317596436
+    },
+    {
+      "frame": 56,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.7585189193487167
+    },
+    {
+      "frame": 57,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.8023844361305237
+    },
+    {
+      "frame": 58,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.8475063592195511
+    },
+    {
+      "frame": 59,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.893093653023243
+    },
+    {
+      "frame": 60,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.9383338652551174
+    },
+    {
+      "frame": 61,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.9824199713766575
+    },
+    {
+      "frame": 62,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.0245768018066883
+    },
+    {
+      "frame": 63,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.0640884935855865
+    },
+    {
+      "frame": 64,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.100324846804142
+    },
+    {
+      "frame": 65,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.1327705942094326
+    },
+    {
+      "frame": 66,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.161052193492651
+    },
+    {
+      "frame": 67,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.1849680691957474
+    },
+    {
+      "frame": 68,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.204517763108015
+    },
+    {
+      "frame": 69,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2199321426451206
+    },
+    {
+      "frame": 70,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2317046970129013
+    },
+    {
+      "frame": 71,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2406236380338669
+    },
+    {
+      "frame": 72,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2478029765188694
+    },
+    {
+      "frame": 73,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2543912306427956
+    },
+    {
+      "frame": 74,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.260602593421936
+    },
+    {
+      "frame": 75,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2664161585271358
+    },
+    {
+      "frame": 76,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2717692516744137
+    },
+    {
+      "frame": 77,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2765841148793697
+    },
+    {
+      "frame": 78,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2735079191625118
+    },
+    {
+      "frame": 79,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.269739355891943
+    },
+    {
+      "frame": 80,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2666673325002193
+    },
+    {
+      "frame": 81,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2642835043370724
+    },
+    {
+      "frame": 82,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2625516317784786
+    },
+    {
+      "frame": 83,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2614073418080807
+    },
+    {
+      "frame": 84,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2607570551335812
+    },
+    {
+      "frame": 85,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604785822331905
+    },
+    {
+      "frame": 86,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.260420884937048
+    },
+    {
+      "frame": 87,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 88,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 89,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 90,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 91,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 92,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 93,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 94,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 95,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 96,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 97,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 98,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 99,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 100,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 101,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 102,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 103,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 104,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 105,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 106,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 107,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 108,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 109,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 110,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 111,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 112,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 113,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 114,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 115,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 116,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 117,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604205273091793
+    },
+    {
+      "frame": 118,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2604311369359493
+    },
+    {
+      "frame": 119,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.260587777942419
+    },
+    {
+      "frame": 120,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.261087503284216
+    },
+    {
+      "frame": 121,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2620919607579708
+    },
+    {
+      "frame": 122,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.263726320117712
+    },
+    {
+      "frame": 123,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2660790346562862
+    },
+    {
+      "frame": 124,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2692018412053585
+    },
+    {
+      "frame": 125,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.273111429065466
+    },
+    {
+      "frame": 126,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.27674063667655
+    },
+    {
+      "frame": 127,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2716273926198483
+    },
+    {
+      "frame": 128,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2659088037908077
+    },
+    {
+      "frame": 129,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2596795223653316
+    },
+    {
+      "frame": 130,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2530504129827023
+    },
+    {
+      "frame": 131,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2461391352117062
+    },
+    {
+      "frame": 132,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2385011576116085
+    },
+    {
+      "frame": 133,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2287453077733517
+    },
+    {
+      "frame": 134,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.2157547138631344
+    },
+    {
+      "frame": 135,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.198802676051855
+    },
+    {
+      "frame": 136,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.1775090359151363
+    },
+    {
+      "frame": 137,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.1517989300191402
+    },
+    {
+      "frame": 138,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.1218608282506466
+    },
+    {
+      "frame": 139,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.0881074331700802
+    },
+    {
+      "frame": 140,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.0511352680623531
+    },
+    {
+      "frame": 141,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 1.0116873644292355
+    },
+    {
+      "frame": 142,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.9706153534352779
+    },
+    {
+      "frame": 143,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.928843405097723
+    },
+    {
+      "frame": 144,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.8873308561742306
+    },
+    {
+      "frame": 145,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.8470378182828426
+    },
+    {
+      "frame": 146,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.8088882826268673
+    },
+    {
+      "frame": 147,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.7737347148358822
+    },
+    {
+      "frame": 148,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.7423219345510006
+    },
+    {
+      "frame": 149,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.7152502201497555
+    },
+    {
+      "frame": 150,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.6929376386106014
+    },
+    {
+      "frame": 151,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.6755820773541927
+    },
+    {
+      "frame": 152,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.6631216667592525
+    },
+    {
+      "frame": 153,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.6551945470273495
+    },
+    {
+      "frame": 154,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.651098158210516
+    },
+    {
+      "frame": 155,
+      "panel": "Adaptive Looks",
+      "depth_clearance": 0.64974769577384
+    },
+    {
+      "frame": 156,
+      "panel": "Curves",
+      "depth_clearance": 0.6480848453938961
+    },
+    {
+      "frame": 157,
+      "panel": "Curves",
+      "depth_clearance": 0.6488071940839291
+    },
+    {
+      "frame": 158,
+      "panel": "Curves",
+      "depth_clearance": 0.6517963670194149
+    },
+    {
+      "frame": 159,
+      "panel": "Curves",
+      "depth_clearance": 0.6582797430455685
+    },
+    {
+      "frame": 160,
+      "panel": "Curves",
+      "depth_clearance": 0.6690882109105587
+    },
+    {
+      "frame": 161,
+      "panel": "Curves",
+      "depth_clearance": 0.6846976540982723
+    },
+    {
+      "frame": 162,
+      "panel": "Curves",
+      "depth_clearance": 0.705269780009985
+    },
+    {
+      "frame": 163,
+      "panel": "Curves",
+      "depth_clearance": 0.7306929491460323
+    },
+    {
+      "frame": 164,
+      "panel": "Curves",
+      "depth_clearance": 0.7606215141713619
+    },
+    {
+      "frame": 165,
+      "panel": "Curves",
+      "depth_clearance": 0.7945145629346371
+    },
+    {
+      "frame": 166,
+      "panel": "Curves",
+      "depth_clearance": 0.8316739462316036
+    },
+    {
+      "frame": 167,
+      "panel": "Curves",
+      "depth_clearance": 0.8712806366384029
+    },
+    {
+      "frame": 168,
+      "panel": "Curves",
+      "depth_clearance": 0.9124320410192013
+    },
+    {
+      "frame": 169,
+      "panel": "Curves",
+      "depth_clearance": 0.9541768692433834
+    },
+    {
+      "frame": 170,
+      "panel": "Curves",
+      "depth_clearance": 0.9955520294606686
+    },
+    {
+      "frame": 171,
+      "panel": "Curves",
+      "depth_clearance": 1.0356171987950802
+    },
+    {
+      "frame": 172,
+      "panel": "Curves",
+      "depth_clearance": 1.0734920166432858
+    },
+    {
+      "frame": 173,
+      "panel": "Curves",
+      "depth_clearance": 1.108391847461462
+    },
+    {
+      "frame": 174,
+      "panel": "Curves",
+      "depth_clearance": 1.1396648548543453
+    },
+    {
+      "frame": 175,
+      "panel": "Curves",
+      "depth_clearance": 1.166830386966467
+    },
+    {
+      "frame": 176,
+      "panel": "Curves",
+      "depth_clearance": 1.1896178387105465
+    },
+    {
+      "frame": 177,
+      "panel": "Curves",
+      "depth_clearance": 1.2080055139958858
+    },
+    {
+      "frame": 178,
+      "panel": "Curves",
+      "depth_clearance": 1.2222628258168697
+    },
+    {
+      "frame": 179,
+      "panel": "Curves",
+      "depth_clearance": 1.2329909466207027
+    },
+    {
+      "frame": 180,
+      "panel": "Curves",
+      "depth_clearance": 1.2411659620702267
+    },
+    {
+      "frame": 181,
+      "panel": "Curves",
+      "depth_clearance": 1.2481563948094845
+    },
+    {
+      "frame": 182,
+      "panel": "Curves",
+      "depth_clearance": 1.2548524998128414
+    },
+    {
+      "frame": 183,
+      "panel": "Curves",
+      "depth_clearance": 1.261194434016943
+    },
+    {
+      "frame": 184,
+      "panel": "Curves",
+      "depth_clearance": 1.2670670412480831
+    },
+    {
+      "frame": 185,
+      "panel": "Curves",
+      "depth_clearance": 1.272369708865881
+    },
+    {
+      "frame": 186,
+      "panel": "Curves",
+      "depth_clearance": 1.2719808481633663
+    },
+    {
+      "frame": 187,
+      "panel": "Curves",
+      "depth_clearance": 1.267775621265173
+    },
+    {
+      "frame": 188,
+      "panel": "Curves",
+      "depth_clearance": 1.2643593214452267
+    },
+    {
+      "frame": 189,
+      "panel": "Curves",
+      "depth_clearance": 1.261727299541235
+    },
+    {
+      "frame": 190,
+      "panel": "Curves",
+      "depth_clearance": 1.2598398588597775
+    },
+    {
+      "frame": 191,
+      "panel": "Curves",
+      "depth_clearance": 1.2586209438741207
+    },
+    {
+      "frame": 192,
+      "panel": "Curves",
+      "depth_clearance": 1.2579576633870602
+    },
+    {
+      "frame": 193,
+      "panel": "Curves",
+      "depth_clearance": 1.25770029053092
+    },
+    {
+      "frame": 194,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 195,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 196,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 197,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 198,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 199,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 200,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 201,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 202,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 203,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 204,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 205,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 206,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 207,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 208,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 209,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 210,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 211,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 212,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 213,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 214,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 215,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 216,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 217,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 218,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 219,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 220,
+      "panel": "Curves",
+      "depth_clearance": 1.2576621435582638
+    },
+    {
+      "frame": 221,
+      "panel": "Curves",
+      "depth_clearance": 1.2576789520680904
+    },
+    {
+      "frame": 222,
+      "panel": "Curves",
+      "depth_clearance": 1.257917370647192
+    },
+    {
+      "frame": 223,
+      "panel": "Curves",
+      "depth_clearance": 1.2586629055440426
+    },
+    {
+      "frame": 224,
+      "panel": "Curves",
+      "depth_clearance": 1.260140623897314
+    },
+    {
+      "frame": 225,
+      "panel": "Curves",
+      "depth_clearance": 1.2625126503407955
+    },
+    {
+      "frame": 226,
+      "panel": "Curves",
+      "depth_clearance": 1.2658784054219723
+    },
+    {
+      "frame": 227,
+      "panel": "Curves",
+      "depth_clearance": 1.270275678485632
+    },
+    {
+      "frame": 228,
+      "panel": "Curves",
+      "depth_clearance": 1.2735515497624874
+    },
+    {
+      "frame": 229,
+      "panel": "Curves",
+      "depth_clearance": 1.2676125429570675
+    },
+    {
+      "frame": 230,
+      "panel": "Curves",
+      "depth_clearance": 1.2609182260930538
+    },
+    {
+      "frame": 231,
+      "panel": "Curves",
+      "depth_clearance": 1.2536179684102535
+    },
+    {
+      "frame": 232,
+      "panel": "Curves",
+      "depth_clearance": 1.2458851002156734
+    },
+    {
+      "frame": 233,
+      "panel": "Curves",
+      "depth_clearance": 1.2375346086919308
+    },
+    {
+      "frame": 234,
+      "panel": "Curves",
+      "depth_clearance": 1.226750697940588
+    },
+    {
+      "frame": 235,
+      "panel": "Curves",
+      "depth_clearance": 1.2117980383336544
+    },
+    {
+      "frame": 236,
+      "panel": "Curves",
+      "depth_clearance": 1.1916093491017818
+    },
+    {
+      "frame": 237,
+      "panel": "Curves",
+      "depth_clearance": 1.1657008789479733
+    },
+    {
+      "frame": 238,
+      "panel": "Curves",
+      "depth_clearance": 1.1340914629399776
+    },
+    {
+      "frame": 239,
+      "panel": "Curves",
+      "depth_clearance": 1.0972225330770016
+    },
+    {
+      "frame": 240,
+      "panel": "Curves",
+      "depth_clearance": 1.0558811090886593
+    },
+    {
+      "frame": 241,
+      "panel": "Curves",
+      "depth_clearance": 1.0111244581639767
+    },
+    {
+      "frame": 242,
+      "panel": "Curves",
+      "depth_clearance": 0.9642064832150936
+    },
+    {
+      "frame": 243,
+      "panel": "Curves",
+      "depth_clearance": 0.9165063761174679
+    },
+    {
+      "frame": 244,
+      "panel": "Curves",
+      "depth_clearance": 0.8694582246243954
+    },
+    {
+      "frame": 245,
+      "panel": "Curves",
+      "depth_clearance": 0.8244805000722408
+    },
+    {
+      "frame": 246,
+      "panel": "Curves",
+      "depth_clearance": 0.7829070948064327
+    },
+    {
+      "frame": 247,
+      "panel": "Curves",
+      "depth_clearance": 0.745916809886694
+    },
+    {
+      "frame": 248,
+      "panel": "Curves",
+      "depth_clearance": 0.7144620083272457
+    },
+    {
+      "frame": 249,
+      "panel": "Curves",
+      "depth_clearance": 0.6891961358487606
+    },
+    {
+      "frame": 250,
+      "panel": "Curves",
+      "depth_clearance": 0.6703989170491695
+    },
+    {
+      "frame": 251,
+      "panel": "Curves",
+      "depth_clearance": 0.6578999422490597
+    },
+    {
+      "frame": 252,
+      "panel": "Curves",
+      "depth_clearance": 0.650999691337347
+    },
+    {
+      "frame": 253,
+      "panel": "Curves",
+      "depth_clearance": 0.6483898423612118
+    },
+    {
+      "frame": 254,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 255,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.6496947072446346
+    },
+    {
+      "frame": 256,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.6521335504949093
+    },
+    {
+      "frame": 257,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.6578614376485348
+    },
+    {
+      "frame": 258,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.6677837632596493
+    },
+    {
+      "frame": 259,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.6824427507817745
+    },
+    {
+      "frame": 260,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.7020588181912899
+    },
+    {
+      "frame": 261,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.7265704534947872
+    },
+    {
+      "frame": 262,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.7556748054921627
+    },
+    {
+      "frame": 263,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.7888661287724972
+    },
+    {
+      "frame": 264,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.8254739306867123
+    },
+    {
+      "frame": 265,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.8646998070180416
+    },
+    {
+      "frame": 266,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.9056543372571468
+    },
+    {
+      "frame": 267,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.947392787784338
+    },
+    {
+      "frame": 268,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.9889510534703732
+    },
+    {
+      "frame": 269,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.0293814800679684
+    },
+    {
+      "frame": 270,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.0677885673940182
+    },
+    {
+      "frame": 271,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.103365745395422
+    },
+    {
+      "frame": 272,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.1354318521916866
+    },
+    {
+      "frame": 273,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.1634696386754513
+    },
+    {
+      "frame": 274,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.187163557857275
+    },
+    {
+      "frame": 275,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.206440057605505
+    },
+    {
+      "frame": 276,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2215079925954342
+    },
+    {
+      "frame": 277,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2328999899327755
+    },
+    {
+      "frame": 278,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.241515126079321
+    },
+    {
+      "frame": 279,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2486583851277828
+    },
+    {
+      "frame": 280,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2554425857961178
+    },
+    {
+      "frame": 281,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2618935965001583
+    },
+    {
+      "frame": 282,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2678936384618282
+    },
+    {
+      "frame": 283,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2733387611806393
+    },
+    {
+      "frame": 284,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2748659513890743
+    },
+    {
+      "frame": 285,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2705266140401363
+    },
+    {
+      "frame": 286,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2669697664678097
+    },
+    {
+      "frame": 287,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2641976736485958
+    },
+    {
+      "frame": 288,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2621775530278683
+    },
+    {
+      "frame": 289,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.260841216892004
+    },
+    {
+      "frame": 290,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2600831650197506
+    },
+    {
+      "frame": 291,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2597612999379635
+    },
+    {
+      "frame": 292,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2596970461308956
+    },
+    {
+      "frame": 293,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 294,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 295,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 296,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 297,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 298,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 299,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 300,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 301,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 302,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 303,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 304,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 305,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 306,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 307,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 308,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 309,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 310,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 311,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 312,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 313,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 314,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 315,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 316,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 317,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 318,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.259696688503027
+    },
+    {
+      "frame": 319,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2597026489675045
+    },
+    {
+      "frame": 320,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2598731182515621
+    },
+    {
+      "frame": 321,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2604976557195187
+    },
+    {
+      "frame": 322,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2618128918111324
+    },
+    {
+      "frame": 323,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2639923952519894
+    },
+    {
+      "frame": 324,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2671471498906612
+    },
+    {
+      "frame": 325,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2713266275823116
+    },
+    {
+      "frame": 326,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2765215300023556
+    },
+    {
+      "frame": 327,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2707768343389034
+    },
+    {
+      "frame": 328,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2641893289983273
+    },
+    {
+      "frame": 329,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2569602392613888
+    },
+    {
+      "frame": 330,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.249259676784277
+    },
+    {
+      "frame": 331,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.241087879985571
+    },
+    {
+      "frame": 332,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2308929823338985
+    },
+    {
+      "frame": 333,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.2168105505406857
+    },
+    {
+      "frame": 334,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.1976502798497677
+    },
+    {
+      "frame": 335,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.17282160744071
+    },
+    {
+      "frame": 336,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.142252292484045
+    },
+    {
+      "frame": 337,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.106308426707983
+    },
+    {
+      "frame": 338,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.065716352313757
+    },
+    {
+      "frame": 339,
+      "panel": "Color Mixer",
+      "depth_clearance": 1.0214867256581783
+    },
+    {
+      "frame": 340,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.9748417995870113
+    },
+    {
+      "frame": 341,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.9271423481404781
+    },
+    {
+      "frame": 342,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.8798176310956478
+    },
+    {
+      "frame": 343,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.834295179694891
+    },
+    {
+      "frame": 344,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.7919311188161373
+    },
+    {
+      "frame": 345,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.7539403103291988
+    },
+    {
+      "frame": 346,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.7213248871266842
+    },
+    {
+      "frame": 347,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.6948024295270443
+    },
+    {
+      "frame": 348,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.6747311614453793
+    },
+    {
+      "frame": 349,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.661034133285284
+    },
+    {
+      "frame": 350,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.6531207226216793
+    },
+    {
+      "frame": 351,
+      "panel": "Color Mixer",
+      "depth_clearance": 0.6498067639768124
+    },
+    {
+      "frame": 352,
+      "panel": null,
+      "depth_clearance": null
+    },
+    {
+      "frame": 353,
+      "panel": "Your tools",
+      "depth_clearance": 0.6491471789777279
+    },
+    {
+      "frame": 354,
+      "panel": "Your tools",
+      "depth_clearance": 0.6505272053182125
+    },
+    {
+      "frame": 355,
+      "panel": "Your tools",
+      "depth_clearance": 0.6541275046765804
+    },
+    {
+      "frame": 356,
+      "panel": "Your tools",
+      "depth_clearance": 0.6607119701802731
+    },
+    {
+      "frame": 357,
+      "panel": "Your tools",
+      "depth_clearance": 0.670804288238287
+    },
+    {
+      "frame": 358,
+      "panel": "Your tools",
+      "depth_clearance": 0.6847105287015438
+    },
+    {
+      "frame": 359,
+      "panel": "Your tools",
+      "depth_clearance": 0.7025426290929317
+    },
+    {
+      "frame": 360,
+      "panel": "Your tools",
+      "depth_clearance": 0.7242404483258724
+    },
+    {
+      "frame": 361,
+      "panel": "Your tools",
+      "depth_clearance": 0.7495935820043087
+    },
+    {
+      "frame": 362,
+      "panel": "Your tools",
+      "depth_clearance": 0.7782636545598507
+    },
+    {
+      "frame": 363,
+      "panel": "Your tools",
+      "depth_clearance": 0.8098045848309994
+    },
+    {
+      "frame": 364,
+      "panel": "Your tools",
+      "depth_clearance": 0.8436839245259762
+    },
+    {
+      "frame": 365,
+      "panel": "Your tools",
+      "depth_clearance": 0.8793030045926571
+    },
+    {
+      "frame": 366,
+      "panel": "Your tools",
+      "depth_clearance": 0.9160170219838619
+    },
+    {
+      "frame": 367,
+      "panel": "Your tools",
+      "depth_clearance": 0.9531548880040646
+    },
+    {
+      "frame": 368,
+      "panel": "Your tools",
+      "depth_clearance": 0.9900391958653927
+    },
+    {
+      "frame": 369,
+      "panel": "Your tools",
+      "depth_clearance": 1.0260059498250484
+    },
+    {
+      "frame": 370,
+      "panel": "Your tools",
+      "depth_clearance": 1.0604246519505978
+    },
+    {
+      "frame": 371,
+      "panel": "Your tools",
+      "depth_clearance": 1.0927184484899044
+    },
+    {
+      "frame": 372,
+      "panel": "Your tools",
+      "depth_clearance": 1.1223843954503536
+    },
+    {
+      "frame": 373,
+      "panel": "Your tools",
+      "depth_clearance": 1.1490149162709713
+    },
+    {
+      "frame": 374,
+      "panel": "Your tools",
+      "depth_clearance": 1.1723180674016476
+    },
+    {
+      "frame": 375,
+      "panel": "Your tools",
+      "depth_clearance": 1.192140307277441
+    },
+    {
+      "frame": 376,
+      "panel": "Your tools",
+      "depth_clearance": 1.2084880731999874
+    },
+    {
+      "frame": 377,
+      "panel": "Your tools",
+      "depth_clearance": 1.2215506695210934
+    },
+    {
+      "frame": 378,
+      "panel": "Your tools",
+      "depth_clearance": 1.231723751872778
+    },
+    {
+      "frame": 379,
+      "panel": "Your tools",
+      "depth_clearance": 1.2396317385137081
+    },
+    {
+      "frame": 380,
+      "panel": "Your tools",
+      "depth_clearance": 1.2461535595357418
+    },
+    {
+      "frame": 381,
+      "panel": "Your tools",
+      "depth_clearance": 1.252256479114294
+    },
+    {
+      "frame": 382,
+      "panel": "Your tools",
+      "depth_clearance": 1.2581363581120968
+    },
+    {
+      "frame": 383,
+      "panel": "Your tools",
+      "depth_clearance": 1.263707723468542
+    },
+    {
+      "frame": 384,
+      "panel": "Your tools",
+      "depth_clearance": 1.2688916586339474
+    },
+    {
+      "frame": 385,
+      "panel": "Your tools",
+      "depth_clearance": 1.2736184261739254
+    },
+    {
+      "frame": 386,
+      "panel": "Your tools",
+      "depth_clearance": 1.2742381952703
+    },
+    {
+      "frame": 387,
+      "panel": "Your tools",
+      "depth_clearance": 1.2703625820577145
+    },
+    {
+      "frame": 388,
+      "panel": "Your tools",
+      "depth_clearance": 1.267105307430029
+    },
+    {
+      "frame": 389,
+      "panel": "Your tools",
+      "depth_clearance": 1.264470662921667
+    },
+    {
+      "frame": 390,
+      "panel": "Your tools",
+      "depth_clearance": 1.262441959232092
+    },
+    {
+      "frame": 391,
+      "panel": "Your tools",
+      "depth_clearance": 1.2609800957143307
+    },
+    {
+      "frame": 392,
+      "panel": "Your tools",
+      "depth_clearance": 1.2600232027471066
+    },
+    {
+      "frame": 393,
+      "panel": "Your tools",
+      "depth_clearance": 1.2594862841069698
+    },
+    {
+      "frame": 394,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592613361775875
+    },
+    {
+      "frame": 395,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592174671590328
+    },
+    {
+      "frame": 396,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 397,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 398,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 399,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 400,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 401,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 402,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 403,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 404,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 405,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 406,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 407,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 408,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 409,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 410,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 411,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 412,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 413,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 414,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 415,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 416,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 417,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 418,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 419,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 420,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 421,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 422,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 423,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 424,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 425,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 426,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 427,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 428,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 429,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 430,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 431,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 432,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 433,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 434,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 435,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 436,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 437,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 438,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 439,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 440,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 441,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 442,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 443,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 444,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 445,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 446,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 447,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 448,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 449,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 450,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 451,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 452,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 453,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 454,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 455,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 456,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 457,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 458,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 459,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 460,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 461,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 462,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 463,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 464,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 465,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 466,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 467,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 468,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 469,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 470,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 471,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 472,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 473,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 474,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 475,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 476,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 477,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 478,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    },
+    {
+      "frame": 479,
+      "panel": "Your tools",
+      "depth_clearance": 1.2592173479497433
+    }
+  ]
+}

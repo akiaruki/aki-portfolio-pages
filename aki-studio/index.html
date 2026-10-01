@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-release="20261001-glass-1">
+<html lang="en" data-release="20261001-refined-1">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,11 +17,29 @@
       content="Find a feeling with Adaptive Looks. Shape every detail. Make the studio your own."
     />
     <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://akiaruki.github.io/aki-portfolio-pages/aki-studio/"
+    />
+    <meta
+      property="og:image"
+      content="https://akiaruki.github.io/aki-portfolio-pages/aki-studio/assets/story-v2-1.webp"
+    />
+    <meta
+      property="og:image:alt"
+      content="Aki Studio with a floating Adaptive Looks panel"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="canonical"
+      href="https://akiaruki.github.io/aki-portfolio-pages/aki-studio/"
+    />
     <title>Aki Studio — Your photograph. Still yours.</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="preload" as="image" href="assets/story-0.webp" />
-    <link rel="stylesheet" href="studio.css?v=20261001-glass-1" />
-    <script src="studio.js?v=20261001-glass-1" defer></script>
+    <link rel="preload" as="image" href="assets/story-v2-0.webp" />
+    <link rel="stylesheet" href="studio.css?v=20261001-refined-1" />
+    <script src="studio.js?v=20261001-refined-1" defer></script>
+    <script src="tools-demo.js?v=20261001-refined-1" defer></script>
     <noscript
       ><style>
         .look-choices,
@@ -29,6 +47,9 @@
         .organizer-instructions,
         .organizer-bottom,
         .workspace-note {
+          display: none !important;
+        }
+        .tool-surface {
           display: none !important;
         }
       </style></noscript
@@ -47,18 +68,18 @@
         <symbol id="down" viewBox="0 0 24 24">
           <path d="M12 4v16m-6-6 6 6 6-6" />
         </symbol>
-        <symbol id="grip" viewBox="0 0 24 24">
-          <path
-            d="M8 5h.01M16 5h.01M8 12h.01M16 12h.01M8 19h.01M16 19h.01"
-            stroke-width="3"
-          />
-        </symbol>
       </defs>
     </svg>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header glass">
       <a class="brand" href="#" aria-label="Aki Studio home"
-        ><b>aki</b><span>STUDIO</span></a
+        ><img
+          class="brand-mark"
+          src="assets/brand-aki.svg"
+          alt=""
+          width="64"
+          height="40"
+        /><span>STUDIO</span></a
       >
       <nav id="main-nav" class="main-nav" aria-label="Main navigation">
         <a href="#experience">The experience</a
@@ -93,7 +114,7 @@
           <div class="story-render" aria-hidden="true">
             <img
               id="story-poster"
-              src="assets/story-0.webp"
+              src="assets/story-v2-0.webp"
               width="1080"
               height="1080"
               alt=""
@@ -136,10 +157,10 @@
               </div>
               <img
                 class="chapter-still"
-                src="assets/story-0.webp"
+                src="assets/story-v2-0.webp"
                 width="1080"
                 height="1080"
-                alt="Aki Studio on an original black handset, with Aki's Gumamela photograph"
+                alt="Aki Studio on an original black handset, with a yellow flower photograph"
               />
             </article>
             <article class="story-chapter" data-chapter="1">
@@ -159,7 +180,7 @@
               </div>
               <img
                 class="chapter-still"
-                src="assets/story-1.webp"
+                src="assets/story-v2-1.webp"
                 width="1080"
                 height="1080"
                 alt="The clean Adaptive Looks panel floating forward from the app"
@@ -181,7 +202,7 @@
               </div>
               <img
                 class="chapter-still"
-                src="assets/story-2.webp"
+                src="assets/story-v2-2.webp"
                 width="1080"
                 height="1080"
                 alt="Aki Studio Curves controls in a floating glass panel"
@@ -203,7 +224,7 @@
               </div>
               <img
                 class="chapter-still"
-                src="assets/story-3.webp"
+                src="assets/story-v2-3.webp"
                 width="1080"
                 height="1080"
                 alt="Aki Studio Color Mixer showing individual color controls"
@@ -226,7 +247,7 @@
               </div>
               <img
                 class="chapter-still"
-                src="assets/story-4.webp"
+                src="assets/story-v2-4.webp"
                 width="1080"
                 height="1080"
                 alt="Aki Studio's editing tools floating in a clean, unbadged panel"
@@ -267,7 +288,7 @@
         <div class="section-heading">
           <p class="eyebrow">Adaptive Looks / A place to begin</p>
           <h2 id="looks-title">
-            One photograph.<br /><span>So many ways to feel it.</span>
+            One photograph.<br /><span>Find your feeling.</span>
           </h2>
           <p>
             A quiet shift in tone. A little more atmosphere.<br />Explore a few
@@ -278,13 +299,13 @@
           <div class="look-photo">
             <img
               id="look-result"
-              src="assets/look-daylight.webp"
-              alt="Gumamela photograph rendered in Aki Studio with the Daylight look"
+              src="assets/look-v2-original.webp"
+              alt="Yellow flower photograph rendered in Aki Studio with the Original look"
               width="804"
-              height="558"
+              height="454"
               loading="lazy"
-            /><span class="photo-credit">Gumamela / Photograph by Aki</span
-            ><span class="look-name" id="look-name">Daylight</span>
+            /><span class="photo-credit">Your photograph. A new direction.</span
+            ><span class="look-name" id="look-name">Original</span>
           </div>
           <div class="look-controls">
             <div>
@@ -296,9 +317,9 @@
               role="group"
               aria-label="Choose an Adaptive Look preview"
             >
-              <button type="button" data-look="daylight" aria-pressed="true">
+              <button type="button" data-look="daylight" aria-pressed="false">
                 Daylight</button
-              ><button type="button" data-look="original" aria-pressed="false">
+              ><button type="button" data-look="original" aria-pressed="true">
                 Original</button
               ><button
                 type="button"
@@ -342,24 +363,29 @@
               order that feels like you.
             </p>
             <p class="organizer-instructions" id="organizer-instructions">
-              Drag a handle to rearrange. With a keyboard, select a tool, press
-              Space, then use the arrow keys. Press Enter to place it.
+              Hold a tool, then move it. Or tap a tool and tap its new position.
+              <span class="sr-only"
+                >Keyboard: Space to pick up, arrow keys to move, Enter to place,
+                Escape to cancel.</span
+              >
             </p>
           </div>
         </div>
         <div class="organizer-shell">
           <div class="organizer-glow" aria-hidden="true"></div>
-          <div
-            class="tool-grid"
-            id="tool-grid"
-            role="group"
-            aria-label="Arrange your editing tools"
-            aria-describedby="organizer-instructions"
-          ></div>
+          <div class="tool-surface">
+            <div
+              class="tool-grid"
+              id="tool-grid"
+              role="group"
+              aria-label="Arrange your editing tools"
+              aria-describedby="organizer-instructions"
+            ></div>
+          </div>
           <noscript
-            ><div class="static-tools glass">
+            ><div class="static-tools">
               <img
-                src="assets/app-tools-panel.webp?v=clean1"
+                src="assets/app-tools-panel.webp?v=refined1"
                 alt="Aki Studio's twelve editing tools"
                 width="784"
                 height="558"
@@ -376,8 +402,8 @@
           </button>
         </div>
         <p class="workspace-note">
-          Aki Studio remembers your tool order in the app. This preview lets you
-          try the idea here.
+          Your tools, in your order. This interactive preview saves its
+          arrangement in this browser.
         </p>
       </section>
 

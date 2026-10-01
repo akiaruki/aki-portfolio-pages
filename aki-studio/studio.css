@@ -173,6 +173,13 @@ button {
   letter-spacing: -0.09em;
   line-height: 1;
 }
+.brand-mark {
+  display: block;
+  width: 56px;
+  height: 35px;
+  object-fit: contain;
+  flex: none;
+}
 .brand > span {
   font-size: 8px;
   letter-spacing: 0.23em;
@@ -498,7 +505,7 @@ button {
 .look-photo > img {
   width: 100%;
   max-height: 640px;
-  aspect-ratio: 1.53;
+  aspect-ratio: 804 / 454;
   object-fit: cover;
   transition: opacity 0.2s;
 }
@@ -605,99 +612,125 @@ button {
 }
 .organizer-shell {
   position: relative;
-  max-width: 1080px;
-  margin: 70px auto 0;
-  perspective: 1500px;
+  max-width: 620px;
+  margin: 68px auto 0;
 }
 .organizer-glow {
   position: absolute;
-  inset: -50px;
-  background: radial-gradient(ellipse, #c5ded01c, transparent 65%);
+  inset: -80px;
+  background: radial-gradient(ellipse, #c5ded010, transparent 65%);
   pointer-events: none;
+}
+.tool-surface {
+  position: relative;
+  border: 1px solid #ffffff30;
+  border-radius: 26px;
+  background: rgba(31, 33, 38, 0.72);
+  backdrop-filter: blur(12px) saturate(110%);
+  -webkit-backdrop-filter: blur(12px) saturate(110%);
+  box-shadow: 0 24px 70px #0006;
+  overflow: hidden;
+  padding: 8px;
 }
 .tool-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 108px;
+  gap: 4px 6px;
   position: relative;
+  padding: 4px;
+  max-height: min(410px, 54svh);
+  overflow-y: auto;
+  overscroll-behavior: auto;
+  scrollbar-width: none;
+  touch-action: pan-y pinch-zoom;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  scroll-behavior: auto;
+}
+.tool-grid::-webkit-scrollbar {
+  display: none;
 }
 .tool-card {
-  position: relative;
-  min-height: 145px;
-  padding: 29px 18px 22px;
-  border-radius: 23px;
-  border: 1px solid #ffffff20;
-  background: linear-gradient(145deg, #ffffff12, #ffffff04);
-  box-shadow:
-    inset 0 1px 0 #fff1,
-    0 18px 30px #0003;
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 15px;
-  color: #d6ddd7;
-  transform: translateY(var(--float, 0px)) rotateX(3deg);
-  transition:
-    transform 0.4s var(--ease),
-    border-color 0.2s,
-    background 0.2s;
-  touch-action: pan-y;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 6px 1px;
+  gap: 4px;
+  border: 0;
+  border-radius: 16px;
+  background: transparent;
+  box-shadow: none;
+  color: #e7e8eb;
+  line-height: 1.2;
+  touch-action: pan-y pinch-zoom;
   user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  cursor: grab;
 }
-.tool-card:nth-child(4n + 2) {
-  --float: -9px;
-}
-.tool-card:nth-child(4n + 3) {
-  --float: 7px;
-}
-.tool-card > svg {
-  width: 32px;
-  height: 32px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.25;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.tool-card > .tool-name {
-  font-size: 11px;
-  letter-spacing: 0.01em;
-}
-.tool-card .drag-handle {
-  position: absolute;
-  right: 8px;
-  top: 8px;
+.tool-card > img {
   width: 34px;
   height: 34px;
+  flex: none;
+  pointer-events: none;
+}
+.tool-card > .tool-name {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #8e9c92;
-  touch-action: none;
-  cursor: grab;
-  border-radius: 10px;
-}
-.drag-handle .icon {
-  width: 13px;
-  height: 13px;
-}
-.tool-card:hover,
-.tool-card.is-picked {
-  background: linear-gradient(145deg, #ffffff1c, #ffffff09);
-  border-color: #c7dac77a;
-  transform: translateY(-10px) rotateX(0);
-}
-.tool-card.is-dragging {
-  transition: none;
-  z-index: 10;
+  min-height: 30px;
+  max-width: 100%;
+  font-size: 13px;
+  line-height: 1.2;
+  text-align: center;
   pointer-events: none;
-  box-shadow: 0 30px 45px #0009;
-  border-color: #d8e7d795;
 }
-.tool-card.drop-target {
-  border-color: #dcebdc;
-  background: #d6ebdc22;
+.tool-card:hover {
+  color: #fff;
+}
+.tool-card.is-picked > .tool-name {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-color: #d1dcd2;
+}
+.tool-card:focus-visible {
+  outline: 1px solid #cadbce;
+  outline-offset: -5px;
+}
+.tool-card.is-drag-source {
+  visibility: hidden;
+}
+.tool-drag-ghost {
+  position: fixed;
+  left: 0;
+  top: 0;
+  margin: 0;
+  z-index: 1000;
+  pointer-events: none !important;
+  cursor: grabbing;
+  will-change: transform;
+  filter: drop-shadow(0 5px 9px #0009);
+}
+.tool-drag-ghost > img {
+  width: 34px;
+  height: 34px;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 .organizer-bottom {
   max-width: 1080px;
@@ -999,9 +1032,6 @@ button {
   .organizer-heading .organizer-instructions {
     font-size: 10px;
   }
-  .tool-card {
-    min-height: 126px;
-  }
   .capability-grid {
     gap: 16px;
   }
@@ -1030,6 +1060,10 @@ button {
   }
   .brand b {
     font-size: 28px;
+  }
+  .brand-mark {
+    width: 48px;
+    height: 30px;
   }
   .brand > span {
     font-size: 7px;
@@ -1243,7 +1277,7 @@ button {
     border-radius: 16px;
   }
   .look-photo > img {
-    aspect-ratio: 1.1;
+    aspect-ratio: 804 / 454;
     max-height: none;
     object-fit: cover;
   }
@@ -1319,41 +1353,31 @@ button {
   .organizer-shell {
     margin-top: 45px;
   }
+  .tool-surface {
+    padding: 6px;
+    border-radius: 26px;
+  }
   .tool-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: 82px;
+    gap: 4px 2px;
+    padding: 2px;
   }
   .tool-card {
-    min-height: 115px;
-    border-radius: 18px;
-    padding: 28px 7px 17px;
-    gap: 12px;
-    --float: 0px !important;
+    gap: 3px;
+    padding: 6px 1px;
+    min-height: 44px;
+    border-radius: 16px;
   }
-  .tool-card:nth-child(3n + 2) {
-    --float: -6px !important;
-  }
-  .tool-card > svg {
-    width: 28px;
-    height: 28px;
+  .tool-card > img,
+  .tool-drag-ghost > img {
+    width: 26px;
+    height: 26px;
   }
   .tool-card > .tool-name {
-    font-size: 9px;
-    letter-spacing: -0.02em;
-  }
-  .tool-card .drag-handle {
-    width: 30px;
-    height: 30px;
-    top: 2px;
-    right: 2px;
-  }
-  .drag-handle .icon {
-    width: 10px;
-    height: 10px;
-  }
-  .tool-card:hover,
-  .tool-card.is-picked {
-    transform: translateY(-5px);
+    font-size: 11px;
+    min-height: 27px;
+    letter-spacing: 0;
   }
   .organizer-bottom {
     gap: 20px;
@@ -1528,13 +1552,6 @@ button {
     top: 41svh;
     height: 55svh;
   }
-  .tool-card {
-    min-height: 106px;
-    border-radius: 16px;
-  }
-  .tool-card > .tool-name {
-    font-size: 8px;
-  }
   .organizer-bottom p {
     max-width: 165px;
   }
@@ -1615,13 +1632,62 @@ button {
     transition: none !important;
     animation: none !important;
   }
-  .tool-card {
-    transform: none !important;
-  }
 }
 @media (max-width: 900px) {
   .scrollytelling[data-story-mode="motion"] .story-render img,
   .scrollytelling[data-story-mode="motion"] .story-render video {
     transform: scale(1.18);
+  }
+}
+
+@media (max-width: 360px) {
+  .tool-card > .tool-name {
+    font-size: 10px;
+  }
+}
+@media (max-height: 560px) and (min-width: 600px) {
+  .scrollytelling[data-story-mode="motion"] .story-render {
+    width: 49%;
+    height: 100svh;
+    top: 0;
+    right: 0;
+  }
+  .scrollytelling[data-story-mode="motion"] .story-render img,
+  .scrollytelling[data-story-mode="motion"] .story-render video {
+    transform: none;
+  }
+  .scrollytelling[data-story-mode="motion"] .story-chapter {
+    padding: 88px 5% 40px;
+  }
+  .scrollytelling[data-story-mode="motion"] .chapter-copy {
+    width: 52%;
+    max-width: 340px;
+  }
+  .scrollytelling[data-story-mode="motion"] .chapter-copy h1,
+  .scrollytelling[data-story-mode="motion"] .chapter-copy h2 {
+    font-size: 34px;
+  }
+  .scrollytelling[data-story-mode="motion"] .chapter-description {
+    font-size: 10px;
+    margin-top: 10px;
+  }
+  .scrollytelling[data-story-mode="motion"] .hero-actions {
+    margin-top: 10px;
+    gap: 10px;
+  }
+  .scrollytelling[data-story-mode="motion"] .hero-actions .button {
+    min-height: 32px;
+    padding: 7px 12px;
+  }
+  .scrollytelling[data-story-mode="motion"] .availability {
+    margin-top: 10px;
+    font-size: 7px;
+  }
+  .scrollytelling[data-story-mode="motion"] .story-bottom {
+    bottom: 14px;
+  }
+  .tool-grid {
+    grid-auto-rows: 82px;
+    max-height: 190px;
   }
 }

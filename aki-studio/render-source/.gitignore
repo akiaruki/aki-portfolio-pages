@@ -1,5 +1,6 @@
 node_modules/
 public/frames/
+public/frames-v2/
 stills/
 build/
 *.blend

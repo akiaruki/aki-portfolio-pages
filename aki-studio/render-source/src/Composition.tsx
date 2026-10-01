@@ -15,16 +15,16 @@ const RenderedStory: React.FC = () => {
       <AbsoluteFill
         style={{
           background:
-            "radial-gradient(ellipse at 50% 54%, #343d393b 0%, #171c1933 32%, transparent 67%)",
+            "radial-gradient(ellipse at 50% 54%, #343d3928 0%, #171c1922 32%, transparent 67%)",
           opacity: interpolate(
             frame,
-            [0, 45, 145, 191],
-            [0.4, 0.9, 0.75, 0.55],
+            [0, 110, 350, 479],
+            [0.4, 0.75, 0.7, 0.6],
           ),
         }}
       />
       <CanvasImage
-        src={staticFile(`frames/${String(frame).padStart(4, "0")}.png`)}
+        src={staticFile(`frames-v2/${String(frame).padStart(4, "0")}.png`)}
         style={{
           position: "absolute",
           inset: 0,
@@ -48,16 +48,16 @@ export const MyComposition: React.FC = () => (
     <Composition
       id="AkiStudioStory"
       component={RenderedStory}
-      durationInFrames={192}
-      fps={24}
+      durationInFrames={480}
+      fps={60}
       width={1080}
       height={1080}
     />
     <Composition
       id="AkiStudioStoryMobile"
       component={RenderedStory}
-      durationInFrames={192}
-      fps={24}
+      durationInFrames={480}
+      fps={60}
       width={720}
       height={720}
     />

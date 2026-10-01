@@ -1,6 +1,5 @@
 import path from "node:path";
 import fs from "node:fs/promises";
-import { execFileSync } from "node:child_process";
 import { bundle } from "@remotion/bundler";
 import {
   selectComposition,
@@ -19,8 +18,8 @@ const serveUrl = await bundle({
 const destination = path.resolve("../assets");
 await fs.mkdir("stills", { recursive: true });
 for (const [id, filename] of [
-  ["AkiStudioStory", "aki-story-desktop.mp4"],
-  ["AkiStudioStoryMobile", "aki-story-mobile.mp4"],
+  ["AkiStudioStory", "aki-story-v2-desktop.mp4"],
+  ["AkiStudioStoryMobile", "aki-story-v2-mobile.mp4"],
 ]) {
   const composition = await selectComposition({
     serveUrl,
@@ -50,7 +49,7 @@ for (const [id, filename] of [
   });
   console.log("Rendered", filename);
   if (id === "AkiStudioStory")
-    for (const [index, frame] of [0, 44, 86, 122, 164].entries()) {
+    for (const [index, frame] of [0, 110, 215, 306, 412].entries()) {
       await renderStill({
         composition,
         serveUrl,
@@ -63,10 +62,12 @@ for (const [id, filename] of [
     }
 }
 
+// Offline codec alternative, never a dependency of the website runtime.
+const { execFileSync } = await import("node:child_process");
 const ffmpeg =
   process.env.FFMPEG_PATH ||
   path.resolve("node_modules/@remotion/compositor-win32-x64-msvc/ffmpeg.exe");
-for (const variant of ["desktop", "mobile"]) {
+for (const variant of ["desktop", "mobile"])
   execFileSync(
     ffmpeg,
     [
@@ -75,7 +76,9 @@ for (const variant of ["desktop", "mobile"]) {
       "error",
       "-y",
       "-i",
-      path.join(destination, `aki-story-${variant}.mp4`),
+      path.join(destination, `aki-story-v2-${variant}.mp4`),
+      "-map_metadata",
+      "-1",
       "-c:v",
       "libvpx-vp9",
       "-b:v",
@@ -89,8 +92,7 @@ for (const variant of ["desktop", "mobile"]) {
       "-cpu-used",
       "4",
       "-an",
-      path.join(destination, `aki-story-${variant}.webm`),
+      path.join(destination, `aki-story-v2-${variant}.webm`),
     ],
     { stdio: "inherit" },
   );
-}

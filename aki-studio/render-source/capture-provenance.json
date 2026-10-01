@@ -1,0 +1,63 @@
+{
+  "source": "User-selected local JPEG, visually inspected; four genuine Aki Studio rendered Look selections. PRO labels hidden in marketing capture only.",
+  "inputSHA256": "0ef0937c7fe743714af795637738f62b2877e66773069e1e79e141825066f597",
+  "panels": {
+    "tools": {
+      "x": 19,
+      "y": 550.8125,
+      "width": 392,
+      "height": 278
+    },
+    "curves": {
+      "x": 6,
+      "y": 454.8125,
+      "width": 418,
+      "height": 376
+    },
+    "color": {
+      "x": 6,
+      "y": 558.8125,
+      "width": 418,
+      "height": 272
+    },
+    "looks": {
+      "x": 6,
+      "y": 595.8125,
+      "width": 418,
+      "height": 235
+    }
+  },
+  "looks": [
+    {
+      "name": "Daylight",
+      "sha256": "52dd6eea423176804823ccf9f22b1f386ae70cbeebb69e2ba661e3cce4c6b3cc"
+    },
+    {
+      "name": "Original",
+      "sha256": "725a73291f4cd085bcd345b91d603428d17835f2b12d8e19a86e1e28e0188297"
+    },
+    {
+      "name": "Soft Portrait",
+      "sha256": "138112847512abd5adbf6871808668c1a32b9d64727a3588edd44e208bf478bb"
+    },
+    {
+      "name": "Summit",
+      "sha256": "bfd64136b089cc2cb32f6dfdc48b387341579f6f8dfffacba938e4637ef87308"
+    }
+  ],
+  "errors": [],
+  "viewport": {
+    "width": 430,
+    "height": 932,
+    "deviceScaleFactor": 2
+  },
+  "input_dimensions": [
+    736,
+    414
+  ],
+  "look_dimensions": [
+    804,
+    454
+  ],
+  "notes": "Original is the named Adaptive Look, not a claim of an unedited baseline. All four previews use the same input. No CSS grades or generated comparison outputs."
+}

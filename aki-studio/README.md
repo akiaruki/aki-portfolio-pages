@@ -6,7 +6,7 @@ https://akiaruki.github.io/aki-portfolio-pages/aki-studio/
 
 ## Editing and deployment
 
-- Edit `index.html`, `studio.css`, `studio.js`, and the selected files in `assets/`.
+- Edit `index.html`, `studio.css`, `studio.js`, `tools-demo.js`, and the selected files in `assets/`.
 - The publishing branch is `main`. GitHub Pages publishes this folder at `/aki-studio/`.
 - The portfolio's root `index.html` contains the Aki Studio navigation link; its responsive navigation rules are in root `exhibition.css`.
 - Use relative asset URLs so the page continues to work under the repository subpath.
@@ -24,16 +24,16 @@ The approved public contact is `akistudio.mobile@gmail.com`. Review the beta dat
 ## Assets and implementation
 
 - Botanical photographs belong to Aki and come from the authorized public `inconspicuous` portfolio collection: Gumamela, Alternanthera Brasiliana, Crape Myrtle and Rose. Website copies are compressed WebP derivatives without embedded photo metadata.
-- App textures were captured from Aki Studio with the authorized Gumamela photograph loaded. PRO badges were hidden in the marketing capture at Aki's request; no application source or entitlement was changed. No recording indicator appears. The handset screen uses a labeled illustrative photo composition.
-- `look-*.webp` previews are actual app-rendered results after selecting Daylight, Original, Soft Portrait and Summit. The website swaps those images; it does not run the editing engine or manufacture before/after results.
+- The current app textures and `look-v2-*.webp` previews use the user-selected yellow-flower photograph. The app rendered Daylight, Original, Soft Portrait and Summit from the same input. Original is a named Look, not an unedited-baseline claim. See the render-source capture provenance for input and output hashes.
+- PRO badges were hidden in marketing captures at Aki's request; no application source or entitlement was changed. No recording indicator appears. The handset uses an actual app capture. Floating controls are isolated against the app's neutral background, with real histograms and Look thumbnails.
 - Private application source, original attachments, personal files and credentials are not part of this website.
 - The page uses native HTML, CSS and JavaScript, with system fonts and no runtime packages, analytics or external font requests.
-- Blender 5.2.2 produced the original handset, lighting and floating 3D panels. Remotion 4.0.532 composited 192 frames into separate desktop and mobile videos. See [render-source](render-source/README.md) for reproducible authoring files, dimensions and licensing notes. No Apple model, logo or brand asset is used.
+- Blender 5.2.2 produced the original thin-bezel handset, lighting and floating 3D panels. Remotion 4.0.532 composited 480 frames at 60 fps into separate desktop and mobile videos. All frames pass geometry checks for depth separation and camera framing. See [render-source](render-source/README.md) for reproducible authoring files, dimensions, research and licensing notes. No Apple model, logo or brand asset is used.
 - Native page scroll scrubs the rendered video across five full-screen chapters. The page uses CSS sticky positioning and semantic HTML copy. It does not intercept wheel/touch scrolling or depend on browser WebGL. The obsolete live WebGL renderer has been removed.
 - One coalesced animation frame updates scroll state. Video seeking is bounded to one request at a time and stops offscreen or in hidden tabs. The video stays paused; it does not play continuously when the visitor is idle. There are no runtime frame sequences to decode into JavaScript memory.
-- The desktop H.264 video is about 2 MB and the mobile video about 1.2 MB. Smaller VP9 alternatives are available if the browser's primary decoder fails. Only one viewport size is loaded. This is an asset budget, not a physical-device frame-rate claim.
+- Separate desktop and mobile H.264 files have VP9 alternatives if the primary decoder fails. Only one viewport size is loaded. Export frame rate is not a physical-device performance claim.
 - Reduced motion, data saving, unsupported media or JavaScript disabled reveal all five semantic chapters and their rendered posters in ordinary document flow. There is no empty pinned fallback area. Two reported CPU cores or unavailable WebGL do not disable the rendered story.
-- The floating tool demo supports mouse/touch-handle dragging, keyboard selection with Space, arrow-key movement, Enter to place and Escape to cancel. It saves only the demo order in optional browser local storage. Reset restores the initial order. It does not change the app's workspace.
+- The tool demo matches the app's compact four-column glyph-and-label surface. A stationary hold picks up a tool; it follows the pointer while neighbors shift. DOM order changes once at drop. Ordinary swipes still scroll. Tap-then-tap and keyboard selection with Space, arrow keys, Enter and Escape provide alternatives. Relevant container edges autoscroll; cancellation restores order. Optional local storage remembers only this demo, and unavailable storage leaves it usable for the visit.
 - Below-the-fold images load lazily and dimensions reserve space. Mobile navigation supports Escape and focus return. Icons are inline SVG rather than font-dependent arrows.
 
 ## Release verification
