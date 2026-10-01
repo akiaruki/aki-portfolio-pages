@@ -1,0 +1,7 @@
+node_modules/
+public/frames/
+stills/
+build/
+*.blend
+*.blend1
+.cache/

@@ -1,85 +1,536 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#eeede7">
-  <meta name="description" content="Your photograph. Still yours. Aki Studio is a mobile photo editor for photographers, with Adaptive Looks, Curves, RAW support and your own creative LUTs. Join the iOS beta until October 15, 2026. Android coming soon.">
-  <meta property="og:title" content="Aki Studio — Your photograph. Still yours.">
-  <meta property="og:description" content="A considered space for the way you see. A mobile photo editor for photographers. iOS beta until October 15, 2026. Android coming soon.">
-  <meta property="og:type" content="website">
-  <title>Aki Studio — Your photograph. Still yours.</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="preload" as="image" href="assets/app-tools.webp">
-  <link rel="stylesheet" href="studio.css">
-  <script src="studio.js" defer></script>
-  <noscript><style>.menu-toggle,.preview-tabs{display:none!important}@media(max-width:760px){.site-header{flex-wrap:wrap;height:auto;padding-block:16px}.main-nav{display:flex;position:static;flex-direction:row;flex-wrap:wrap;padding:0;border:0;box-shadow:none;order:4;width:100%;gap:18px}.main-nav a{font-size:11px;padding-block:6px}}</style></noscript>
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <a class="brand" href="#" aria-label="Aki Studio home"><span class="brand-mark" lang="ja" aria-hidden="true">アキ</span><span>Aki Studio</span></a>
-    <nav aria-label="Main navigation" class="main-nav" id="main-nav">
-      <a href="#vision">The vision</a><a href="#tools">The studio</a><a href="../">Aki Portfolio <span aria-hidden="true">↗</span></a>
-    </nav>
-    <a class="nav-cta" href="#beta">Join the beta <span aria-hidden="true">↗</span></a>
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigation"><span></span><span></span></button>
-  </header>
-  <main id="main" tabindex="-1">
-    <div class="hero-story">
-    <section class="hero section-wrap" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="status-dot"></span> Your mobile photo studio</p>
-        <div class="hero-opening"><h1 id="hero-title">Your vision.<br>Your <em>studio.</em></h1>
-        <p class="hero-description">Distinctive Adaptive Looks. Familiar tools.<br>A photo editor that leaves room for you.</p>
-        <div class="hero-actions"><a href="#beta" class="button button-dark">Join the iOS beta <span aria-hidden="true">↗</span></a><span class="availability">Open until 15 Oct 2026<br><span>Android coming soon</span></span></div>
-        </div><div class="story-narrative"><div class="story-slide" data-story="0" hidden><h2>Start with<br><em>a feeling.</em></h2><p>Choose an Adaptive Look, adjust its strength, then shape the details around your photograph.</p><a class="button button-dark" href="#beta">Try Aki Studio <span aria-hidden="true">↗</span></a></div><div class="story-slide" data-story="1" hidden><h2>Refine every<br><em>little detail.</em></h2><p>Shape light and contrast with Curves. Refine individual colors with Color Mixer. Every adjustment is yours.</p><a class="button button-dark" href="#tools">Explore the tools <span aria-hidden="true">↗</span></a></div><div class="story-slide" data-story="2" hidden><h2>Make room<br>for <em>your flow.</em></h2><p>Put your most-used tools first. Your arrangement stays with you, ready for the next photograph.</p><a class="button button-dark" href="#beta">Join the iOS beta <span aria-hidden="true">↗</span></a></div></div>
-      </div>
-      <div class="product-stage" role="img" aria-label="Aki Studio app preview with Aki’s botanical photography">
-        <span id="scene-instructions" class="sr-only">Scroll to bring the app tools and photograph forward in 3D. You can also drag horizontally or use the Left and Right arrow keys to rotate the phone. Press Home to reset the viewing angle.</span><span class="scene-hint" aria-hidden="true">Scroll to explore <span>↓</span></span><div class="stage-light" aria-hidden="true"></div>
-        <span class="stage-wordmark" lang="ja" aria-hidden="true">アキ</span>
-        <div class="stage-orbit">
-          <div class="photo-print print-back"><img src="assets/seedhead-640.webp" alt="A small white flower emerging from deep shadow" width="640" height="444"><span>01 / A study in light</span></div>
-          <div class="phone" aria-hidden="true"><div class="phone-edge"></div><div class="phone-screen"><img class="app-screen" src="assets/app-tools.webp" width="860" height="1864" alt="" fetchpriority="high"><img class="hero-photo-overlay" src="assets/hibiscus-1280.webp" width="1280" height="888" alt=""></div></div>
-          <div class="photo-print print-front"><img src="assets/rose-640.webp" alt="A monochrome rose, its petals picked out by the light" width="640" height="444"><span>Light, held a little longer.</span></div>
+<html lang="en" data-release="20261001-glass-1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080a09" />
+    <meta
+      name="description"
+      content="Your eye. Your signature. Discover Aki Studio: Adaptive Looks, precise light and color tools, supported RAW workflows and a workspace in your order. Join the iOS beta."
+    />
+    <meta
+      property="og:title"
+      content="Aki Studio — Your photograph. Still yours."
+    />
+    <meta
+      property="og:description"
+      content="Find a feeling with Adaptive Looks. Shape every detail. Make the studio your own."
+    />
+    <meta property="og:type" content="website" />
+    <title>Aki Studio — Your photograph. Still yours.</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preload" as="image" href="assets/story-0.webp" />
+    <link rel="stylesheet" href="studio.css?v=20261001-glass-1" />
+    <script src="studio.js?v=20261001-glass-1" defer></script>
+    <noscript
+      ><style>
+        .look-choices,
+        .reset-order,
+        .organizer-instructions,
+        .organizer-bottom,
+        .workspace-note {
+          display: none !important;
+        }
+      </style></noscript
+    >
+  </head>
+  <body>
+    <svg
+      class="symbol-sheet"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <defs>
+        <symbol id="arrow" viewBox="0 0 24 24">
+          <path d="M5 19 19 5M5 5h14v14" />
+        </symbol>
+        <symbol id="down" viewBox="0 0 24 24">
+          <path d="M12 4v16m-6-6 6 6 6-6" />
+        </symbol>
+        <symbol id="grip" viewBox="0 0 24 24">
+          <path
+            d="M8 5h.01M16 5h.01M8 12h.01M16 12h.01M8 19h.01M16 19h.01"
+            stroke-width="3"
+          />
+        </symbol>
+      </defs>
+    </svg>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header glass">
+      <a class="brand" href="#" aria-label="Aki Studio home"
+        ><b>aki</b><span>STUDIO</span></a
+      >
+      <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+        <a href="#experience">The experience</a
+        ><a href="#looks">Adaptive Looks</a
+        ><a href="#workspace">Your workspace</a
+        ><a href="../"
+          >Portfolio
+          <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
+        ></a>
+      </nav>
+      <a class="nav-cta" href="#beta"
+        >Try Aki Studio
+        <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
+      ></a>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="main-nav"
+        aria-label="Open navigation"
+      >
+        <span></span><span></span>
+      </button>
+    </header>
+    <main id="main" tabindex="-1">
+      <section
+        class="scrollytelling"
+        id="experience"
+        aria-label="Discover Aki Studio"
+      >
+        <div class="story-viewport">
+          <div class="story-render" aria-hidden="true">
+            <img
+              id="story-poster"
+              src="assets/story-0.webp"
+              width="1080"
+              height="1080"
+              alt=""
+              fetchpriority="high"
+            /><video
+              id="story-video"
+              muted
+              playsinline
+              preload="none"
+              aria-hidden="true"
+              tabindex="-1"
+              disablepictureinpicture
+            ></video>
+          </div>
+          <div class="story-chapters">
+            <article class="story-chapter" data-chapter="0">
+              <div class="chapter-copy">
+                <p class="eyebrow">
+                  <span class="status-dot"></span> A mobile studio for
+                  photographers
+                </p>
+                <h1>Your eye.<br /><span>Your signature.</span></h1>
+                <p class="chapter-description">
+                  Find your feeling. Shape the light.<br />Make every photograph
+                  unmistakably yours.
+                </p>
+                <div class="hero-actions">
+                  <a class="button button-white" href="#beta"
+                    >Try Aki Studio
+                    <svg class="icon" aria-hidden="true">
+                      <use href="#arrow" /></svg></a
+                  ><a class="quiet-link" href="#looks"
+                    >Discover Adaptive Looks</a
+                  >
+                </div>
+                <p class="availability">
+                  iOS beta until 15 October 2026
+                  <span>Android coming soon</span>
+                </p>
+              </div>
+              <img
+                class="chapter-still"
+                src="assets/story-0.webp"
+                width="1080"
+                height="1080"
+                alt="Aki Studio on an original black handset, with Aki's Gumamela photograph"
+              />
+            </article>
+            <article class="story-chapter" data-chapter="1">
+              <div class="chapter-copy">
+                <p class="eyebrow">01 / Adaptive Looks</p>
+                <h2>A feeling.<br /><span>Made your own.</span></h2>
+                <p class="chapter-description">
+                  Find a starting point that feels right. Choose an Adaptive
+                  Look, adjust its strength, then shape the details around your
+                  photograph.
+                </p>
+                <a class="text-link" href="#looks"
+                  >See what a look can do
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#arrow" /></svg
+                ></a>
+              </div>
+              <img
+                class="chapter-still"
+                src="assets/story-1.webp"
+                width="1080"
+                height="1080"
+                alt="The clean Adaptive Looks panel floating forward from the app"
+                loading="lazy"
+              />
+            </article>
+            <article class="story-chapter" data-chapter="2">
+              <div class="chapter-copy">
+                <p class="eyebrow">02 / Light &amp; tone</p>
+                <h2>Give light<br /><span>your direction.</span></h2>
+                <p class="chapter-description">
+                  Open the shadows. Shape the contrast. Refine tone with Curves
+                  and individual color channels, one considered adjustment at a
+                  time.
+                </p>
+                <span class="chapter-detail"
+                  >Develop <i></i> Curves <i></i> Detail</span
+                >
+              </div>
+              <img
+                class="chapter-still"
+                src="assets/story-2.webp"
+                width="1080"
+                height="1080"
+                alt="Aki Studio Curves controls in a floating glass panel"
+                loading="lazy"
+              />
+            </article>
+            <article class="story-chapter" data-chapter="3">
+              <div class="chapter-copy">
+                <p class="eyebrow">03 / Color &amp; character</p>
+                <h2>Make color<br /><span>feel something.</span></h2>
+                <p class="chapter-description">
+                  Refine individual colors with Color Mixer. Explore monochrome,
+                  shape the atmosphere, and finish with effects that fit your
+                  photograph.
+                </p>
+                <span class="chapter-detail"
+                  >Color Mixer <i></i> B&amp;W Mixer <i></i> Effects</span
+                >
+              </div>
+              <img
+                class="chapter-still"
+                src="assets/story-3.webp"
+                width="1080"
+                height="1080"
+                alt="Aki Studio Color Mixer showing individual color controls"
+                loading="lazy"
+              />
+            </article>
+            <article class="story-chapter" data-chapter="4">
+              <div class="chapter-copy">
+                <p class="eyebrow">04 / Your rhythm</p>
+                <h2>Less searching.<br /><span>More creating.</span></h2>
+                <p class="chapter-description">
+                  Keep the tools you reach for right where you want them.
+                  Arrange your workspace once. Your order stays with you.
+                </p>
+                <a class="text-link" href="#workspace"
+                  >Arrange a studio of your own
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#arrow" /></svg
+                ></a>
+              </div>
+              <img
+                class="chapter-still"
+                src="assets/story-4.webp"
+                width="1080"
+                height="1080"
+                alt="Aki Studio's editing tools floating in a clean, unbadged panel"
+                loading="lazy"
+              />
+            </article>
+          </div>
+          <div class="story-bottom">
+            <span class="scroll-cue"
+              >Scroll to discover
+              <svg class="icon" aria-hidden="true"><use href="#down" /></svg
+            ></span>
+            <nav class="chapter-nav" aria-label="Story chapters">
+              <button aria-label="Introduction" aria-current="step" data-go="0">
+                <span></span></button
+              ><button aria-label="Adaptive Looks" data-go="1">
+                <span></span></button
+              ><button aria-label="Light and tone" data-go="2">
+                <span></span></button
+              ><button aria-label="Color and character" data-go="3">
+                <span></span></button
+              ><button aria-label="Your rhythm" data-go="4">
+                <span></span>
+              </button>
+            </nav>
+            <span class="composition-note"
+              >App interface. Illustrative composition.</span
+            >
+          </div>
         </div>
-        <div class="stage-caption"><span class="scene-phase"><b>Your photograph.</b><span>Still yours.</span></span><span class="stage-counter">01 / 03</span></div>
+      </section>
+
+      <section
+        class="looks-section section-space"
+        id="looks"
+        aria-labelledby="looks-title"
+      >
+        <div class="section-heading">
+          <p class="eyebrow">Adaptive Looks / A place to begin</p>
+          <h2 id="looks-title">
+            One photograph.<br /><span>So many ways to feel it.</span>
+          </h2>
+          <p>
+            A quiet shift in tone. A little more atmosphere.<br />Explore a few
+            starting points, then follow your own eye.
+          </p>
+        </div>
+        <div class="look-experience glass">
+          <div class="look-photo">
+            <img
+              id="look-result"
+              src="assets/look-daylight.webp"
+              alt="Gumamela photograph rendered in Aki Studio with the Daylight look"
+              width="804"
+              height="558"
+              loading="lazy"
+            /><span class="photo-credit">Gumamela / Photograph by Aki</span
+            ><span class="look-name" id="look-name">Daylight</span>
+          </div>
+          <div class="look-controls">
+            <div>
+              <span class="eyebrow">Choose a direction</span>
+              <p>Actual Aki Studio previews</p>
+            </div>
+            <div
+              class="look-choices"
+              role="group"
+              aria-label="Choose an Adaptive Look preview"
+            >
+              <button type="button" data-look="daylight" aria-pressed="true">
+                Daylight</button
+              ><button type="button" data-look="original" aria-pressed="false">
+                Original</button
+              ><button
+                type="button"
+                data-look="soft-portrait"
+                aria-pressed="false"
+              >
+                Soft Portrait</button
+              ><button type="button" data-look="summit" aria-pressed="false">
+                Summit
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="look-footnote">
+          <p>
+            Each preview was rendered in Aki Studio from the same photograph.
+            Your image will have its own result.
+          </p>
+          <a class="text-link" href="#beta"
+            >Find your starting point
+            <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
+          ></a>
+        </div>
+      </section>
+
+      <section
+        class="organizer-section section-space"
+        id="workspace"
+        aria-labelledby="workspace-title"
+      >
+        <div class="organizer-heading">
+          <div>
+            <p class="eyebrow">Your tools / Your arrangement</p>
+            <h2 id="workspace-title">
+              A studio that<br /><span>moves with you.</span>
+            </h2>
+          </div>
+          <div>
+            <p>
+              Curves first? Color within reach?<br />Move the tools into an
+              order that feels like you.
+            </p>
+            <p class="organizer-instructions" id="organizer-instructions">
+              Drag a handle to rearrange. With a keyboard, select a tool, press
+              Space, then use the arrow keys. Press Enter to place it.
+            </p>
+          </div>
+        </div>
+        <div class="organizer-shell">
+          <div class="organizer-glow" aria-hidden="true"></div>
+          <div
+            class="tool-grid"
+            id="tool-grid"
+            role="group"
+            aria-label="Arrange your editing tools"
+            aria-describedby="organizer-instructions"
+          ></div>
+          <noscript
+            ><div class="static-tools glass">
+              <img
+                src="assets/app-tools-panel.webp?v=clean1"
+                alt="Aki Studio's twelve editing tools"
+                width="784"
+                height="558"
+                loading="lazy"
+              /></div
+          ></noscript>
+        </div>
+        <div class="organizer-bottom">
+          <p id="organizer-status" aria-live="polite">
+            Interactive website demo. Find your rhythm.
+          </p>
+          <button class="reset-order" type="button" id="reset-order">
+            Reset arrangement
+          </button>
+        </div>
+        <p class="workspace-note">
+          Aki Studio remembers your tool order in the app. This preview lets you
+          try the idea here.
+        </p>
+      </section>
+
+      <section
+        class="depth-section section-space"
+        aria-labelledby="depth-title"
+      >
+        <div class="section-heading">
+          <p class="eyebrow">More room for your process</p>
+          <h2 id="depth-title">
+            A lighter studio.<br /><span>A complete point of view.</span>
+          </h2>
+        </div>
+        <div class="capability-grid">
+          <article class="glass">
+            <span class="capability-mark">RAW</span>
+            <h3>Start with more.</h3>
+            <p>
+              Develop supported RAW photographs in your mobile workflow, then
+              keep refining with the tools you know.
+            </p>
+            <small>Camera, file and device compatibility varies.</small>
+          </article>
+          <article class="glass">
+            <span class="capability-mark">.cube</span>
+            <h3>Bring your signature.</h3>
+            <p>
+              Import your own supported creative LUTs. Keep familiar color ideas
+              close and make space for new ones.
+            </p>
+            <small>Creative SDR/sRGB .cube LUTs are supported.</small>
+          </article>
+          <article class="glass">
+            <span class="capability-mark">.aki</span>
+            <h3>Keep exploring.</h3>
+            <p>
+              Work with .aki adaptive packages alongside Adaptive Looks, editing
+              controls, mixers and effects.
+            </p>
+            <small>A considered set of tools for your own direction.</small>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="beta-section section-space"
+        id="beta"
+        aria-labelledby="beta-title"
+      >
+        <div class="beta-photo" aria-hidden="true">
+          <img
+            src="assets/rose-1280.webp"
+            width="1280"
+            height="888"
+            alt=""
+            loading="lazy"
+          />
+        </div>
+        <div class="beta-content">
+          <p class="eyebrow">
+            <span class="status-dot"></span> The iOS beta is open
+          </p>
+          <h2 id="beta-title">Make it<br /><span>feel like you.</span></h2>
+          <p>
+            Your photographs. Your instincts.<br />A little more room to create.
+          </p>
+          <a
+            class="button button-white"
+            href="https://testflight.apple.com/join/ef48hkdQ"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Join the iOS beta
+            <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
+          ></a>
+          <div class="beta-availability">
+            <span>Available through TestFlight<br />Until October 15, 2026</span
+            ><span>Android<br />Coming soon</span>
+          </div>
+          <p class="beta-note">
+            Aki Studio is in beta. Features and availability may change.
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="questions section-space"
+        aria-labelledby="questions-title"
+      >
+        <div>
+          <p class="eyebrow">A few useful details</p>
+          <h2 id="questions-title">
+            Before you<br /><span>step inside.</span>
+          </h2>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>
+              Is Aki Studio available now?<span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              The iOS beta is available through TestFlight until October 15,
+              2026. Android is coming soon. This is not a production App Store
+              release.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Can I edit RAW photographs?<span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Aki Studio supports RAW workflows, with compatibility depending on
+              the camera, file format and device. Support is not universal
+              across every camera or RAW file.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Can I bring my own looks?<span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              You can import supported creative .cube LUTs made for SDR/sRGB,
+              and use .aki adaptive packages. Other LUT types or color pipelines
+              may not be supported.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Where can I share feedback?<span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Tell us what you are making and what could feel better. Write to
+              <a href="mailto:akistudio.mobile@gmail.com"
+                >akistudio.mobile@gmail.com</a
+              >.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <a class="brand" href="#"><b>aki</b><span>STUDIO</span></a>
+      <p>Your photograph. Still yours.</p>
+      <div>
+        <a href="mailto:akistudio.mobile@gmail.com"
+          >Get in touch
+          <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg></a
+        ><a href="../"
+          >Aki Portfolio
+          <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
+        ></a>
       </div>
-      <div class="mobile-story-copy"><h2>Start with a feeling.</h2><p>Choose an Adaptive Look, adjust its strength, then shape the details around your photograph.</p></div>
-      <div class="hero-footer"><a href="#vision">Scroll to explore <span aria-hidden="true">↓</span></a><span>App interface · Illustrative photo composition</span></div>
-    </section>
-
-    </div>
-
-    <section class="vision section-wrap" id="vision" tabindex="-1" aria-labelledby="vision-title">
-      <div class="section-kicker"><span class="eyebrow">01 / The feeling comes first</span><span class="fine-label">Made for photographers</span></div>
-      <div class="vision-grid"><h2 id="vision-title">A complete studio.<br>A lighter way <em>to create.</em></h2><div class="vision-copy"><p>Find your look. Shape the light. Keep your flow.</p><p>Move from Adaptive Looks to familiar editing controls in one considered workspace. Develop supported RAW files, refine color and tone, and bring your own creative looks along.</p><a class="text-link" href="#tools">Meet your tools <span aria-hidden="true">↗</span></a></div></div>
-      <div class="interface-explorer reveal">
-        <div class="explorer-copy"><span class="eyebrow">A closer look at Aki Studio</span><h3>The tools you know.<br>The space to explore.</h3><p>Choose a view to see the actual app interface.</p><div class="preview-tabs" role="tablist" aria-label="Explore the Aki Studio interface"><button id="tab-looks" role="tab" type="button" aria-selected="true" aria-controls="interface-panel" tabindex="0" data-preview="looks"><span>01</span>Adaptive Looks<i aria-hidden="true">↗</i></button><button id="tab-curves" role="tab" type="button" aria-selected="false" aria-controls="interface-panel" tabindex="-1" data-preview="curves"><span>02</span>Curves<i aria-hidden="true">↗</i></button><button id="tab-color" role="tab" type="button" aria-selected="false" aria-controls="interface-panel" tabindex="-1" data-preview="color"><span>03</span>Color Mixer<i aria-hidden="true">↗</i></button><button id="tab-tools" role="tab" type="button" aria-selected="false" aria-controls="interface-panel" tabindex="-1" data-preview="tools"><span>04</span>The toolkit<i aria-hidden="true">↗</i></button></div></div>
-        <div class="interface-display" id="interface-panel" role="tabpanel" aria-labelledby="tab-looks" tabindex="0"><img id="interface-preview" src="assets/app-looks.webp" alt="Aki Studio Adaptive Looks interface with look collections, thumbnails and strength control" width="860" height="1864" loading="lazy" decoding="async"><span class="preview-caption">Interface preview · Appearance may vary by device</span></div>
-      </div>
-    </section>
-
-    <section class="tools-section" id="tools" tabindex="-1" aria-labelledby="tools-title"><div class="section-wrap">
-      <div class="section-kicker"><span class="eyebrow">02 / A space to make it yours</span><span class="fine-label">The studio, in your pocket</span></div>
-      <div class="tools-heading"><h2 id="tools-title">Start with instinct.<br>Finish with <em>intention.</em></h2><p>Go where the photograph takes you.<br>Keep the tools that matter close.</p></div>
-      <div class="feature-grid">
-        <article class="feature feature-looks reveal"><div class="feature-visual app-panel-visual"><img src="assets/app-looks-panel.webp" alt="Aki Studio look collections and the look-strength slider" width="836" height="472" loading="lazy" decoding="async"></div><div class="feature-copy"><span class="feature-index">01</span><h3>A starting point.<br>Never a stopping point.</h3><p>Find a direction with Adaptive Looks, then shape the details around your photograph.</p><span class="feature-tag">Adaptive Looks</span></div></article>
-        <article class="feature feature-curves reveal"><div class="feature-visual app-panel-visual"><img src="assets/app-curves-panel.webp" alt="Aki Studio Curves controls, with RGB and individual color channels" width="836" height="754" loading="lazy" decoding="async"></div><div class="feature-copy"><span class="feature-index">02</span><h3>The smallest change.<br>A different feeling.</h3><p>Shape light with Curves. Refine individual colors. Find the balance with editing controls, mixers and effects.</p><span class="feature-tag">Light · Color · Detail</span></div></article>
-      </div>
-      <p class="illustration-note">Interface previews from the beta · Photography by Aki</p>
-      <div class="detail-row"><article><span class="detail-symbol" aria-hidden="true">RAW</span><h3>Room to develop.</h3><p>Bring supported RAW files into your mobile workflow. Camera, file and device compatibility varies.</p></article><article><span class="detail-symbol" aria-hidden="true">.cube</span><h3>Your creative signature.</h3><p>Import supported creative SDR/sRGB .cube LUTs, and work with .aki adaptive packages.</p></article><article><span class="detail-symbol reorder-symbol" aria-hidden="true">☷</span><h3>A familiar rhythm.</h3><p>Arrange your editing tools around the way you work. Your tool order stays with you.</p></article></div>
-    </div></section>
-
-    <section class="workspace-section section-wrap" aria-labelledby="workspace-title">
-      <div class="section-kicker"><span class="eyebrow">03 / Familiar tools. Your arrangement.</span><span class="fine-label">Made for your flow</span></div>
-      <div class="workspace-grid"><div><h2 id="workspace-title">Your tools.<br>In <em>your order.</em></h2><p>Keep your essentials where your hand expects them. Arrange the tools to suit your process—then pick up where you left off.</p><div class="workspace-tags"><span>Develop</span><span>Curves</span><span>Color Mixer</span><span>B&W Mixer</span><span>Effects</span><span>Frame</span></div><p class="workspace-footnote">Persistent tool ordering in Aki Studio.</p></div><div class="tool-order-demo reveal"><div class="order-top"><span lang="ja">アキ</span><span>Your workspace</span></div><div class="order-photo"><img src="assets/myrtle-1280.webp" alt="Crape Myrtle from Aki’s monochrome collection" width="1280" height="888" loading="lazy"></div><img class="actual-tool-grid" src="assets/app-tools-panel.webp" alt="Aki Studio’s twelve editing tools: Crop, Develop, Curves, Color Mixer, Detail, B&W Mixer, Split Toning, Optics, Geometry, Effects, Frame and Date" width="784" height="558" loading="lazy" decoding="async"><div class="order-caption">App interface with illustrative photo composition</div></div></div>
-    </section>
-
-    <section class="beta-section" id="beta" tabindex="-1" aria-labelledby="beta-title"><div class="section-wrap beta-grid"><div><p class="eyebrow"><span class="status-dot"></span> iOS beta / Until 15 October 2026</p><h2 id="beta-title">Your next photo.<br><em>Your next possibility.</em></h2><p class="beta-intro">Take the studio with you.<br>Join the iOS beta and help shape what comes next.</p><div class="download-actions"><a class="button button-light" href="https://testflight.apple.com/join/ef48hkdQ" target="_blank" rel="noopener noreferrer"><span>Join on iOS <small>Via TestFlight</small></span><span aria-hidden="true">↗</span></a><div class="android-status"><span>Android</span><span class="coming-soon">Coming soon</span></div></div><p class="beta-note">The iOS beta runs until October 15, 2026. Beta software is still evolving; availability and supported features may change.</p></div><div class="beta-art" aria-hidden="true"><img src="assets/rose-1280.webp" alt="" width="1280" height="888" loading="lazy" decoding="async"><span lang="ja">アキ</span></div></div></section>
-
-    <section class="questions section-wrap" aria-labelledby="questions-title"><div><span class="eyebrow">A few useful details</span><h2 id="questions-title">Before you<br><em>step inside.</em></h2></div><div class="faq-list"><details><summary>Is Aki Studio available now?<span aria-hidden="true">+</span></summary><p>The iOS beta is available through TestFlight until October 15, 2026. Android is coming soon. Aki Studio is still in beta; this is not a production App Store release.</p></details><details><summary>Can I edit RAW photographs?<span aria-hidden="true">+</span></summary><p>Aki Studio supports RAW workflows, with compatibility depending on your camera, file format and device. Support is not universal across every camera or RAW file.</p></details><details><summary>Can I bring my own looks?<span aria-hidden="true">+</span></summary><p>You can import supported creative .cube LUTs made for SDR/sRGB, and use .aki adaptive packages. Other LUT types or color pipelines may not be supported.</p></details><details><summary>Where can I share feedback?<span aria-hidden="true">+</span></summary><p>Tell us what you’re making, what feels right, and what could work better. Write to <a href="mailto:akistudio.mobile@gmail.com">akistudio.mobile@gmail.com</a>.</p></details></div></section>
-  </main>
-  <footer class="site-footer section-wrap"><a class="brand" href="#"><span class="brand-mark" lang="ja" aria-hidden="true">アキ</span><span>Aki Studio</span></a><p>Your photograph. Still yours.</p><div><a href="mailto:akistudio.mobile@gmail.com">Get in touch <span aria-hidden="true">↗</span></a><a href="../">Aki Portfolio <span aria-hidden="true">↗</span></a></div><span class="copyright">© 2026 Aki Studio</span><a class="back-top" href="#">Back to the light ↑</a></footer>
-</body>
+      <small>© 2026 Aki Studio</small
+      ><a class="back-top" href="#">Back to the beginning</a>
+    </footer>
+  </body>
 </html>

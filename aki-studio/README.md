@@ -1,4 +1,4 @@
-# Aki Studio landing page
+# Aki Studio — immersive landing page
 
 Static source for the public Aki Studio product page, hosted on GitHub Pages at:
 
@@ -6,7 +6,7 @@ https://akiaruki.github.io/aki-portfolio-pages/aki-studio/
 
 ## Editing and deployment
 
-- Edit `index.html`, `studio.css`, `studio.js`, `hero3d.js`, and the selected files in `assets/`.
+- Edit `index.html`, `studio.css`, `studio.js`, and the selected files in `assets/`.
 - The publishing branch is `main`. GitHub Pages publishes this folder at `/aki-studio/`.
 - The portfolio's root `index.html` contains the Aki Studio navigation link; its responsive navigation rules are in root `exhibition.css`.
 - Use relative asset URLs so the page continues to work under the repository subpath.
@@ -24,17 +24,20 @@ The approved public contact is `akistudio.mobile@gmail.com`. Review the beta dat
 ## Assets and implementation
 
 - Botanical photographs belong to Aki and come from the authorized public `inconspicuous` portfolio collection: Gumamela, Alternanthera Brasiliana, Crape Myrtle and Rose. Website copies are compressed WebP derivatives without embedded photo metadata.
-- `app-*.webp` files are rendered interface previews captured from the local Aki Studio application with Aki's authorized Gumamela photograph loaded. These are marketing images, not native-device performance evidence. The hero overlays Aki’s photograph inside the app canvas for an illustrative composition; the workspace illustration combines an app tool-panel capture with a separate Aki photograph. Both are labeled accordingly. Full interactive interface previews retain the original capture.
-- PRO labels in previews are existing interface labels; they do not represent a current payment gate or a pricing offer.
+- App textures were captured from Aki Studio with the authorized Gumamela photograph loaded. PRO badges were hidden in the marketing capture at Aki's request; no application source or entitlement was changed. No recording indicator appears. The handset screen uses a labeled illustrative photo composition.
+- `look-*.webp` previews are actual app-rendered results after selecting Daylight, Original, Soft Portrait and Summit. The website swaps those images; it does not run the editing engine or manufacture before/after results.
 - Private application source, original attachments, personal files and credentials are not part of this website.
 - The page uses native HTML, CSS and JavaScript, with system fonts and no runtime packages, analytics or external font requests.
-- The main product story uses a real WebGL scene with original, rounded and beveled unbranded phone geometry, black materials, directional lighting and perspective projection. No Apple hardware, model name or logo is used. The app screen is unlit to retain the preview colors. No Blender, Remotion, Three.js or other third-party renderer is used.
-- Native page scroll drives a CSS-sticky scene with three feature chapters, app-screen crossfades and synchronized semantic HTML copy. Real app panels and an authorized photograph detach into separate 3D planes while the supporting handset recedes. The page does not intercept wheel or touch scrolling. Pointer and keyboard rotation are optional.
-- Rendering is on demand with one pending animation frame, cached scroll position and layout measurements updated after resize/layout changes. Pointer settling is finite. Rendering stops offscreen and in hidden tabs. No continuous idle render loop runs.
-- The scene uses fewer than 2,100 vertices, seven bounded image textures, a 1.5 desktop / 1.25 coarse-pointer pixel-ratio cap, and a 1,400-pixel canvas-dimension ceiling. These are implementation budgets, not physical-device performance claims.
-- Reduced motion, data saving, low reported hardware concurrency, unsupported WebGL, texture/driver failure or graphics-context loss retain or restore the compact CSS product preview and normal DOM content. The fallback has no tall empty pinned section. The page remains readable with JavaScript disabled.
-- Images below the fold load lazily; dimensions reserve space. The interface tabs support arrow keys, Home/End, ARIA selection and a static no-JavaScript preview. Mobile navigation supports Escape and focus return.
+- Blender 5.2.2 produced the original handset, lighting and floating 3D panels. Remotion 4.0.532 composited 192 frames into separate desktop and mobile videos. See [render-source](render-source/README.md) for reproducible authoring files, dimensions and licensing notes. No Apple model, logo or brand asset is used.
+- Native page scroll scrubs the rendered video across five full-screen chapters. The page uses CSS sticky positioning and semantic HTML copy. It does not intercept wheel/touch scrolling or depend on browser WebGL. The obsolete live WebGL renderer has been removed.
+- One coalesced animation frame updates scroll state. Video seeking is bounded to one request at a time and stops offscreen or in hidden tabs. The video stays paused; it does not play continuously when the visitor is idle. There are no runtime frame sequences to decode into JavaScript memory.
+- The desktop H.264 video is about 2 MB and the mobile video about 1.2 MB. Smaller VP9 alternatives are available if the browser's primary decoder fails. Only one viewport size is loaded. This is an asset budget, not a physical-device frame-rate claim.
+- Reduced motion, data saving, unsupported media or JavaScript disabled reveal all five semantic chapters and their rendered posters in ordinary document flow. There is no empty pinned fallback area. Two reported CPU cores or unavailable WebGL do not disable the rendered story.
+- The floating tool demo supports mouse/touch-handle dragging, keyboard selection with Space, arrow-key movement, Enter to place and Escape to cancel. It saves only the demo order in optional browser local storage. Reset restores the initial order. It does not change the app's workspace.
+- Below-the-fold images load lazily and dimensions reserve space. Mobile navigation supports Escape and focus return. Icons are inline SVG rather than font-dependent arrows.
 
 ## Release verification
 
-Before publishing, check the landing page at 320, 360, 390, 768, 1024, 1440 and 1920 CSS pixels. Check the portfolio navigation at the same breakpoints and at 540/820 pixels. Verify the actual published URLs, no horizontal overflow, all images, in-page links, TestFlight CTA, contact mailto, keyboard tab navigation, mobile menu, FAQ, reduced motion and no-JavaScript fallback. For the 3D story, inspect scroll progress at 0%, 25%, 50%, 75% and 100%, confirm camera/screen/copy changes and sticky visibility, test keyboard rotation, simulate graphics-context loss, and verify zero draws during an idle sample. Confirm that the GitHub Pages deployment corresponds to the intended source commit.
+Before publishing, check the landing page at 320, 360, 390, 768, 1024, 1440 and 1920 CSS pixels, plus a short mobile viewport. Verify the actual published URLs, no horizontal overflow, all images, in-page links, TestFlight CTA, contact mailto, tool rearrangement, look selection, mobile menu, FAQ, reduced motion and no-JavaScript fallback. Inspect story progress at 0%, 23%, 45%, 64%, 86% and 100%; confirm video time, full-screen sticky visibility and one active chapter. Check paused idle behavior and operation with WebGL disabled and two reported cores. Confirm that the GitHub Pages deployment corresponds to the intended source commit.
+
+For diagnostics, the HTML `data-release` identifies the revision. The story's `data-renderer`, `data-story-mode` and optional `data-fallback-reason` distinguish loaded video, loading and a deliberate static fallback. These attributes are diagnostics only and do not add technical details to the product interface.
