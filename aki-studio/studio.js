@@ -73,10 +73,13 @@
   // CSS perspective remains a static, fully rendered scene without WebGL.
   // Only one coalesced frame is scheduled per pointer event; there is no idle loop.
   const stage = document.querySelector('.product-stage');
+  if (!motionQuery.matches && !navigator.connection?.saveData) {
+    import('./hero3d.js').then(module => module.mountPhone(stage)).catch(() => {});
+  }
   const pointerQuery = matchMedia('(hover: hover) and (pointer: fine)');
   const connection = navigator.connection;
   let stageVisible = false, pendingFrame = 0, point = null;
-  const canAnimate = () => !motionQuery.matches && pointerQuery.matches && !connection?.saveData && (!navigator.hardwareConcurrency || navigator.hardwareConcurrency > 2) && stageVisible && !document.hidden;
+  const canAnimate = () => !stage.classList.contains('webgl-ready') && !motionQuery.matches && pointerQuery.matches && !connection?.saveData && (!navigator.hardwareConcurrency || navigator.hardwareConcurrency > 2) && stageVisible && !document.hidden;
   const resetStage = () => {
     cancelAnimationFrame(pendingFrame); pendingFrame = 0; point = null;
     stage.style.setProperty('--tilt-x', '0deg');
