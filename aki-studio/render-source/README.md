@@ -19,6 +19,7 @@ With Node.js, Blender, Python and Pillow installed, run from this directory:
 
 ```sh
 npm ci
+python compose_screens.py
 blender -b --python blender_scene.py -- --size 1280
 node render.mjs
 python finish_assets.py
@@ -36,7 +37,9 @@ npx remotion studio src/index.ts --no-open
 
 ## Capture provenance
 
-The user-selected yellow-flower JPEG is identified by its SHA256 in `capture-provenance.json`. Four Adaptive Looks—Daylight, Original, Soft Portrait and Summit—were captured directly from Aki Studio's rendered canvas using the same input. “Original” is a named Look, not an unedited-baseline claim. No CSS grading or generated before/after results are used.
+The interactive preview uses five current native Aki Looks: Kurumi (aki.kurumi.v2), Shirayuki (aki.shirayuki.v2), Wakaba (aki.wakaba.v2), Kogane (aki.kogane.v2), and Shigure (aki.shigure.v2), plus Original without a Look. All six use the same user-selected JPEG. The unchanged native Android shader, Java adaptive analysis, and Look recipes were executed offline in an isolated WebGL2 rendering harness. This is not a physical-device capture or a claim of cross-platform parity. Each Look was rendered three times with identical hashes; an independent native CPU reference differed by no more than 1/255 per RGB channel. Lossless WebP retains the outputs. Only rendered pixels, IDs, names and provenance hashes are public; private source and recipes are excluded. See `look-provenance.json`.
+
+The hero interface textures were captured from the application's browser UI. Its original Daily collection thumbnails remain illustrative UI imagery, separate from the five native Aki previews. The screen is now a single opaque surface whose textures are composited before rendering. This removes coplanar transparent geometry, depth flicker and doubled labels during transitions.
 
 The phone uses an actual app capture. Floating controls are captures of the app's real interface, isolated against its neutral background so the photograph behind the glass is not baked into a detached panel. Histograms and Look thumbnails remain genuine app outputs. `panel-layout.json` records their measured screen positions. PRO badges were hidden in marketing captures at the user's request; no recording status indicator is present. The private app was not modified or copied here.
 

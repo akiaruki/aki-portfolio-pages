@@ -1691,3 +1691,33 @@ button {
     max-height: 190px;
   }
 }
+
+/* Six decoded, matching previews; stable geometry while loading. */
+.look-photo > img {
+  aspect-ratio: 736 / 414;
+}
+.look-choices button {
+  display: grid;
+  place-items: center;
+  gap: 2px;
+  min-height: 48px;
+  padding: 8px 13px;
+}
+.look-choices small {
+  font-size: 9px;
+  line-height: 1.4;
+  color: #acb6ae;
+}
+.look-controls > div:first-child {
+  flex-shrink: 0;
+}
+.look-status {
+  min-height: 18px;
+  margin: 12px auto 0;
+  max-width: 1040px;
+  font-size: 11px;
+  color: #c2ccc4;
+}
+.organizer-bottom {
+  justify-content: flex-end;
+}

@@ -1,0 +1,119 @@
+/* Public exhibition only. Photograph pixels and the publishing UI are unchanged. */
+body:not(.studio) {
+  --paper: #0c100e;
+  --ink: #edf0eb;
+  --muted: #a9b3ac;
+  --line: #303a33;
+  --accent: #d2e1d1;
+  --glass: #171d19ed;
+  --glass-border: #ffffff25;
+  --glass-shadow: 0 8px 28px #0003, inset 0 1px 0 #ffffff0c;
+  color-scheme: dark;
+}
+body:not(.studio) > header,
+body:not(.studio) .story-toolbar {
+  background: var(--glass);
+}
+body:not(.studio) > header nav a {
+  background: transparent;
+  color: var(--ink);
+  border-color: transparent;
+  box-shadow: none;
+}
+body:not(.studio) > header nav a:is(:hover, [aria-current="page"]) {
+  background: #28342c;
+  color: #edf0eb;
+}
+body:not(.studio)
+  :is(
+    .year-trigger,
+    .year-options,
+    .glass-control,
+    .close,
+    .lightbox-stage button,
+    .below-hero > a
+  ) {
+  background: #1b231e;
+  color: var(--ink);
+  border-color: var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+body:not(.studio)
+  :is(
+    .year-trigger:hover,
+    .year-trigger[aria-expanded="true"],
+    .year-option:hover,
+    .year-option:focus-visible,
+    .year-option[aria-selected="true"],
+    .glass-control:hover,
+    .glass-control[aria-pressed="true"],
+    .close:hover,
+    .lightbox-stage button:hover,
+    .below-hero > a:hover
+  ) {
+  background: #2b372e;
+  color: #f2f5ef;
+  border-color: #7b8c7c;
+}
+body:not(.studio)
+  :is(
+    nav a:hover,
+    .post-excerpt,
+    .entry-body,
+    .story-subtitle,
+    .story-introduction,
+    .lightbox-caption #lightbox-story
+  ) {
+  color: #bac5bc;
+}
+body:not(.studio)
+  :is(
+    .collection-photo-frame,
+    .glass-frame,
+    .collection-frame:not(.collection-grid)
+  ) {
+  background: linear-gradient(145deg, #202923, #141a16);
+  border-color: var(--line);
+  box-shadow: inset 0 1px 0 #ffffff09;
+}
+body:not(.studio)
+  :is(.photo-button, .post-image, .showcase-empty, .failed-image) {
+  background: #171e19;
+}
+body:not(.studio) :is(dialog, #story-view) {
+  background: var(--paper);
+  color: var(--ink);
+}
+body:not(.studio) #lightbox {
+  background: #0c100ef9;
+}
+body:not(.studio) dialog::backdrop {
+  background: #080c0bf5;
+}
+body:not(.studio) .sample-label {
+  color: #b6c7b5;
+  border-color: #52634f;
+}
+body:not(.studio) .preview-notice {
+  background: #243024;
+  color: #deead8;
+}
+body:not(.studio) .skip {
+  background: #edf0eb;
+  color: #121812;
+}
+body:not(.studio) .year-section::before {
+  background: #a3b7a2;
+  border-color: var(--paper);
+  box-shadow: 0 0 0 1px #677763;
+}
+body:not(.studio) :is(a, button, select, summary, .year-option):focus-visible {
+  outline: 2px solid #d2e1d1;
+  outline-offset: 4px;
+}
+@media (prefers-reduced-transparency: reduce) {
+  body:not(.studio) :is(header, .story-toolbar, .year-options, #lightbox) {
+    background: #141a16;
+    backdrop-filter: none;
+  }
+}

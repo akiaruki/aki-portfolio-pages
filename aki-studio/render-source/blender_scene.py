@@ -49,6 +49,7 @@ def image_material(name,file):
     m.node_tree.links.new(emission.outputs[0],output.inputs['Surface']);return m
 
 def visibility_material(m):
+    m.surface_render_method='BLENDED'
     nodes=m.node_tree.nodes;links=m.node_tree.links
     output=nodes.get('Material Output') or next(n for n in nodes if n.type=='OUTPUT_MATERIAL')
     shader=output.inputs['Surface'].links[0].from_socket
@@ -97,7 +98,22 @@ phone=group('Original unbranded handset')
 rounded('Phone body',2.40,5.20,.32,.18,black,phone)
 rim=rounded('Fine graphite side rail',2.398,5.198,.319,.145,edge,phone)
 front=rounded('Continuous thin black bezel',2.382,5.182,.311,.012,black,phone);front.location.z=.085
-picture('Actual app screen',2.354,5.154,.297,.093,image_material('App screen','screen-base.png'),phone)
+screen_mat=bpy.data.materials.new('Single composited opaque app screen');screen_mat.use_nodes=True
+nodes=screen_mat.node_tree.nodes;nodes.clear();links=screen_mat.node_tree.links
+output=nodes.new('ShaderNodeOutputMaterial');emission=nodes.new('ShaderNodeEmission')
+links.new(emission.outputs[0],output.inputs['Surface'])
+screen_weights=[];result=None
+for key in ['base','looks','curves','color','tools']:
+    texture=nodes.new('ShaderNodeTexImage');texture.image=bpy.data.images.load(str(ASSETS/('screen-'+key+'.png')))
+    weight=nodes.new('ShaderNodeValue');weight.outputs[0].default_value=1 if key=='base' else 0
+    multiply=nodes.new('ShaderNodeMixRGB');multiply.blend_type='MULTIPLY';multiply.inputs[0].default_value=1
+    links.new(texture.outputs['Color'],multiply.inputs[1]);links.new(weight.outputs[0],multiply.inputs[2]);screen_weights.append(weight.outputs[0])
+    if result is None:result=multiply.outputs[0]
+    else:
+        add=nodes.new('ShaderNodeMixRGB');add.blend_type='ADD';add.inputs[0].default_value=1
+        links.new(result,add.inputs[1]);links.new(multiply.outputs[0],add.inputs[2]);result=add.outputs[0]
+links.new(result,emission.inputs['Color'])
+picture('Actual app screen',2.354,5.154,.297,.093,screen_mat,phone)
 
 panels=[]
 panel_visibility=[]
@@ -115,15 +131,6 @@ for label,filename,ratio in [('Adaptive Looks','looks-panel.png',472/836),('Curv
     picture(label+' real interface',w,h,radius,.010,surface,parent)
     panel_visibility.append([visibility_material(backing),visibility_material(surface)])
     panels.append(parent)
-    # Register a flat copy to its measured app position on the display. The
-    # in-screen source crossfades away as its forward presentation becomes visible.
-    key={'Adaptive Looks':'looks','Curves':'curves','Color Mixer':'color','Your tools':'tools'}[label]
-    box=layout[key];sw=2.354*box['width']/430;sh=5.154*box['height']/932
-    source_mat=image_material(label+' in the display',filename)
-    source=picture(label+' source region',sw,sh,2.354*26/430,.095,source_mat,phone)
-    source.location.x=2.354*(box['x']+box['width']/2)/430-2.354/2
-    source.location.y=5.154/2-5.154*(box['y']+box['height']/2)/932
-    source_visibility.append(visibility_material(source_mat))
 
 def light(name,position,power,size,color):
     data=bpy.data.lights.new(name,'AREA');data.energy=power;data.shape='DISK';data.size=size;data.color=color
@@ -150,14 +157,17 @@ def at_frame(frame):
     # lifts toward the viewer, moves outward, holds, then reverses its path.
     # There is no depth traversal through the phone and no panel crossover.
     beats=[(.095,.180,.245,.325),(.325,.405,.460,.530),(.530,.610,.665,.735),(.735,.825,1.01,1.10)]
-    visible_amounts=[]
+    visible_amounts=[];source_amounts=[]
     for i,obj in enumerate(panels):
         start,arrive,depart,end=beats[i]
         u=min((p-start)/(arrive-start),(end-p)/(end-depart),1)
         amount=smooth(u)
         forward=smooth(u/.65)
         outward=smooth((u-.15)/.85)
-        visibility=smooth(u/.34)
+        # Clear the source before the detached surface becomes legible. This
+        # avoids duplicate labels, including when the visitor reverses scroll.
+        visibility=smooth((u-.15)/.25)
+        source_amounts.append(1-smooth(u/.15))
         visible_amounts.append(visibility)
         for child in obj.children:child.hide_render=visibility<.0001
         for socket in panel_visibility[i]:socket.default_value=visibility
@@ -166,10 +176,12 @@ def at_frame(frame):
     previous=3
     for start,current in [(.065,0),(.325,1),(.530,2),(.735,3)]:
         if p<start:break
-        transition=smooth((p-start)/.025)
-        weights=[0,0,0,0];weights[previous]=1-transition;weights[current]=transition
+        transition=(p-start)/.025
+        weights=[0,0,0,0];weights[previous]=1-smooth(transition/.45);weights[current]=smooth((transition-.55)/.45)
         previous=current
-    for i,socket in enumerate(source_visibility):socket.default_value=weights[i]*(1-visible_amounts[i])
+    amounts=[weights[i]*source_amounts[i] for i in range(4)]
+    screen_weights[0].default_value=1-sum(amounts)
+    for i,amount in enumerate(amounts):screen_weights[i+1].default_value=amount
     camera.location=(0,.02,12.1)
     camera.rotation_euler=(0,0,0)
 

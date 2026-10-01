@@ -3,7 +3,7 @@
   "fps": 60,
   "bezel_side_units": 0.023,
   "body_width_units": 2.4,
-  "min_depth_clearance": 0.4931509792804718,
+  "min_depth_clearance": 0.6091891378164291,
   "collision_frames": 0,
   "clipped_frames": 0,
   "maximum_visible_panels": 1,
@@ -240,33 +240,33 @@
     },
     {
       "frame": 46,
-      "panel": "Adaptive Looks",
-      "depth_clearance": 0.4931509792804718
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 47,
-      "panel": "Adaptive Looks",
-      "depth_clearance": 0.5052312016487122
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 48,
-      "panel": "Adaptive Looks",
-      "depth_clearance": 0.519229531288147
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 49,
-      "panel": "Adaptive Looks",
-      "depth_clearance": 0.5361076295375824
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 50,
-      "panel": "Adaptive Looks",
-      "depth_clearance": 0.5565183013677597
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 51,
-      "panel": "Adaptive Looks",
-      "depth_clearance": 0.5808362811803818
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 52,
@@ -760,63 +760,63 @@
     },
     {
       "frame": 150,
-      "panel": "Adaptive Looks",
-      "depth_clearance": 0.6929376386106014
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 151,
-      "panel": "Adaptive Looks",
-      "depth_clearance": 0.6755820773541927
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 152,
-      "panel": "Adaptive Looks",
-      "depth_clearance": 0.6631216667592525
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 153,
-      "panel": "Adaptive Looks",
-      "depth_clearance": 0.6551945470273495
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 154,
-      "panel": "Adaptive Looks",
-      "depth_clearance": 0.651098158210516
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 155,
-      "panel": "Adaptive Looks",
-      "depth_clearance": 0.64974769577384
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 156,
-      "panel": "Curves",
-      "depth_clearance": 0.6480848453938961
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 157,
-      "panel": "Curves",
-      "depth_clearance": 0.6488071940839291
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 158,
-      "panel": "Curves",
-      "depth_clearance": 0.6517963670194149
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 159,
-      "panel": "Curves",
-      "depth_clearance": 0.6582797430455685
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 160,
-      "panel": "Curves",
-      "depth_clearance": 0.6690882109105587
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 161,
-      "panel": "Curves",
-      "depth_clearance": 0.6846976540982723
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 162,
@@ -1255,28 +1255,28 @@
     },
     {
       "frame": 249,
-      "panel": "Curves",
-      "depth_clearance": 0.6891961358487606
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 250,
-      "panel": "Curves",
-      "depth_clearance": 0.6703989170491695
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 251,
-      "panel": "Curves",
-      "depth_clearance": 0.6578999422490597
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 252,
-      "panel": "Curves",
-      "depth_clearance": 0.650999691337347
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 253,
-      "panel": "Curves",
-      "depth_clearance": 0.6483898423612118
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 254,
@@ -1285,28 +1285,28 @@
     },
     {
       "frame": 255,
-      "panel": "Color Mixer",
-      "depth_clearance": 0.6496947072446346
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 256,
-      "panel": "Color Mixer",
-      "depth_clearance": 0.6521335504949093
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 257,
-      "panel": "Color Mixer",
-      "depth_clearance": 0.6578614376485348
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 258,
-      "panel": "Color Mixer",
-      "depth_clearance": 0.6677837632596493
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 259,
-      "panel": "Color Mixer",
-      "depth_clearance": 0.6824427507817745
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 260,
@@ -1745,28 +1745,28 @@
     },
     {
       "frame": 347,
-      "panel": "Color Mixer",
-      "depth_clearance": 0.6948024295270443
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 348,
-      "panel": "Color Mixer",
-      "depth_clearance": 0.6747311614453793
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 349,
-      "panel": "Color Mixer",
-      "depth_clearance": 0.661034133285284
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 350,
-      "panel": "Color Mixer",
-      "depth_clearance": 0.6531207226216793
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 351,
-      "panel": "Color Mixer",
-      "depth_clearance": 0.6498067639768124
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 352,
@@ -1775,33 +1775,33 @@
     },
     {
       "frame": 353,
-      "panel": "Your tools",
-      "depth_clearance": 0.6491471789777279
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 354,
-      "panel": "Your tools",
-      "depth_clearance": 0.6505272053182125
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 355,
-      "panel": "Your tools",
-      "depth_clearance": 0.6541275046765804
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 356,
-      "panel": "Your tools",
-      "depth_clearance": 0.6607119701802731
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 357,
-      "panel": "Your tools",
-      "depth_clearance": 0.670804288238287
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 358,
-      "panel": "Your tools",
-      "depth_clearance": 0.6847105287015438
+      "panel": null,
+      "depth_clearance": null
     },
     {
       "frame": 359,

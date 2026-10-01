@@ -1,0 +1,91 @@
+{
+  "sourceSHA256": "0ef0937c7fe743714af795637738f62b2877e66773069e1e79e141825066f597",
+  "backend": {
+    "renderer": "WebKit WebGL",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)"
+  },
+  "width": 736,
+  "height": 414,
+  "looks": [
+    {
+      "id": "aki.kurumi.v2",
+      "name": "èƒ¡æ¡ƒ",
+      "romanized": "Kurumi",
+      "slug": "kurumi",
+      "sha256": "23da522bf5fd580e452e4a59bc5a3e08c36ec0cce30466399387ae537815b980",
+      "repeatMatches": 3,
+      "recipeSHA256": "a9144b8efb4213da81888f4fc2852356a0ec93f52c01000387fc4b70db9be1cd"
+    },
+    {
+      "id": "aki.shirayuki.v2",
+      "name": "ç™½é›ª",
+      "romanized": "Shirayuki",
+      "slug": "shirayuki",
+      "sha256": "272e2a2be265340f5b29c21ed1f6220e4c4e578b668efead0f97a4abc62f45ca",
+      "repeatMatches": 3,
+      "recipeSHA256": "de778ad59ad1935a95531e30649da7a47071233a5ad6cd3c98b382fbb5a42109"
+    },
+    {
+      "id": "aki.wakaba.v2",
+      "name": "è‹¥è‘‰",
+      "romanized": "Wakaba",
+      "slug": "wakaba",
+      "sha256": "25298721a5e7a4c160c77f0d05941d0fded669133091d0dc792829386a3957b1",
+      "repeatMatches": 3,
+      "recipeSHA256": "fa30407ecc86791fb98e38dd4c286da451b10bebbfbf4a3e4ff6b69884aa5319"
+    },
+    {
+      "id": "aki.kogane.v2",
+      "name": "é»„é‡‘",
+      "romanized": "Kogane",
+      "slug": "kogane",
+      "sha256": "0c75332b630ad55eb96b31bff638c52d0be0e47896a5a5e78b154ad9eb060b8f",
+      "repeatMatches": 3,
+      "recipeSHA256": "ce74cb77cb573d4535c972dcf8f8f511883c016689025aa94cbd22e73d7af0e2"
+    },
+    {
+      "id": "aki.shigure.v2",
+      "name": "æ™‚é›¨",
+      "romanized": "Shigure",
+      "slug": "shigure",
+      "sha256": "7e832e526fe9dd6eeb848ae1731e62a82926d6db1b2eb6b5e3e9122e2ecc0b77",
+      "repeatMatches": 3,
+      "recipeSHA256": "ef85d0ad083ee825a0b9f6087212e4457a5032df13d164ae949a7f8893acc3b8"
+    }
+  ],
+  "method": "Unchanged native Android GPU shader and Java adaptive analysis; offline WebGL2 execution, not a physical-device capture.",
+  "referenceComparison": {
+    "kurumi": {
+      "meanAbsoluteError": 0.0806290695232094,
+      "maxError": 1,
+      "p99": 1
+    },
+    "shirayuki": {
+      "meanAbsoluteError": 0.08625529475600364,
+      "maxError": 1,
+      "p99": 1
+    },
+    "wakaba": {
+      "meanAbsoluteError": 0.08260147553035077,
+      "maxError": 1,
+      "p99": 1
+    },
+    "kogane": {
+      "meanAbsoluteError": 0.08598618112441364,
+      "maxError": 1,
+      "p99": 1
+    },
+    "shigure": {
+      "meanAbsoluteError": 0.07879669012112302,
+      "maxError": 1,
+      "p99": 1
+    }
+  },
+  "original": "Same source photograph without a Look",
+  "sourceCodeHashes": {
+    "renderer.frag": "0dc1d10cfb2fef460ca7ac729816abb121558ff83d16fe891df76aa1caeb5eab",
+    "AkiLookR1.java": "e49be56d77555f3323c3ab8271685340b4eb57a22b71c08bbc8ae5502ce339d0",
+    "AkiLookAnalysis.java": "46a77bf174f4e673c83c82f1bb1554dd280b06e41df1c0030710ff11ffc0decf",
+    "AkiLookGrain.java": "1671e65bacc3863a5e8c35567853cdedff71e950d83c26148f24ec29e9f3c623"
+  }
+}

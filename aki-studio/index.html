@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-release="20261001-refined-1">
+<html lang="en" data-release="20261001-refined-2">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,7 +23,7 @@
     />
     <meta
       property="og:image"
-      content="https://akiaruki.github.io/aki-portfolio-pages/aki-studio/assets/story-v2-1.webp"
+      content="https://akiaruki.github.io/aki-portfolio-pages/aki-studio/assets/story-v3-1.webp"
     />
     <meta
       property="og:image:alt"
@@ -36,10 +36,10 @@
     />
     <title>Aki Studio — Your photograph. Still yours.</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="preload" as="image" href="assets/story-v2-0.webp" />
-    <link rel="stylesheet" href="studio.css?v=20261001-refined-1" />
-    <script src="studio.js?v=20261001-refined-1" defer></script>
-    <script src="tools-demo.js?v=20261001-refined-1" defer></script>
+    <link rel="preload" as="image" href="assets/story-v3-0.webp" />
+    <link rel="stylesheet" href="studio.css?v=20261001-refined-2" />
+    <script src="studio.js?v=20261001-refined-2" defer></script>
+    <script src="tools-demo.js?v=20261001-refined-2" defer></script>
     <noscript
       ><style>
         .look-choices,
@@ -114,7 +114,7 @@
           <div class="story-render" aria-hidden="true">
             <img
               id="story-poster"
-              src="assets/story-v2-0.webp"
+              src="assets/story-v3-0.webp"
               width="1080"
               height="1080"
               alt=""
@@ -157,7 +157,7 @@
               </div>
               <img
                 class="chapter-still"
-                src="assets/story-v2-0.webp"
+                src="assets/story-v3-0.webp"
                 width="1080"
                 height="1080"
                 alt="Aki Studio on an original black handset, with a yellow flower photograph"
@@ -168,9 +168,9 @@
                 <p class="eyebrow">01 / Adaptive Looks</p>
                 <h2>A feeling.<br /><span>Made your own.</span></h2>
                 <p class="chapter-description">
-                  Find a starting point that feels right. Choose an Adaptive
-                  Look, adjust its strength, then shape the details around your
-                  photograph.
+                  Adaptive Looks respond to the tone and color in your
+                  photograph. Choose a direction, tune its strength, then make
+                  the details your own.
                 </p>
                 <a class="text-link" href="#looks"
                   >See what a look can do
@@ -180,7 +180,7 @@
               </div>
               <img
                 class="chapter-still"
-                src="assets/story-v2-1.webp"
+                src="assets/story-v3-1.webp"
                 width="1080"
                 height="1080"
                 alt="The clean Adaptive Looks panel floating forward from the app"
@@ -202,7 +202,7 @@
               </div>
               <img
                 class="chapter-still"
-                src="assets/story-v2-2.webp"
+                src="assets/story-v3-2.webp"
                 width="1080"
                 height="1080"
                 alt="Aki Studio Curves controls in a floating glass panel"
@@ -224,7 +224,7 @@
               </div>
               <img
                 class="chapter-still"
-                src="assets/story-v2-3.webp"
+                src="assets/story-v3-3.webp"
                 width="1080"
                 height="1080"
                 alt="Aki Studio Color Mixer showing individual color controls"
@@ -247,7 +247,7 @@
               </div>
               <img
                 class="chapter-still"
-                src="assets/story-v2-4.webp"
+                src="assets/story-v3-4.webp"
                 width="1080"
                 height="1080"
                 alt="Aki Studio's editing tools floating in a clean, unbadged panel"
@@ -299,10 +299,10 @@
           <div class="look-photo">
             <img
               id="look-result"
-              src="assets/look-v2-original.webp"
-              alt="Yellow flower photograph rendered in Aki Studio with the Original look"
-              width="804"
-              height="454"
+              src="assets/look-v3-original.webp"
+              alt="Original yellow flower photograph, without an Adaptive Look"
+              width="736"
+              height="414"
               loading="lazy"
             /><span class="photo-credit">Your photograph. A new direction.</span
             ><span class="look-name" id="look-name">Original</span>
@@ -310,33 +310,74 @@
           <div class="look-controls">
             <div>
               <span class="eyebrow">Choose a direction</span>
-              <p>Actual Aki Studio previews</p>
+              <p>Five Looks from the アキ collection</p>
             </div>
             <div
               class="look-choices"
               role="group"
               aria-label="Choose an Adaptive Look preview"
             >
-              <button type="button" data-look="daylight" aria-pressed="false">
-                Daylight</button
-              ><button type="button" data-look="original" aria-pressed="true">
-                Original</button
-              ><button
+              <button
                 type="button"
-                data-look="soft-portrait"
+                data-look="original"
+                data-name="Original"
+                aria-pressed="true"
+              >
+                <span>Original</span>
+              </button>
+              <button
+                type="button"
+                data-look="kurumi"
+                data-name="胡桃 / Kurumi"
                 aria-pressed="false"
               >
-                Soft Portrait</button
-              ><button type="button" data-look="summit" aria-pressed="false">
-                Summit
+                <span lang="ja">胡桃</span><small>Kurumi</small>
+              </button>
+              <button
+                type="button"
+                data-look="shirayuki"
+                data-name="白雪 / Shirayuki"
+                aria-pressed="false"
+              >
+                <span lang="ja">白雪</span><small>Shirayuki</small>
+              </button>
+              <button
+                type="button"
+                data-look="wakaba"
+                data-name="若葉 / Wakaba"
+                aria-pressed="false"
+              >
+                <span lang="ja">若葉</span><small>Wakaba</small>
+              </button>
+              <button
+                type="button"
+                data-look="kogane"
+                data-name="黄金 / Kogane"
+                aria-pressed="false"
+              >
+                <span lang="ja">黄金</span><small>Kogane</small>
+              </button>
+              <button
+                type="button"
+                data-look="shigure"
+                data-name="時雨 / Shigure"
+                aria-pressed="false"
+              >
+                <span lang="ja">時雨</span><small>Shigure</small>
               </button>
             </div>
           </div>
         </div>
+        <p
+          id="look-status"
+          class="look-status"
+          aria-live="polite"
+          role="status"
+        ></p>
         <div class="look-footnote">
           <p>
-            Each preview was rendered in Aki Studio from the same photograph.
-            Your image will have its own result.
+            Each preview uses Aki Studio’s native Look renderer on the same
+            photograph. Your image will have its own result.
           </p>
           <a class="text-link" href="#beta"
             >Find your starting point
@@ -394,7 +435,7 @@
           ></noscript>
         </div>
         <div class="organizer-bottom">
-          <p id="organizer-status" aria-live="polite">
+          <p id="organizer-status" class="sr-only" aria-live="polite">
             Interactive website demo. Find your rhythm.
           </p>
           <button class="reset-order" type="button" id="reset-order">

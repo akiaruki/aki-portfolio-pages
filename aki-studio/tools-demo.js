@@ -194,6 +194,7 @@
       );
     }
     labels();
+    if (mode === "keyboard") nodes.get(id).focus({ preventScroll: true });
     schedule();
   };
   const choose = (index, requestFrame = true) => {
@@ -283,19 +284,20 @@
       s.y -= to.top - from.top;
       s.tx = 0;
       s.ty = 0;
+      // Apply the rebased transform in the same task as the DOM reorder.
+      // Waiting for the next frame briefly applies the old offset twice.
+      node.style.transform = `translate3d(${s.x}px,${s.y}px,0)`;
     }
     synchronize();
     if (a.ghost) {
       const to = a.slots[order.indexOf(a.id)];
-      const velocity =
-        performance.now() - a.pointTime < 80 ? a.velocity : { x: 0, y: 0 };
       settling = {
         id: a.id,
         ghost: a.ghost,
         x: a.gx,
         y: a.gy,
-        vx: velocity.x,
-        vy: velocity.y,
+        vx: 0,
+        vy: 0,
         tx: to.left,
         ty: to.top - grid.scrollTop,
       };
@@ -323,6 +325,7 @@
       start(id, "drag", point);
       active.kind = kind;
       active.identifier = identifier;
+      if (kind === "pointer") grid.setPointerCapture(identifier);
     }, 420);
     pending = state;
   };
@@ -331,9 +334,17 @@
       pending &&
       Math.hypot(point.x - pending.point.x, point.y - pending.point.y) > 8
     ) {
+      const state = pending;
       clearPending();
-      suppress();
-      return;
+      if (state.kind === "pointer") {
+        start(state.id, "drag", state.point);
+        active.kind = state.kind;
+        active.identifier = state.identifier;
+        grid.setPointerCapture(state.identifier);
+      } else {
+        suppress();
+        return;
+      }
     }
     const a = active;
     if (!a || a.mode !== "drag") return;
@@ -351,7 +362,15 @@
     clearPending();
     if (active?.mode === "drag") {
       suppress();
-      finish(!cancel);
+      const { point, bounds, kind, identifier } = active;
+      const inside =
+        point.x >= bounds.left &&
+        point.x <= bounds.right &&
+        point.y >= bounds.top &&
+        point.y <= bounds.bottom;
+      finish(!cancel && inside);
+      if (kind === "pointer" && grid.hasPointerCapture(identifier))
+        grid.releasePointerCapture(identifier);
     }
   };
   for (const [id, name] of catalog) {
@@ -415,10 +434,26 @@
     });
   }
   synchronize();
+  // Moving grid cells can overlap during a row wrap. Choose the nearest
+  // visible tool center instead of a neighboring cell's transparent padding.
+  const toolAt = (x, y) => {
+    let picked = null,
+      distance = Infinity;
+    for (const node of nodes.values()) {
+      if (node.classList.contains("is-drag-source")) continue;
+      const r = node.getBoundingClientRect();
+      const d = Math.hypot(x - r.left - r.width / 2, y - r.top - r.height / 2);
+      if (d < distance) {
+        picked = node;
+        distance = d;
+      }
+    }
+    return picked;
+  };
   grid.addEventListener("pointerdown", (event) => {
     if (event.pointerType === "touch" || event.button !== 0 || !event.isPrimary)
       return;
-    const node = event.target.closest("[data-tool]");
+    const node = toolAt(event.clientX, event.clientY);
     if (node)
       begin(
         node.dataset.tool,
@@ -441,10 +476,18 @@
     { passive: true },
   );
   window.addEventListener("pointerup", (event) => {
-    if (event.pointerType !== "touch") end(false);
+    if (
+      event.pointerType !== "touch" &&
+      event.pointerId === (active?.identifier ?? pending?.identifier)
+    )
+      end(false);
   });
   window.addEventListener("pointercancel", (event) => {
-    if (event.pointerType !== "touch") end(true);
+    if (
+      event.pointerType !== "touch" &&
+      event.pointerId === (active?.identifier ?? pending?.identifier)
+    )
+      end(true);
   });
   // A non-passive gate is installed before contact, and cancels only moves
   // following a stationary pickup. Changing touch-action after hold cannot
@@ -456,8 +499,8 @@
         end(true);
         return;
       }
-      const node = event.target.closest("[data-tool]"),
-        touch = event.changedTouches[0];
+      const touch = event.changedTouches[0],
+        node = toolAt(touch.clientX, touch.clientY);
       if (node)
         begin(
           node.dataset.tool,

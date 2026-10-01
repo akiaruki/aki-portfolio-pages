@@ -80,11 +80,30 @@
   };
   const phaseAt = (p) =>
     p < 0.13 ? 0 : p < 0.325 ? 1 : p < 0.53 ? 2 : p < 0.735 ? 3 : 4;
+  const presentChapter = (time) => {
+    const phase = phaseAt(time / Math.max(1 / 60, video.duration - 1 / 60));
+    if (phase !== activeChapter) {
+      activeChapter = phase;
+      chapters.forEach((chapter, index) => {
+        const active = index === phase;
+        chapter.classList.toggle("is-active", active);
+        chapter.inert = !active;
+        chapter.setAttribute("aria-hidden", String(!active));
+      });
+      chapterButtons.forEach((button, index) => {
+        if (index === phase) button.setAttribute("aria-current", "step");
+        else button.removeAttribute("aria-current");
+      });
+      poster.src = `assets/story-v3-${phase}.webp`;
+    }
+    story.dataset.chapter = String(phase);
+  };
   const observePresentation = () => {
     if (!presentedFrame && video.requestVideoFrameCallback) {
       presentedFrame = video.requestVideoFrameCallback((_, metadata) => {
         presentedFrame = 0;
         story.dataset.presentedTime = metadata.mediaTime.toFixed(4);
+        presentChapter(metadata.mediaTime);
       });
     }
   };
@@ -128,25 +147,12 @@
       progressVelocity = 0;
     }
     const progress = Math.max(0, Math.min(1, displayProgress));
-    const phase = phaseAt(progress);
-    if (phase !== activeChapter) {
-      activeChapter = phase;
-      chapters.forEach((chapter, index) => {
-        const active = index === phase;
-        chapter.classList.toggle("is-active", active);
-        chapter.inert = !active;
-        chapter.setAttribute("aria-hidden", String(!active));
-      });
-      chapterButtons.forEach((button, index) => {
-        if (index === phase) button.setAttribute("aria-current", "step");
-        else button.removeAttribute("aria-current");
-      });
-      poster.src = `assets/story-v2-${phase}.webp`;
-    }
     story.dataset.progress = progress.toFixed(3);
     story.dataset.targetProgress = targetProgress.toFixed(3);
-    story.dataset.chapter = String(phase);
-    targetTime = progress * Math.max(0, video.duration - 1 / 60);
+    targetTime = Math.min(
+      video.duration - 1 / 60,
+      (Math.round(progress * (video.duration * 60 - 1)) + 0.25) / 60,
+    );
     if (
       !video.seeking &&
       video.readyState >= 2 &&
@@ -161,7 +167,11 @@
     if (enabled && visible && !document.hidden && !frame)
       frame = requestAnimationFrame(draw);
   };
-  video.addEventListener("seeked", schedule);
+  video.addEventListener("seeked", () => {
+    if (!video.requestVideoFrameCallback && enabled)
+      presentChapter(video.currentTime);
+    schedule();
+  });
   video.addEventListener("error", () => {
     if (
       !alternateTried &&
@@ -191,6 +201,7 @@
     story.querySelector(".story-render").classList.add("video-ready");
     dirty = true;
     activeChapter = -1;
+    presentChapter(video.currentTime);
     displayProgress = null;
     latestY = scrollY;
     observePresentation();
@@ -213,7 +224,7 @@
     alternateTried = format === "webm";
     story.dataset.renderer = "loading-rendered-video";
     video.preload = "auto";
-    video.src = `assets/aki-story-v2-${matchMedia("(max-width:900px)").matches ? "mobile" : "desktop"}.${format}`;
+    video.src = `assets/aki-story-v3-${matchMedia("(max-width:900px)").matches ? "mobile" : "desktop"}.${format}`;
     video.load();
   };
   if ("requestIdleCallback" in window)
@@ -262,9 +273,11 @@
   });
   motion.addEventListener("change", () => {
     if (preference()) fallback(preference());
+    else if (!enabled) start();
   });
   connection?.addEventListener("change", () => {
     if (preference()) fallback(preference());
+    else if (!enabled) start();
   });
   chapterButtons.forEach((button) =>
     button.addEventListener("click", () => {
@@ -281,24 +294,55 @@
     }),
   );
 
-  // Every look result is a separate image captured from the real application.
+  // Pre-rendered using the application's native Look recipes and renderer.
+  // Decode offscreen before committing a matching image, label and selection.
   const lookImage = document.querySelector("#look-result"),
-    lookName = document.querySelector("#look-name");
+    lookName = document.querySelector("#look-name"),
+    lookStatus = document.querySelector("#look-status"),
+    lookExperience = document.querySelector(".look-experience");
   const lookButtons = [...document.querySelectorAll("[data-look]")];
   let lookRequest = 0;
+  const decodedLooks = new Map();
+  const loadLook = (slug) => {
+    if (!decodedLooks.has(slug)) {
+      const image = new Image();
+      image.src = `assets/look-v3-${slug}.webp`;
+      const ready = image
+        .decode()
+        .then(() => image)
+        .catch((error) => {
+          decodedLooks.delete(slug);
+          throw error;
+        });
+      decodedLooks.set(slug, ready);
+    }
+    return decodedLooks.get(slug);
+  };
   const selectLook = async (button) => {
     const request = ++lookRequest;
-    lookButtons.forEach((b) =>
-      b.setAttribute("aria-pressed", String(b === button)),
-    );
-    lookImage.style.opacity = ".45";
-    lookImage.src = `assets/look-v2-${button.dataset.look}.webp`;
-    lookImage.alt = `Yellow flower photograph rendered in Aki Studio with the ${button.textContent} look`;
-    lookName.textContent = button.textContent;
+    const name = button.dataset.name;
+    lookExperience.setAttribute("aria-busy", "true");
+    lookStatus.textContent = `Loading ${name}…`;
     try {
-      await lookImage.decode();
-    } catch {}
-    if (request === lookRequest) lookImage.style.opacity = "1";
+      const image = await loadLook(button.dataset.look);
+      if (request !== lookRequest) return;
+      lookImage.src = image.src;
+      lookImage.alt =
+        button.dataset.look === "original"
+          ? "Original yellow flower photograph, without an Adaptive Look"
+          : `Yellow flower photograph with Aki Studio's ${name} Adaptive Look`;
+      lookName.textContent = name;
+      lookButtons.forEach((b) =>
+        b.setAttribute("aria-pressed", String(b === button)),
+      );
+      lookStatus.textContent = "";
+    } catch {
+      if (request !== lookRequest) return;
+      lookStatus.textContent = `${name} couldn’t load. Select it again to retry.`;
+    } finally {
+      if (request === lookRequest)
+        lookExperience.setAttribute("aria-busy", "false");
+    }
   };
   lookButtons.forEach((button) => {
     button.addEventListener("click", () => selectLook(button));
