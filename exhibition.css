@@ -175,3 +175,7 @@ button.collection-photo-frame{width:100%;border-radius:0;cursor:pointer;appearan
   .story-toolbar{gap:12px}
   .story-toolbar .wordmark{flex-shrink:0}
 }
+
+/* Aki Studio entry: retain the existing navigation at narrower widths. */
+@media(max-width:1000px){body:not(.studio)>header{grid-template-columns:auto 1fr;gap:10px}.header-label{display:none}body:not(.studio)>header>nav{flex-wrap:wrap;min-width:0;gap:4px}body:not(.studio)>header nav a{font-size:11px;padding-inline:10px;white-space:nowrap}.year-trigger{font-size:11px;padding-inline:10px}.year-picker{margin-left:auto}}
+@media(max-width:540px){body:not(.studio)>header{grid-template-columns:1fr auto;padding:9px 12px}body:not(.studio)>header>.wordmark{grid-column:1;grid-row:1}body:not(.studio)>header>nav{grid-column:1/-1;grid-row:2;justify-content:space-between;gap:2px}.year-picker{position:absolute;right:12px;top:9px}body:not(.studio)>header nav a{font-size:10px;padding-inline:10px}.year-trigger{min-height:36px;padding-block:6px}body:not(.studio)>header .year-options{top:calc(100% + 8px)}}
