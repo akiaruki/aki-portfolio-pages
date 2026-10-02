@@ -6,3 +6,5 @@ build/
 *.blend
 *.blend1
 .cache/
+public/frames-v4/
+toolbar-projection.json

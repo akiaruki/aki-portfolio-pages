@@ -60,10 +60,16 @@
       : connection?.saveData
         ? "data-saving"
         : "";
-  const fallback = (reason) => {
-    enabled = false;
+  const suspendProgress = () => {
     cancelAnimationFrame(frame);
     frame = 0;
+    displayProgress = null;
+    progressVelocity = 0;
+    lastTick = 0;
+  };
+  const fallback = (reason) => {
+    enabled = false;
+    suspendProgress();
     video.pause();
     if (presentedFrame && video.cancelVideoFrameCallback)
       video.cancelVideoFrameCallback(presentedFrame);
@@ -94,7 +100,7 @@
         if (index === phase) button.setAttribute("aria-current", "step");
         else button.removeAttribute("aria-current");
       });
-      poster.src = `assets/story-v3-${phase}.webp`;
+      poster.src = `assets/story-v4-${phase}.webp`;
     }
     story.dataset.chapter = String(phase);
   };
@@ -102,6 +108,7 @@
     if (!presentedFrame && video.requestVideoFrameCallback) {
       presentedFrame = video.requestVideoFrameCallback((_, metadata) => {
         presentedFrame = 0;
+        if (!enabled) return;
         story.dataset.presentedTime = metadata.mediaTime.toFixed(4);
         presentChapter(metadata.mediaTime);
       });
@@ -130,10 +137,15 @@
     // One reversible, critically damped progress signal drives the entire
     // presentation. Native page scrolling is never intercepted. Velocity is
     // retained when the visitor changes direction; work stops at rest.
-    if (displayProgress === null) displayProgress = targetProgress;
+    if (displayProgress === null) {
+      displayProgress = targetProgress;
+      lastTick = now;
+    }
     const dt = Math.min(0.05, Math.max(0.001, (now - lastTick) / 1000));
     lastTick = now;
-    const w = 32,
+    // A shorter response follows native scrolling more closely while retaining
+    // a continuous, reversible signal. Decoder work remains one seek at a time.
+    const w = 48,
       delta = displayProgress - targetProgress;
     const c = progressVelocity + w * delta,
       decay = Math.exp(-w * dt);
@@ -202,7 +214,7 @@
     dirty = true;
     activeChapter = -1;
     presentChapter(video.currentTime);
-    displayProgress = null;
+    suspendProgress();
     latestY = scrollY;
     observePresentation();
     schedule();
@@ -224,7 +236,7 @@
     alternateTried = format === "webm";
     story.dataset.renderer = "loading-rendered-video";
     video.preload = "auto";
-    video.src = `assets/aki-story-v3-${matchMedia("(max-width:900px)").matches ? "mobile" : "desktop"}.${format}`;
+    video.src = `assets/aki-story-v4-${matchMedia("(max-width:900px)").matches ? "mobile" : "desktop"}.${format}`;
     video.load();
   };
   if ("requestIdleCallback" in window)
@@ -255,18 +267,17 @@
     new IntersectionObserver(
       (entries) => {
         visible = entries[0].isIntersecting;
-        if (visible) schedule();
-        else {
-          cancelAnimationFrame(frame);
-          frame = 0;
-        }
+        if (visible) {
+          latestY = scrollY;
+          schedule();
+        } else suspendProgress();
       },
       { threshold: 0 },
     ).observe(viewport);
   document.addEventListener("visibilitychange", () => {
-    cancelAnimationFrame(frame);
-    frame = 0;
+    suspendProgress();
     if (!document.hidden) {
+      latestY = scrollY;
       dirty = true;
       schedule();
     }

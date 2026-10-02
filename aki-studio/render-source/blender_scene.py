@@ -18,7 +18,7 @@ args.add_argument('--engine',choices=['CYCLES','BLENDER_EEVEE'],default='BLENDER
 cfg=args.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
 ROOT=Path(__file__).resolve().parent
 ASSETS=ROOT/'public'/'textures'
-OUT=ROOT/'public'/'frames-v2';OUT.mkdir(parents=True,exist_ok=True)
+OUT=ROOT/'public'/'frames-v4';OUT.mkdir(parents=True,exist_ok=True)
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
 scene=bpy.context.scene
 scene.render.engine=cfg.engine
@@ -205,6 +205,16 @@ def geometry_audit():
     print('AKI_GEOMETRY_AUDIT',payload['min_depth_clearance'])
 
 geometry_audit()
+
+from bpy_extras.object_utils import world_to_camera_view
+projection=[]
+for frame in range(480):
+    at_frame(frame);bpy.context.view_layer.update()
+    top=5.154/2;bottom=top-5.154*100/1864
+    coords=[world_to_camera_view(scene,camera,phone.matrix_world@Vector((x,y,.093))) for x in [-2.354/2,2.354/2] for y in [bottom,top]]
+    bounds=[math.floor(min(v.x for v in coords)*cfg.size)-4,math.floor(min(1-v.y for v in coords)*cfg.size)-4,math.ceil(max(v.x for v in coords)*cfg.size)+4,math.ceil(max(1-v.y for v in coords)*cfg.size)+4]
+    projection.append({'frame':frame,'bounds':bounds})
+(ROOT/'toolbar-projection.json').write_text(json.dumps(projection,indent=2))
 
 at_frame(cfg.frame)
 bpy.ops.wm.save_as_mainfile(filepath=str(ROOT/'aki-studio-scene.blend'))

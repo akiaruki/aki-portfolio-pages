@@ -1,0 +1,112 @@
+{
+  "passed": true,
+  "scope": "Four final hero videos and five posters; no website behavior or physical-device smoothness claim",
+  "toolbar": "Actual app header recaptured on black; original icon arrangement and disabled controls retained",
+  "timingUnchanged": true,
+  "geometryAndPixelsOutsideToolbarPreserved": true,
+  "sourceFrameInvarianceBeforeCompression": true,
+  "stationaryHeaderQuantizationMaximum": 1,
+  "compositionEvidence": "render-source/toolbar-composition-evidence.json",
+  "compositionEvidenceSHA256": "a3812b8114ab12c0fe141c731081b022a3189d03e8cacb05314c2affae6b3bed",
+  "videos": [
+    {
+      "name": "aki-story-v4-desktop.mp4",
+      "bytes": 2585624,
+      "sha256": "893072d83fce83c3bcc22d826b7c70c84af87d12bc64b7ede2049ebc34946721",
+      "codec": "h264",
+      "width": 1080,
+      "height": 1080,
+      "fps": 60,
+      "frames": 480,
+      "duration": 8,
+      "keyframes": 80,
+      "maximumKeyframeIntervalFrames": 6
+    },
+    {
+      "name": "aki-story-v4-desktop.webm",
+      "bytes": 2326153,
+      "sha256": "56fecb9efd813a99f806e9a85a49ca760f2d648e2d910812c70193372de7bb95",
+      "codec": "vp9",
+      "width": 1080,
+      "height": 1080,
+      "fps": 60,
+      "frames": 480,
+      "duration": 8,
+      "keyframes": 80,
+      "maximumKeyframeIntervalFrames": 6
+    },
+    {
+      "name": "aki-story-v4-mobile.mp4",
+      "bytes": 1518609,
+      "sha256": "65b91410cae5992f470ddbf549560827b7424cf91e2422ebf52272c46d9b03df",
+      "codec": "h264",
+      "width": 720,
+      "height": 720,
+      "fps": 60,
+      "frames": 480,
+      "duration": 8,
+      "keyframes": 80,
+      "maximumKeyframeIntervalFrames": 6
+    },
+    {
+      "name": "aki-story-v4-mobile.webm",
+      "bytes": 1399424,
+      "sha256": "2d178cd3e6f8a28ecb790470ad5caf5d376f226b9e130d07a6ed27fd9ecbdcee",
+      "codec": "vp9",
+      "width": 720,
+      "height": 720,
+      "fps": 60,
+      "frames": 480,
+      "duration": 8,
+      "keyframes": 80,
+      "maximumKeyframeIntervalFrames": 6
+    }
+  ],
+  "posters": [
+    {
+      "name": "story-v4-0.webp",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "bytes": 19412,
+      "sha256": "07aad47a0a89d9da4d6e17b0fbd79582e5bb403fc518bd3cc200fa31fe3ea8ff"
+    },
+    {
+      "name": "story-v4-1.webp",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "bytes": 28668,
+      "sha256": "75cdf8b773ad5bc413a1dd3d01d9f513569a5a00e540f46a25c53a9767279635"
+    },
+    {
+      "name": "story-v4-2.webp",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "bytes": 17828,
+      "sha256": "1a5325b30b93676b1f65e0bd7b7dee553d80afc474fc2f1990f4223e7a53f7d3"
+    },
+    {
+      "name": "story-v4-3.webp",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "bytes": 16374,
+      "sha256": "0a29dde5e21fb8f457a5cbddabe895e6bca811a7e374d0d620775d03c5df779a"
+    },
+    {
+      "name": "story-v4-4.webp",
+      "dimensions": [
+        1080,
+        1080
+      ],
+      "bytes": 17668,
+      "sha256": "5d4cd40a9a1e3e02c46259bba9f34e3c11205c7fc185fa5f1f9b7efe8986be8a"
+    }
+  ]
+}

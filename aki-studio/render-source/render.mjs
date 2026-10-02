@@ -18,8 +18,8 @@ const serveUrl = await bundle({
 const destination = path.resolve("../assets");
 await fs.mkdir("stills", { recursive: true });
 for (const [id, filename] of [
-  ["AkiStudioStory", "aki-story-v3-desktop.mp4"],
-  ["AkiStudioStoryMobile", "aki-story-v3-mobile.mp4"],
+  ["AkiStudioStory", "aki-story-v4-desktop.mp4"],
+  ["AkiStudioStoryMobile", "aki-story-v4-mobile.mp4"],
 ]) {
   const composition = await selectComposition({
     serveUrl,
@@ -76,7 +76,7 @@ for (const variant of ["desktop", "mobile"])
       "error",
       "-y",
       "-i",
-      path.join(destination, `aki-story-v3-${variant}.mp4`),
+      path.join(destination, `aki-story-v4-${variant}.mp4`),
       "-map_metadata",
       "-1",
       "-c:v",
@@ -92,7 +92,7 @@ for (const variant of ["desktop", "mobile"])
       "-cpu-used",
       "4",
       "-an",
-      path.join(destination, `aki-story-v3-${variant}.webm`),
+      path.join(destination, `aki-story-v4-${variant}.webm`),
     ],
     { stdio: "inherit" },
   );

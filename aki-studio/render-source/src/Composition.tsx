@@ -24,7 +24,7 @@ const RenderedStory: React.FC = () => {
         }}
       />
       <CanvasImage
-        src={staticFile(`frames-v2/${String(frame).padStart(4, "0")}.png`)}
+        src={staticFile(`frames-v4/${String(frame).padStart(4, "0")}.png`)}
         style={{
           position: "absolute",
           inset: 0,
