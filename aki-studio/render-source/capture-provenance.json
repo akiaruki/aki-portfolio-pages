@@ -59,5 +59,15 @@
     804,
     454
   ],
-  "notes": "Original is the named Adaptive Look, not a claim of an unedited baseline. All four previews use the same input. No CSS grades or generated comparison outputs."
+  "notes": "Original is the named Adaptive Look, not a claim of an unedited baseline. All four previews use the same input. No CSS grades or generated comparison outputs.",
+  "toolbarV4": {
+    "source": "Actual application header capture with black marketing-only CSS background; no application source changed",
+    "size": [
+      860,
+      100
+    ],
+    "background": "#000000",
+    "captureSHA256": "853078e01bffead642ef908c4f61971443e272cad84272430f41af90469f98c9",
+    "ui": "Original logo, Undo, Redo, comparison and information controls with the original disabled states"
+  }
 }

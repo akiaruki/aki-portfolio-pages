@@ -25,7 +25,7 @@ node render.mjs
 python finish_assets.py
 ```
 
-Set `CHROME_PATH` and `FFMPEG_PATH` if the Windows defaults do not apply. Intermediate frames go to `public/frames-v2/`; publish only compressed final media in `../assets/`. The generated `.blend` remains a local working file because it stores local texture paths.
+Set `CHROME_PATH` and `FFMPEG_PATH` if the Windows defaults do not apply. Intermediate frames go to `public/frames-v4/`; publish only compressed final media in `../assets/`. The generated `.blend` remains a local working file because it stores local texture paths.
 
 For quick inspection and editable preview:
 
@@ -48,3 +48,19 @@ The organizer is an independent web demonstration of the app's four-column glyph
 Geometry, animation and web code are original work for Aki Studio. Supplied photographs and app imagery remain their owners' materials. No stock models, music, external fonts or Apple brand assets are used. Apple is a quality reference, not an endorsement or certification.
 
 Blender uses the [GNU GPL](https://www.blender.org/about/license/); Remotion has its [own license](https://www.remotion.dev/license). The website serves rendered outputs without either runtime. No paid rendering service or hosting is required.
+
+## v4 black toolbar refinement
+
+The current screen texture includes the actual app header recaptured on black. Only the marketing capture background changed; the logo, icons and disabled Undo/Redo states remain app-rendered. All v4 videos and five posters use this texture. Timing stays 480 frames at 60 fps (eight seconds), with six-frame keyframes to retain compact downloads and short seek dependencies.
+
+The full reproduction above renders all frames normally. When the original v3 lossless `frames-v2` sequence is available, the equivalent toolbar-only route avoids redundant rendering:
+
+```sh
+python compose_screens.py
+blender -b --python blender_scene.py -- --start 0 --end 75 --size 1280
+python compose_toolbar_frames.py --original-frames /path/to/original/frames-v2
+node render.mjs
+python finish_assets.py
+```
+
+The handset reaches its final pose at frame 75. The compositor requires identical projected bounds thereafter and allows at most one 8-bit code value of stationary-header quantization variation in the original sequence. It replaces only the recorded header rectangle. `toolbar-composition-evidence.json` records all 480 original and composed frame hashes and proves exact RGBA equality outside those rectangles before video encoding. Compression can change final decoded pixels slightly. Geometry, photography, panel animation and screen contents below the header are retained.
