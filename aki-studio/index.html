@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-release="20261006-accurate-ui-1">
+<html lang="en" data-release="20261006-black-display-1">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,10 +36,10 @@
     />
     <title>Aki Studio — Your photograph. Still yours.</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="preload" as="image" href="ui-build70-tools.webp" />
+    <link rel="preload" as="image" href="ui-tools.webp" />
     <link rel="stylesheet" href="studio.css?v=20261002-scroll-refined-1" />
-    <link rel="stylesheet" href="release.css?v=20261006-accurate-ui-1" />
-    <script src="studio.js?v=20261006-accurate-ui-1" defer></script>
+    <link rel="stylesheet" href="release.css?v=20261006-black-display-1" />
+    <script src="studio.js?v=20261006-black-display-1" defer></script>
     <script src="tools-demo.js?v=20261006-release-1" defer></script>
     <noscript
       ><style>
@@ -63,6 +63,22 @@
       aria-hidden="true"
     >
       <defs>
+        <filter id="looks-black-background" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+          <feColorMatrix in="SourceGraphic" type="matrix" values="1 -1 0 0 0  0 1 -1 0 0  -1 0 1 0 0  0 0 0 0 1" result="positive-chroma" />
+          <feColorMatrix in="SourceGraphic" type="matrix" values="-1 1 0 0 0  0 -1 1 0 0  1 0 -1 0 0  0 0 0 0 1" result="negative-chroma" />
+          <feComposite in="positive-chroma" in2="negative-chroma" operator="arithmetic" k2="1" k3="1" result="chroma" />
+          <feColorMatrix in="chroma" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  4 4 4 0 -0.45" result="photo-mask" />
+          <feComposite in="SourceGraphic" in2="photo-mask" operator="out" result="neutral-ui" />
+          <feFlood flood-color="black" x="6.62%" y="22%" width="16%" height="22.2%" result="tile-one" />
+          <feFlood flood-color="black" x="26.65%" y="22%" width="16%" height="22.2%" result="tile-two" />
+          <feFlood flood-color="black" x="46.94%" y="22%" width="16%" height="22.2%" result="tile-three" />
+          <feFlood flood-color="black" x="67.15%" y="22%" width="16%" height="22.2%" result="tile-four" />
+          <feFlood flood-color="black" x="87.27%" y="22%" width="9.2%" height="22.2%" result="tile-five" />
+          <feMerge result="tile-backgrounds"><feMergeNode in="tile-one" /><feMergeNode in="tile-two" /><feMergeNode in="tile-three" /><feMergeNode in="tile-four" /><feMergeNode in="tile-five" /></feMerge>
+          <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  10 10 10 0 -24" result="heart-marks" />
+          <feComposite in="heart-marks" in2="tile-backgrounds" operator="in" result="original-hearts" />
+          <feMerge><feMergeNode in="neutral-ui" /><feMergeNode in="tile-backgrounds" /><feMergeNode in="original-hearts" /></feMerge>
+        </filter>
         <symbol id="arrow" viewBox="0 0 24 24">
           <path d="M5 19 19 5M5 5h14v14" />
         </symbol>
@@ -137,9 +153,9 @@
               </div>
               <figure class="editor-illustration">
                 <div class="editor-phone">
-                  <img class="editor-capture" src="ui-build70-tools.webp" alt="Aki Studio tools panel showing the twelve editing tools over a photograph" width="390" height="844" fetchpriority="high" decoding="async" />
+                  <img class="editor-capture" src="ui-tools.webp" alt="Aki Studio tools panel showing the twelve editing tools over a photograph" width="390" height="844" fetchpriority="high" decoding="async" />
                 </div>
-                <figcaption>App interface rendered from iOS build 70</figcaption>
+                <figcaption>Aki Studio · Tools</figcaption>
               </figure>
             </article>
             <article class="story-chapter" data-chapter="1">
@@ -159,9 +175,9 @@
               </div>
               <figure class="editor-illustration native-looks">
                 <div class="native-controls-frame">
-                  <img class="native-controls-capture" src="ui-build70-looks.webp" alt="Native iOS Looks panel with Daily collection, Original, Daymark, Brightside and Terracotta previews, favorite hearts and strength slider." width="1178" height="850" loading="lazy" decoding="async" />
+                  <img class="native-controls-capture" src="ui-looks.webp" alt="Native iOS Looks panel with Daily collection, Original, Daymark, Brightside and Terracotta previews, favorite hearts and strength slider." width="1178" height="850" loading="lazy" decoding="async" />
                 </div>
-                <figcaption>Looks controls captured from iOS build 70</figcaption>
+                <figcaption>Aki Studio · Looks</figcaption>
               </figure>
             </article>
             <article class="story-chapter" data-chapter="2">
@@ -179,9 +195,9 @@
               </div>
               <figure class="editor-illustration">
                 <div class="editor-phone">
-                  <img class="editor-capture" src="ui-build70-curves.webp" alt="Aki Studio Curves panel with tone and color channel controls" width="390" height="844" loading="lazy" decoding="async" />
+                  <img class="editor-capture" src="ui-curves.webp" alt="Aki Studio Curves panel with tone and color channel controls" width="390" height="844" loading="lazy" decoding="async" />
                 </div>
-                <figcaption>App interface rendered from iOS build 70</figcaption>
+                <figcaption>Aki Studio · Curves</figcaption>
               </figure>
             </article>
             <article class="story-chapter" data-chapter="3">
@@ -199,9 +215,9 @@
               </div>
               <figure class="editor-illustration">
                 <div class="editor-phone">
-                  <img class="editor-capture" src="ui-build70-color.webp" alt="Aki Studio Color Mixer panel with color and adjustment controls" width="390" height="844" loading="lazy" decoding="async" />
+                  <img class="editor-capture" src="ui-color.webp" alt="Aki Studio Color Mixer panel with color and adjustment controls" width="390" height="844" loading="lazy" decoding="async" />
                 </div>
-                <figcaption>App interface rendered from iOS build 70</figcaption>
+                <figcaption>Aki Studio · Color Mixer</figcaption>
               </figure>
             </article>
             <article class="story-chapter" data-chapter="4">
@@ -220,9 +236,9 @@
               </div>
               <figure class="editor-illustration">
                 <div class="editor-phone">
-                  <img class="editor-capture" src="ui-build70-tools.webp" alt="Aki Studio tools panel in the photo editing workspace" width="390" height="844" loading="lazy" decoding="async" />
+                  <img class="editor-capture" src="ui-tools.webp" alt="Aki Studio tools panel in the photo editing workspace" width="390" height="844" loading="lazy" decoding="async" />
                 </div>
-                <figcaption>App interface rendered from iOS build 70</figcaption>
+                <figcaption>Aki Studio · Workspace</figcaption>
               </figure>
             </article>
           </div>
@@ -427,9 +443,9 @@
           <noscript>
             <figure class="editor-illustration">
               <div class="editor-phone">
-                <img class="editor-capture" src="ui-build70-tools.webp" alt="Aki Studio photo editing workspace with the twelve tools panel open" width="390" height="844" loading="lazy" decoding="async" />
+                <img class="editor-capture" src="ui-tools.webp" alt="Aki Studio photo editing workspace with the twelve tools panel open" width="390" height="844" loading="lazy" decoding="async" />
               </div>
-              <figcaption>App interface rendered from iOS build 70</figcaption>
+              <figcaption>Aki Studio · Workspace</figcaption>
             </figure>
           </noscript>
         <div class="organizer-bottom">

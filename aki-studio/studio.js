@@ -77,7 +77,7 @@
     cancelAnimationFrame(storyFrame);
     storyFrame = 0;
     activeChapter = -1;
-    story.dataset.renderer = "build70-captures";
+    story.dataset.renderer = "app-captures";
     story.dataset.storyMode = storyEnhanced() ? "motion" : "static";
     chapters.forEach((chapter) => {
       chapter.inert = false;

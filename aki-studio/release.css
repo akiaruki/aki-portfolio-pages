@@ -389,7 +389,7 @@
   }
 }
 
-/* Exact build 70 web interface captures in a simple device outline. */
+/* App interface captures in a simple device outline. */
 .editor-illustration {
   position: relative;
   width: min(100%, 440px);
@@ -422,7 +422,7 @@
   padding: 5px;
   border: 1px solid #80857d80;
   border-radius: 25px;
-  background: #080a09;
+  background: #000;
   box-shadow: 0 24px 60px #0006;
 }
 .native-controls-capture {
@@ -431,6 +431,7 @@
   height: auto;
   aspect-ratio: 1178 / 850;
   border-radius: 19px;
+  filter: url(#looks-black-background);
 }
 .editor-illustration figcaption {
   font-size: 10px;
