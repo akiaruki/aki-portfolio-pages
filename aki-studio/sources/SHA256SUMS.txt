@@ -1,0 +1,3 @@
+10345c4c14f2a342cce88dcdebf9d3b685fe2a33569e7868d7e45aadec3855d3  aki-libraw-source.zip
+52548486b16857f3793e89eabadfde33d4c75918433f8d5ad2fd6e4506513db6  legacy-heif-source.zip
+b64ad9e2ad8fcf3f35b4d0124512dc783266c2d4f7d0a29b63841a09c1499795  emscripten-runtime-source.zip
