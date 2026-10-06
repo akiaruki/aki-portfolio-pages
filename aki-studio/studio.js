@@ -31,279 +31,77 @@
   });
   matchMedia("(min-width:901px)").addEventListener("change", () => closeMenu());
 
-  // The story is an offline Blender render composited in Remotion. No WebGL is
-  // needed by the visitor. Semantic chapters and posters remain the baseline.
-  const story = document.querySelector(".scrollytelling"),
-    viewport = story.querySelector(".story-viewport");
-  const video = document.querySelector("#story-video"),
-    poster = document.querySelector("#story-poster");
-  const chapters = [...story.querySelectorAll(".story-chapter")],
-    chapterButtons = [...story.querySelectorAll("[data-go]")];
-  const connection = navigator.connection;
-  let enabled = false,
-    visible = true,
-    frame = 0,
-    latestY = scrollY,
-    metrics,
-    dirty = true,
-    activeChapter = -1,
-    targetTime = 0,
-    alternateTried = false,
-    displayProgress = null,
-    progressVelocity = 0,
-    lastTick = 0,
-    presentedFrame = 0;
-  story.dataset.renderer = "static";
-  const preference = () =>
-    motion.matches
-      ? "reduced-motion"
-      : connection?.saveData
-        ? "data-saving"
-        : "";
-  const suspendProgress = () => {
-    cancelAnimationFrame(frame);
-    frame = 0;
-    displayProgress = null;
-    progressVelocity = 0;
-    lastTick = 0;
+  // Lightweight illustrative UI. One scheduled read per scroll/resize event;
+  // native scrolling and CSS transitions provide the motion, with no idle loop.
+  const story = document.querySelector(".scrollytelling");
+  const chapters = [...story.querySelectorAll(".story-chapter")];
+  const chapterButtons = [...story.querySelectorAll("[data-go]")];
+  const compactScreen = matchMedia("(max-width:900px)");
+  const shortScreen = matchMedia("(max-height:620px)");
+  let storyFrame = 0, activeChapter = -1;
+  const storyEnhanced = () => !motion.matches && !compactScreen.matches && !shortScreen.matches;
+  const selectChapter = (index) => {
+    if (index === activeChapter) return;
+    activeChapter = index;
+    story.dataset.chapter = String(index);
+    chapters.forEach((chapter, i) => {
+      const active = i === index;
+      chapter.classList.toggle("is-active", active && storyEnhanced());
+      chapter.inert = storyEnhanced() && !active;
+      if (storyEnhanced()) chapter.setAttribute("aria-hidden", String(!active));
+      else chapter.removeAttribute("aria-hidden");
+    });
+    chapterButtons.forEach((button, i) => {
+      if (i === index) button.setAttribute("aria-current", "step");
+      else button.removeAttribute("aria-current");
+    });
   };
-  const fallback = (reason) => {
-    enabled = false;
-    suspendProgress();
-    video.pause();
-    if (presentedFrame && video.cancelVideoFrameCallback)
-      video.cancelVideoFrameCallback(presentedFrame);
-    presentedFrame = 0;
-    story.dataset.storyMode = "static";
-    story.dataset.renderer = "static";
-    story.dataset.fallbackReason = reason;
-    story.querySelector(".story-render").classList.remove("video-ready");
-    for (const chapter of chapters) {
+  const updateStory = () => {
+    storyFrame = 0;
+    if (!storyEnhanced()) {
+      let current = 0;
+      chapters.forEach((chapter, index) => {
+        if (chapter.getBoundingClientRect().top <= innerHeight * 0.45) current = index;
+      });
+      selectChapter(current);
+      return;
+    }
+    const bounds = story.getBoundingClientRect();
+    const progress = Math.max(0, Math.min(1, -bounds.top / Math.max(1, bounds.height - innerHeight)));
+    selectChapter(Math.min(4, Math.floor(progress * 5)));
+  };
+  const scheduleStory = () => {
+    if (!storyFrame) storyFrame = requestAnimationFrame(updateStory);
+  };
+  const configureStory = () => {
+    cancelAnimationFrame(storyFrame);
+    storyFrame = 0;
+    activeChapter = -1;
+    story.dataset.renderer = "html-illustration";
+    story.dataset.storyMode = storyEnhanced() ? "motion" : "static";
+    chapters.forEach((chapter) => {
       chapter.inert = false;
       chapter.removeAttribute("aria-hidden");
       chapter.classList.remove("is-active");
-    }
+    });
+    updateStory();
   };
-  const phaseAt = (p) =>
-    p < 0.13 ? 0 : p < 0.325 ? 1 : p < 0.53 ? 2 : p < 0.735 ? 3 : 4;
-  const presentChapter = (time) => {
-    const phase = phaseAt(time / Math.max(1 / 60, video.duration - 1 / 60));
-    if (phase !== activeChapter) {
-      activeChapter = phase;
-      chapters.forEach((chapter, index) => {
-        const active = index === phase;
-        chapter.classList.toggle("is-active", active);
-        chapter.inert = !active;
-        chapter.setAttribute("aria-hidden", String(!active));
-      });
-      chapterButtons.forEach((button, index) => {
-        if (index === phase) button.setAttribute("aria-current", "step");
-        else button.removeAttribute("aria-current");
-      });
-      poster.src = `assets/story-v4-${phase}.webp`;
-    }
-    story.dataset.chapter = String(phase);
-  };
-  const observePresentation = () => {
-    if (!presentedFrame && video.requestVideoFrameCallback) {
-      presentedFrame = video.requestVideoFrameCallback((_, metadata) => {
-        presentedFrame = 0;
-        if (!enabled) return;
-        story.dataset.presentedTime = metadata.mediaTime.toFixed(4);
-        presentChapter(metadata.mediaTime);
-      });
-    }
-  };
-  const draw = (now) => {
-    frame = 0;
-    if (!enabled || document.hidden || !visible) return;
-    if (dirty) {
-      const r = story.getBoundingClientRect();
-      metrics = {
-        top: r.top + latestY,
-        height: r.height,
-        viewport: innerHeight,
-      };
-      dirty = false;
-    }
-    const targetProgress = Math.max(
-      0,
-      Math.min(
-        1,
-        (latestY - metrics.top) /
-          Math.max(1, metrics.height - metrics.viewport),
-      ),
-    );
-    // One reversible, critically damped progress signal drives the entire
-    // presentation. Native page scrolling is never intercepted. Velocity is
-    // retained when the visitor changes direction; work stops at rest.
-    if (displayProgress === null) {
-      displayProgress = targetProgress;
-      lastTick = now;
-    }
-    const dt = Math.min(0.05, Math.max(0.001, (now - lastTick) / 1000));
-    lastTick = now;
-    // A shorter response follows native scrolling more closely while retaining
-    // a continuous, reversible signal. Decoder work remains one seek at a time.
-    const w = 48,
-      delta = displayProgress - targetProgress;
-    const c = progressVelocity + w * delta,
-      decay = Math.exp(-w * dt);
-    displayProgress = targetProgress + (delta + c * dt) * decay;
-    progressVelocity = (progressVelocity - w * c * dt) * decay;
-    const settled =
-      Math.abs(displayProgress - targetProgress) < 0.00007 &&
-      Math.abs(progressVelocity) < 0.0006;
-    if (settled) {
-      displayProgress = targetProgress;
-      progressVelocity = 0;
-    }
-    const progress = Math.max(0, Math.min(1, displayProgress));
-    story.dataset.progress = progress.toFixed(3);
-    story.dataset.targetProgress = targetProgress.toFixed(3);
-    targetTime = Math.min(
-      video.duration - 1 / 60,
-      (Math.round(progress * (video.duration * 60 - 1)) + 0.25) / 60,
-    );
-    if (
-      !video.seeking &&
-      video.readyState >= 2 &&
-      Math.abs(video.currentTime - targetTime) > 0.009
-    ) {
-      observePresentation();
-      video.currentTime = targetTime;
-    }
-    if (!settled) frame = requestAnimationFrame(draw);
-  };
-  const schedule = () => {
-    if (enabled && visible && !document.hidden && !frame)
-      frame = requestAnimationFrame(draw);
-  };
-  video.addEventListener("seeked", () => {
-    if (!video.requestVideoFrameCallback && enabled)
-      presentChapter(video.currentTime);
-    schedule();
-  });
-  video.addEventListener("error", () => {
-    if (
-      !alternateTried &&
-      !preference() &&
-      video.canPlayType('video/webm; codecs="vp9"')
-    ) {
-      alternateTried = true;
-      video.src = video.src.replace(/\.mp4$/, ".webm");
-      video.load();
+  window.addEventListener("scroll", scheduleStory, { passive: true });
+  window.addEventListener("resize", scheduleStory, { passive: true });
+  [motion, compactScreen, shortScreen].forEach(query => query.addEventListener("change", configureStory));
+  chapterButtons.forEach((button) => button.addEventListener("click", () => {
+    const index = Number(button.dataset.go);
+    if (!storyEnhanced()) {
+      chapters[index].scrollIntoView({ behavior: motion.matches ? "auto" : "smooth", block: "start" });
       return;
     }
-    fallback("video-unavailable");
-  });
-  video.addEventListener("loadeddata", () => {
-    if (preference()) {
-      fallback(preference());
-      return;
-    }
-    if (!Number.isFinite(video.duration) || video.duration <= 0) {
-      fallback("video-duration-unavailable");
-      return;
-    }
-    enabled = true;
-    story.dataset.storyMode = "motion";
-    story.dataset.renderer = "blender-remotion-video";
-    delete story.dataset.fallbackReason;
-    story.querySelector(".story-render").classList.add("video-ready");
-    dirty = true;
-    activeChapter = -1;
-    presentChapter(video.currentTime);
-    suspendProgress();
-    latestY = scrollY;
-    observePresentation();
-    schedule();
-  });
-  const start = () => {
-    if (preference()) {
-      fallback(preference());
-      return;
-    }
-    const format = video.canPlayType("video/mp4")
-      ? "mp4"
-      : video.canPlayType('video/webm; codecs="vp9"')
-        ? "webm"
-        : "";
-    if (!format) {
-      fallback("video-format-unavailable");
-      return;
-    }
-    alternateTried = format === "webm";
-    story.dataset.renderer = "loading-rendered-video";
-    video.preload = "auto";
-    video.src = `assets/aki-story-v4-${matchMedia("(max-width:900px)").matches ? "mobile" : "desktop"}.${format}`;
-    video.load();
-  };
-  if ("requestIdleCallback" in window)
-    requestIdleCallback(start, { timeout: 700 });
-  else setTimeout(start, 150);
-  window.addEventListener(
-    "scroll",
-    () => {
-      latestY = scrollY;
-      schedule();
-    },
-    { passive: true },
-  );
-  window.addEventListener(
-    "resize",
-    () => {
-      dirty = true;
-      schedule();
-    },
-    { passive: true },
-  );
-  if ("ResizeObserver" in window)
-    new ResizeObserver(() => {
-      dirty = true;
-      schedule();
-    }).observe(story);
-  if ("IntersectionObserver" in window)
-    new IntersectionObserver(
-      (entries) => {
-        visible = entries[0].isIntersecting;
-        if (visible) {
-          latestY = scrollY;
-          schedule();
-        } else suspendProgress();
-      },
-      { threshold: 0 },
-    ).observe(viewport);
-  document.addEventListener("visibilitychange", () => {
-    suspendProgress();
-    if (!document.hidden) {
-      latestY = scrollY;
-      dirty = true;
-      schedule();
-    }
-  });
-  motion.addEventListener("change", () => {
-    if (preference()) fallback(preference());
-    else if (!enabled) start();
-  });
-  connection?.addEventListener("change", () => {
-    if (preference()) fallback(preference());
-    else if (!enabled) start();
-  });
-  chapterButtons.forEach((button) =>
-    button.addEventListener("click", () => {
-      if (!enabled) return;
-      const positions = [0, 0.23, 0.45, 0.64, 0.86],
-        r = story.getBoundingClientRect();
-      window.scrollTo({
-        top:
-          r.top +
-          scrollY +
-          (r.height - innerHeight) * positions[Number(button.dataset.go)],
-        behavior: motion.matches ? "instant" : "smooth",
-      });
-    }),
-  );
+    const bounds = story.getBoundingClientRect();
+    window.scrollTo({
+      top: bounds.top + scrollY + (bounds.height - innerHeight) * (index === 0 ? 0 : (index + 0.3) / 5),
+      behavior: "smooth",
+    });
+  }));
+  configureStory();
 
   // Pre-rendered using the application's native Look recipes and renderer.
   // Decode offscreen before committing a matching image, label and selection.

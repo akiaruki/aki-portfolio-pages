@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en" data-release="20261002-scroll-refined-1">
+<html lang="en" data-release="20261006-release-1">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#080a09" />
     <meta
       name="description"
-      content="Your eye. Your signature. Discover Aki Studio: Adaptive Looks, precise light and color tools, supported RAW workflows and a workspace in your order. Join the iOS beta."
+      content="Your eye. Your signature. Aki Studio is a free photo editor for iPhone and iPad, with Adaptive Looks, twelve editing tools and a workspace in your order. Try it on TestFlight."
     />
     <meta
       property="og:title"
@@ -14,7 +14,7 @@
     />
     <meta
       property="og:description"
-      content="Find a feeling with Adaptive Looks. Shape every detail. Make the studio your own."
+      content="Find a feeling with Adaptive Looks. Shape every detail with twelve free editing tools. Your photograph. Still yours."
     />
     <meta property="og:type" content="website" />
     <meta
@@ -23,11 +23,11 @@
     />
     <meta
       property="og:image"
-      content="https://akiaruki.github.io/aki-portfolio-pages/aki-studio/assets/story-v4-1.webp"
+      content="https://akiaruki.github.io/aki-portfolio-pages/aki-studio/assets/look-v3-original.webp"
     />
     <meta
       property="og:image:alt"
-      content="Aki Studio with a floating Adaptive Looks panel"
+      content="A yellow flower photograph featured in Aki Studio"
     />
     <meta name="twitter:card" content="summary_large_image" />
     <link
@@ -36,10 +36,11 @@
     />
     <title>Aki Studio — Your photograph. Still yours.</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="preload" as="image" href="assets/story-v4-0.webp" />
+    <link rel="preload" as="image" href="assets/look-v3-original.webp" />
     <link rel="stylesheet" href="studio.css?v=20261002-scroll-refined-1" />
-    <script src="studio.js?v=20261002-scroll-refined-1" defer></script>
-    <script src="tools-demo.js?v=20261002-scroll-refined-1" defer></script>
+    <link rel="stylesheet" href="release.css?v=20261006-release-1" />
+    <script src="studio.js?v=20261006-release-2" defer></script>
+    <script src="tools-demo.js?v=20261006-release-1" defer></script>
     <noscript
       ><style>
         .look-choices,
@@ -85,12 +86,9 @@
         <a href="#experience">The experience</a
         ><a href="#looks">Adaptive Looks</a
         ><a href="#workspace">Your workspace</a
-        ><a href="../"
-          >Portfolio
-          <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
-        ></a>
+        ><a href="#about">About</a>
       </nav>
-      <a class="nav-cta" href="#beta"
+      <a class="nav-cta" href="#get-aki"
         >Try Aki Studio
         <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
       ></a>
@@ -111,30 +109,12 @@
         aria-label="Discover Aki Studio"
       >
         <div class="story-viewport">
-          <div class="story-render" aria-hidden="true">
-            <img
-              id="story-poster"
-              src="assets/story-v4-0.webp"
-              width="1080"
-              height="1080"
-              alt=""
-              fetchpriority="high"
-            /><video
-              id="story-video"
-              muted
-              playsinline
-              preload="none"
-              aria-hidden="true"
-              tabindex="-1"
-              disablepictureinpicture
-            ></video>
-          </div>
+          
           <div class="story-chapters">
             <article class="story-chapter" data-chapter="0">
               <div class="chapter-copy">
                 <p class="eyebrow">
-                  <span class="status-dot"></span> A mobile studio for
-                  photographers
+                  <span class="status-dot"></span> Your free photo studio
                 </p>
                 <h1>Your eye.<br /><span>Your signature.</span></h1>
                 <p class="chapter-description">
@@ -142,7 +122,7 @@
                   unmistakably yours.
                 </p>
                 <div class="hero-actions">
-                  <a class="button button-white" href="#beta"
+                  <a class="button button-white" href="#get-aki"
                     >Try Aki Studio
                     <svg class="icon" aria-hidden="true">
                       <use href="#arrow" /></svg></a
@@ -151,17 +131,22 @@
                   >
                 </div>
                 <p class="availability">
-                  iOS beta until 15 October 2026
+                  Try it on TestFlight · App Store release coming soon
                   <span>Android coming soon</span>
                 </p>
               </div>
-              <img
-                class="chapter-still"
-                src="assets/story-v4-0.webp"
-                width="1080"
-                height="1080"
-                alt="Aki Studio on an original black handset, with a yellow flower photograph"
-              />
+              <figure class="editor-illustration" aria-label="Illustrative Aki Studio tools composition">
+                <div class="editor-phone" aria-hidden="true">
+                  <div class="editor-screen">
+                    <img class="editor-photograph" src="assets/look-v3-original.webp" alt="" width="736" height="414" fetchpriority="high" />
+                    <div class="editor-top"><span class="editor-wordmark"><img src="assets/brand-aki.svg" alt="" width="38" height="24" /><small>STUDIO</small></span><span class="editor-history"><span title="Undo"><svg viewBox="0 0 24 24"><path d="M8 5 3 10l5 5M3 10h10a7 7 0 0 1 7 7"/></svg></span><span title="Redo"><svg viewBox="0 0 24 24"><path d="m16 5 5 5-5 5m5-5H11a7 7 0 0 0-7 7"/></svg></span><span title="Compare"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="3"/><path d="M12 3v18"/></svg></span></span></div>
+                    
+                    <div class="editor-panel editor-panel-0"><div class="editor-panel-heading"><span>Tools</span><small>12 tools · All free</small></div><div class="editor-tools"><span><img src="assets/tool-icons/crop.png" alt="" width="24" height="24" loading="lazy" /><small>Crop</small></span><span><img src="assets/tool-icons/develop.png" alt="" width="24" height="24" loading="lazy" /><small>Develop</small></span><span><img src="assets/tool-icons/curves.png" alt="" width="24" height="24" loading="lazy" /><small>Curves</small></span><span><img src="assets/tool-icons/color.png" alt="" width="24" height="24" loading="lazy" /><small>Color Mixer</small></span><span><img src="assets/tool-icons/detail.png" alt="" width="24" height="24" loading="lazy" /><small>Detail</small></span><span><img src="assets/tool-icons/mono.png" alt="" width="24" height="24" loading="lazy" /><small>B&W Mixer</small></span><span><img src="assets/tool-icons/split.png" alt="" width="24" height="24" loading="lazy" /><small>Split Toning</small></span><span><img src="assets/tool-icons/optics.png" alt="" width="24" height="24" loading="lazy" /><small>Optics</small></span><span><img src="assets/tool-icons/geometry.png" alt="" width="24" height="24" loading="lazy" /><small>Geometry</small></span><span><img src="assets/tool-icons/effects.png" alt="" width="24" height="24" loading="lazy" /><small>Effects</small></span><span><img src="assets/tool-icons/frame.png" alt="" width="24" height="24" loading="lazy" /><small>Frame</small></span><span><img src="assets/tool-icons/date.png" alt="" width="24" height="24" loading="lazy" /><small>Date</small></span></div></div>
+                    <div class="editor-bottom-nav"><span class="editor-nav-looks"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="3"/><path d="m3 9-1 9a3 3 0 0 0 3 3l9-1"/></svg>Looks</span><span class="editor-nav-tools"><svg viewBox="0 0 24 24"><path d="M5 4v16M12 4v16M19 4v16M2 9h6M9 15h6M16 8h6"/></svg>Tools</span><span><svg viewBox="0 0 24 24"><path d="M12 15V3m-4 4 4-4 4 4M4 14v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/></svg>Export</span></div><div class="editor-home-indicator"></div>
+                  </div>
+                </div>
+                <figcaption>Illustrative interface composition</figcaption>
+              </figure>
             </article>
             <article class="story-chapter" data-chapter="1">
               <div class="chapter-copy">
@@ -178,14 +163,18 @@
                     <use href="#arrow" /></svg
                 ></a>
               </div>
-              <img
-                class="chapter-still"
-                src="assets/story-v4-1.webp"
-                width="1080"
-                height="1080"
-                alt="The clean Adaptive Looks panel floating forward from the app"
-                loading="lazy"
-              />
+              <figure class="editor-illustration" aria-label="Illustrative Aki Studio Adaptive Looks composition">
+                <div class="editor-phone" aria-hidden="true">
+                  <div class="editor-screen">
+                    <img class="editor-photograph" src="assets/look-v3-original.webp" alt="" width="736" height="414" loading="lazy" />
+                    <div class="editor-top"><span class="editor-wordmark"><img src="assets/brand-aki.svg" alt="" width="38" height="24" /><small>STUDIO</small></span><span class="editor-history"><span title="Undo"><svg viewBox="0 0 24 24"><path d="M8 5 3 10l5 5M3 10h10a7 7 0 0 1 7 7"/></svg></span><span title="Redo"><svg viewBox="0 0 24 24"><path d="m16 5 5 5-5 5m5-5H11a7 7 0 0 0-7 7"/></svg></span><span title="Compare"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="3"/><path d="M12 3v18"/></svg></span></span></div>
+                    
+                    <div class="editor-panel editor-panel-1"><div class="editor-panel-heading"><span>Adaptive Looks</span></div><div class="editor-look-tabs"><b>アキ</b><span>Film</span><span>Cinematic</span><span>Import</span></div><div class="editor-look-grid"><span><span class="editor-thumb"><img src="assets/look-v3-kurumi.webp" alt="" width="70" height="70" loading="lazy" /><i>♡</i></span><small>胡桃</small></span><span><span class="editor-thumb"><img src="assets/look-v3-shirayuki.webp" alt="" width="70" height="70" loading="lazy" /><i>♡</i></span><small>白雪</small></span><span><span class="editor-thumb"><img src="assets/look-v3-wakaba.webp" alt="" width="70" height="70" loading="lazy" /><i>♡</i></span><small>若葉</small></span><span><span class="editor-thumb"><img src="assets/look-v3-kogane.webp" alt="" width="70" height="70" loading="lazy" /><i>♡</i></span><small>黄金</small></span></div><div class="editor-readout"><span>Look strength</span><span>75</span></div><div class="editor-slider" style="--value:75%"></div></div>
+                    <div class="editor-bottom-nav"><span class="editor-nav-looks"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="3"/><path d="m3 9-1 9a3 3 0 0 0 3 3l9-1"/></svg>Looks</span><span class="editor-nav-tools"><svg viewBox="0 0 24 24"><path d="M5 4v16M12 4v16M19 4v16M2 9h6M9 15h6M16 8h6"/></svg>Tools</span><span><svg viewBox="0 0 24 24"><path d="M12 15V3m-4 4 4-4 4 4M4 14v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/></svg>Export</span></div><div class="editor-home-indicator"></div>
+                  </div>
+                </div>
+                <figcaption>Illustrative interface composition</figcaption>
+              </figure>
             </article>
             <article class="story-chapter" data-chapter="2">
               <div class="chapter-copy">
@@ -200,14 +189,18 @@
                   >Develop <i></i> Curves <i></i> Detail</span
                 >
               </div>
-              <img
-                class="chapter-still"
-                src="assets/story-v4-2.webp"
-                width="1080"
-                height="1080"
-                alt="Aki Studio Curves controls in a floating glass panel"
-                loading="lazy"
-              />
+              <figure class="editor-illustration" aria-label="Illustrative Aki Studio Curves composition">
+                <div class="editor-phone" aria-hidden="true">
+                  <div class="editor-screen">
+                    <img class="editor-photograph" src="assets/look-v3-original.webp" alt="" width="736" height="414" loading="lazy" />
+                    <div class="editor-top"><span class="editor-wordmark"><img src="assets/brand-aki.svg" alt="" width="38" height="24" /><small>STUDIO</small></span><span class="editor-history"><span title="Undo"><svg viewBox="0 0 24 24"><path d="M8 5 3 10l5 5M3 10h10a7 7 0 0 1 7 7"/></svg></span><span title="Redo"><svg viewBox="0 0 24 24"><path d="m16 5 5 5-5 5m5-5H11a7 7 0 0 0-7 7"/></svg></span><span title="Compare"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="3"/><path d="M12 3v18"/></svg></span></span></div>
+                    
+                    <div class="editor-panel editor-panel-2"><div class="editor-panel-heading"><span>Curves</span><small>↺</small></div><div class="editor-channels"><b>RGB</b><span class="channel-red">R</span><span class="channel-green">G</span><span class="channel-blue">B</span><span>Tone</span></div><svg class="editor-curve" viewBox="0 0 260 125" fill="none"><path class="curve-grid" d="M0 31H260M0 62H260M0 93H260M65 0V125M130 0V125M195 0V125"/><path class="curve-guide" d="M0 125L260 0"/><path class="curve-line" d="M0 125C52 118 74 102 112 62S193 23 260 0"/><circle cx="112" cy="62" r="4" fill="#e9f0e9"/></svg><div class="editor-readout"><span>Input <b>112</b></span><span>Output <b>128</b></span></div></div>
+                    <div class="editor-bottom-nav"><span class="editor-nav-looks"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="3"/><path d="m3 9-1 9a3 3 0 0 0 3 3l9-1"/></svg>Looks</span><span class="editor-nav-tools"><svg viewBox="0 0 24 24"><path d="M5 4v16M12 4v16M19 4v16M2 9h6M9 15h6M16 8h6"/></svg>Tools</span><span><svg viewBox="0 0 24 24"><path d="M12 15V3m-4 4 4-4 4 4M4 14v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/></svg>Export</span></div><div class="editor-home-indicator"></div>
+                  </div>
+                </div>
+                <figcaption>Illustrative interface composition</figcaption>
+              </figure>
             </article>
             <article class="story-chapter" data-chapter="3">
               <div class="chapter-copy">
@@ -222,22 +215,26 @@
                   >Color Mixer <i></i> B&amp;W Mixer <i></i> Effects</span
                 >
               </div>
-              <img
-                class="chapter-still"
-                src="assets/story-v4-3.webp"
-                width="1080"
-                height="1080"
-                alt="Aki Studio Color Mixer showing individual color controls"
-                loading="lazy"
-              />
+              <figure class="editor-illustration" aria-label="Illustrative Aki Studio Color Mixer composition">
+                <div class="editor-phone" aria-hidden="true">
+                  <div class="editor-screen">
+                    <img class="editor-photograph" src="assets/look-v3-original.webp" alt="" width="736" height="414" loading="lazy" />
+                    <div class="editor-top"><span class="editor-wordmark"><img src="assets/brand-aki.svg" alt="" width="38" height="24" /><small>STUDIO</small></span><span class="editor-history"><span title="Undo"><svg viewBox="0 0 24 24"><path d="M8 5 3 10l5 5M3 10h10a7 7 0 0 1 7 7"/></svg></span><span title="Redo"><svg viewBox="0 0 24 24"><path d="m16 5 5 5-5 5m5-5H11a7 7 0 0 0-7 7"/></svg></span><span title="Compare"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="3"/><path d="M12 3v18"/></svg></span></span></div>
+                    
+                    <div class="editor-panel editor-panel-3"><div class="editor-panel-heading"><span>Color Mixer</span><small>↺</small></div><div class="editor-colors"><i style="--swatch:#ea5d69"></i><i style="--swatch:#ee9e50"></i><i style="--swatch:#ead66c" class="is-selected"></i><i style="--swatch:#8bc77c"></i><i style="--swatch:#7cc5cd"></i><i style="--swatch:#678ee3"></i><i style="--swatch:#b087d8"></i><i style="--swatch:#d48fb6"></i></div><div class="editor-readout"><span>Hue</span><span>−12</span></div><div class="editor-slider" style="--value:44%"></div><div class="editor-readout"><span>Saturation</span><span>+18</span></div><div class="editor-slider" style="--value:59%"></div><div class="editor-readout"><span>Luminance</span><span>+8</span></div><div class="editor-slider" style="--value:54%"></div></div>
+                    <div class="editor-bottom-nav"><span class="editor-nav-looks"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="3"/><path d="m3 9-1 9a3 3 0 0 0 3 3l9-1"/></svg>Looks</span><span class="editor-nav-tools"><svg viewBox="0 0 24 24"><path d="M5 4v16M12 4v16M19 4v16M2 9h6M9 15h6M16 8h6"/></svg>Tools</span><span><svg viewBox="0 0 24 24"><path d="M12 15V3m-4 4 4-4 4 4M4 14v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/></svg>Export</span></div><div class="editor-home-indicator"></div>
+                  </div>
+                </div>
+                <figcaption>Illustrative interface composition</figcaption>
+              </figure>
             </article>
             <article class="story-chapter" data-chapter="4">
               <div class="chapter-copy">
                 <p class="eyebrow">04 / Your rhythm</p>
                 <h2>Less searching.<br /><span>More creating.</span></h2>
                 <p class="chapter-description">
-                  Keep the tools you reach for right where you want them.
-                  Arrange your workspace once. Your order stays with you.
+                  Move the glass panels. Reorder your tools. Keep your favorite
+                  Looks close. A workspace that follows the way you edit.
                 </p>
                 <a class="text-link" href="#workspace"
                   >Arrange a studio of your own
@@ -245,14 +242,18 @@
                     <use href="#arrow" /></svg
                 ></a>
               </div>
-              <img
-                class="chapter-still"
-                src="assets/story-v4-4.webp"
-                width="1080"
-                height="1080"
-                alt="Aki Studio's editing tools floating in a clean, unbadged panel"
-                loading="lazy"
-              />
+              <figure class="editor-illustration" aria-label="Illustrative Aki Studio workspace composition">
+                <div class="editor-phone" aria-hidden="true">
+                  <div class="editor-screen">
+                    <img class="editor-photograph" src="assets/look-v3-original.webp" alt="" width="736" height="414" loading="lazy" />
+                    <div class="editor-top"><span class="editor-wordmark"><img src="assets/brand-aki.svg" alt="" width="38" height="24" /><small>STUDIO</small></span><span class="editor-history"><span title="Undo"><svg viewBox="0 0 24 24"><path d="M8 5 3 10l5 5M3 10h10a7 7 0 0 1 7 7"/></svg></span><span title="Redo"><svg viewBox="0 0 24 24"><path d="m16 5 5 5-5 5m5-5H11a7 7 0 0 0-7 7"/></svg></span><span title="Compare"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="3"/><path d="M12 3v18"/></svg></span></span></div>
+                    
+                    <div class="editor-panel editor-panel-4"><div class="editor-panel-heading"><span>Tools</span><small>12 tools · All free</small></div><div class="editor-tools"><span><img src="assets/tool-icons/crop.png" alt="" width="24" height="24" loading="lazy" /><small>Crop</small></span><span><img src="assets/tool-icons/develop.png" alt="" width="24" height="24" loading="lazy" /><small>Develop</small></span><span><img src="assets/tool-icons/curves.png" alt="" width="24" height="24" loading="lazy" /><small>Curves</small></span><span><img src="assets/tool-icons/color.png" alt="" width="24" height="24" loading="lazy" /><small>Color Mixer</small></span><span><img src="assets/tool-icons/detail.png" alt="" width="24" height="24" loading="lazy" /><small>Detail</small></span><span><img src="assets/tool-icons/mono.png" alt="" width="24" height="24" loading="lazy" /><small>B&W Mixer</small></span><span><img src="assets/tool-icons/split.png" alt="" width="24" height="24" loading="lazy" /><small>Split Toning</small></span><span><img src="assets/tool-icons/optics.png" alt="" width="24" height="24" loading="lazy" /><small>Optics</small></span><span><img src="assets/tool-icons/geometry.png" alt="" width="24" height="24" loading="lazy" /><small>Geometry</small></span><span><img src="assets/tool-icons/effects.png" alt="" width="24" height="24" loading="lazy" /><small>Effects</small></span><span><img src="assets/tool-icons/frame.png" alt="" width="24" height="24" loading="lazy" /><small>Frame</small></span><span><img src="assets/tool-icons/date.png" alt="" width="24" height="24" loading="lazy" /><small>Date</small></span></div></div>
+                    <div class="editor-bottom-nav"><span class="editor-nav-looks"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="3"/><path d="m3 9-1 9a3 3 0 0 0 3 3l9-1"/></svg>Looks</span><span class="editor-nav-tools"><svg viewBox="0 0 24 24"><path d="M5 4v16M12 4v16M19 4v16M2 9h6M9 15h6M16 8h6"/></svg>Tools</span><span><svg viewBox="0 0 24 24"><path d="M12 15V3m-4 4 4-4 4 4M4 14v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/></svg>Export</span></div><div class="editor-home-indicator"></div>
+                  </div>
+                </div>
+                <figcaption>Illustrative interface composition</figcaption>
+              </figure>
             </article>
           </div>
           <div class="story-bottom">
@@ -273,9 +274,6 @@
                 <span></span>
               </button>
             </nav>
-            <span class="composition-note"
-              >App interface. Illustrative composition.</span
-            >
           </div>
         </div>
       </section>
@@ -291,8 +289,8 @@
             One photograph.<br /><span>Find your feeling.</span>
           </h2>
           <p>
-            A quiet shift in tone. A little more atmosphere.<br />Explore a few
-            starting points, then follow your own eye.
+            Distinct color. Film texture. Cinematic atmosphere.<br />Choose a
+            direction, then make it your own.
           </p>
         </div>
         <div class="look-experience glass">
@@ -379,11 +377,39 @@
             Each preview uses Aki Studio’s native Look renderer on the same
             photograph. Your image will have its own result.
           </p>
-          <a class="text-link" href="#beta"
+          <a class="text-link" href="#get-aki"
             >Find your starting point
             <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
           ></a>
         </div>
+        <div class="collection-grid" aria-label="Adaptive Look collections">
+          <article>
+            <span class="collection-index" aria-hidden="true">01</span>
+            <h3><span lang="ja">アキ</span> / Aki</h3>
+            <p>The original collection. Expressive color with a signature of its own.</p>
+          </article>
+          <article>
+            <span class="collection-index" aria-hidden="true">02</span>
+            <h3>Film</h3>
+            <p>Grain, softened tones and a gentle fade. A little texture to hold onto.</p>
+          </article>
+          <article>
+            <span class="collection-index" aria-hidden="true">03</span>
+            <h3>Cinematic</h3>
+            <p>Rich moods and considered color. Give the moment a sense of story.</p>
+          </article>
+          <article>
+            <span class="collection-index" aria-hidden="true">04</span>
+            <h3>Daily</h3>
+            <p>Fresh directions for everyday photographs, from small details to open skies.</p>
+          </article>
+          <article>
+            <span class="collection-index" aria-hidden="true">05</span>
+            <h3>B&amp;W</h3>
+            <p>Seven monochrome moods. Let light, texture and contrast carry the feeling.</p>
+          </article>
+        </div>
+        <p class="release-values">Every collection. Every tool. Free, with no subscriptions or in-app purchases.</p>
       </section>
 
       <section
@@ -400,8 +426,8 @@
           </div>
           <div>
             <p>
-              Curves first? Color within reach?<br />Move the tools into an
-              order that feels like you.
+              Twelve tools, all within reach.<br />Move them into an order
+              that feels like you.
             </p>
             <p class="organizer-instructions" id="organizer-instructions">
               Hold a tool, then move it. Or tap a tool and tap its new position.
@@ -415,6 +441,9 @@
         <div class="organizer-shell">
           <div class="organizer-glow" aria-hidden="true"></div>
           <div class="tool-surface">
+            <div class="tool-surface-heading">
+              <span>Tools</span><small>12 tools · All free</small>
+            </div>
             <div
               class="tool-grid"
               id="tool-grid"
@@ -423,16 +452,25 @@
               aria-describedby="organizer-instructions"
             ></div>
           </div>
-          <noscript
-            ><div class="static-tools">
-              <img
-                src="assets/app-tools-panel.webp?v=refined1"
-                alt="Aki Studio's twelve editing tools"
-                width="784"
-                height="558"
-                loading="lazy"
-              /></div
-          ></noscript>
+          <noscript>
+            <div class="static-tools static-release-tools glass" aria-label="Twelve free editing tools">
+              <div class="tool-surface-heading"><span>Tools</span><small>12 tools · All free</small></div>
+              <div class="editor-tools">
+                <span><img src="assets/tool-icons/crop.png" alt="" width="24" height="24" /><small>Crop</small></span>
+                <span><img src="assets/tool-icons/develop.png" alt="" width="24" height="24" /><small>Develop</small></span>
+                <span><img src="assets/tool-icons/curves.png" alt="" width="24" height="24" /><small>Curves</small></span>
+                <span><img src="assets/tool-icons/color.png" alt="" width="24" height="24" /><small>Color Mixer</small></span>
+                <span><img src="assets/tool-icons/detail.png" alt="" width="24" height="24" /><small>Detail</small></span>
+                <span><img src="assets/tool-icons/mono.png" alt="" width="24" height="24" /><small>B&amp;W Mixer</small></span>
+                <span><img src="assets/tool-icons/split.png" alt="" width="24" height="24" /><small>Split Toning</small></span>
+                <span><img src="assets/tool-icons/optics.png" alt="" width="24" height="24" /><small>Optics</small></span>
+                <span><img src="assets/tool-icons/geometry.png" alt="" width="24" height="24" /><small>Geometry</small></span>
+                <span><img src="assets/tool-icons/effects.png" alt="" width="24" height="24" /><small>Effects</small></span>
+                <span><img src="assets/tool-icons/frame.png" alt="" width="24" height="24" /><small>Frame</small></span>
+                <span><img src="assets/tool-icons/date.png" alt="" width="24" height="24" /><small>Date</small></span>
+              </div>
+            </div>
+          </noscript>
         </div>
         <div class="organizer-bottom">
           <p id="organizer-status" class="sr-only" aria-live="polite">
@@ -446,6 +484,12 @@
           Your tools, in your order. This interactive preview saves its
           arrangement in this browser.
         </p>
+        <p class="workspace-features">
+          Zoom into your crop. Compare with a swipe. Undo and redo as you explore.
+        </p>
+        <a class="text-link tools-guide-link" href="tools.html">Explore all twelve tools
+          <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg>
+        </a>
       </section>
 
       <section
@@ -481,18 +525,18 @@
             <span class="capability-mark">.aki</span>
             <h3>Keep exploring.</h3>
             <p>
-              Work with .aki adaptive packages alongside Adaptive Looks, editing
-              controls, mixers and effects.
+              Import .aki adaptive packages to bring more Looks into your studio,
+              alongside the collections already included.
             </p>
-            <small>A considered set of tools for your own direction.</small>
+            <small>Supports signed, encrypted .aki packages.</small>
           </article>
         </div>
       </section>
 
       <section
         class="beta-section section-space"
-        id="beta"
-        aria-labelledby="beta-title"
+        id="get-aki"
+        aria-labelledby="get-aki-title"
       >
         <div class="beta-photo" aria-hidden="true">
           <img
@@ -505,9 +549,9 @@
         </div>
         <div class="beta-content">
           <p class="eyebrow">
-            <span class="status-dot"></span> The iOS beta is open
+            <span class="status-dot"></span> Free to make it yours
           </p>
-          <h2 id="beta-title">Make it<br /><span>feel like you.</span></h2>
+          <h2 id="get-aki-title">Make it<br /><span>feel like you.</span></h2>
           <p>
             Your photographs. Your instincts.<br />A little more room to create.
           </p>
@@ -516,15 +560,15 @@
             href="https://testflight.apple.com/join/ef48hkdQ"
             target="_blank"
             rel="noopener noreferrer"
-            >Join the iOS beta
+            >Try it on TestFlight
             <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
           ></a>
           <div class="beta-availability">
-            <span>Available through TestFlight<br />Until October 15, 2026</span
+            <span>iPhone &amp; iPad<br />App Store release coming soon</span
             ><span>Android<br />Coming soon</span>
           </div>
           <p class="beta-note">
-            Aki Studio is in beta. Features and availability may change.
+            TestFlight access depends on available spaces and device compatibility.
           </p>
         </div>
       </section>
@@ -545,9 +589,29 @@
               Is Aki Studio available now?<span aria-hidden="true">+</span>
             </summary>
             <p>
-              The iOS beta is available through TestFlight until October 15,
-              2026. Android is coming soon. This is not a production App Store
-              release.
+              You can try Aki Studio on iPhone and iPad through TestFlight now.
+              The public App Store release is coming soon. Android is coming soon.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Is everything free?<span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Yes. Every built-in Look and all twelve editing tools are free,
+              with no subscriptions or in-app purchases. The public release is
+              planned to be supported by ads.
+            </p>
+          </details>
+          <details>
+            <summary>
+              When will I see ads?<span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              An ad may appear after your photograph has successfully saved to
+              Photos. Ads are spaced apart, so you won’t see one after every save.
+              The current TestFlight version uses Google test ads.
+              Read our <a href="privacy.html">privacy policy</a> for more details.
             </p>
           </details>
           <details>
@@ -572,15 +636,35 @@
           </details>
           <details>
             <summary>
-              Where can I share feedback?<span aria-hidden="true">+</span>
+              Where can I get help or share feedback?<span aria-hidden="true">+</span>
             </summary>
             <p>
-              Tell us what you are making and what could feel better. Write to
+              Visit <a href="support.html">Aki Studio support</a> or write to
               <a href="mailto:akistudio.mobile@gmail.com"
                 >akistudio.mobile@gmail.com</a
               >.
             </p>
           </details>
+        </div>
+      </section>
+      <section class="about-section section-space" id="about" aria-labelledby="about-title">
+        <div>
+          <p class="eyebrow">About Aki Studio</p>
+          <h2 id="about-title">A point of view.<br /><span>Room for yours.</span></h2>
+        </div>
+        <div class="about-copy">
+          <p>We believe an edit should serve the photograph: its light, its color,
+            and the feeling worth keeping. Aki Studio brings that idea to a
+            compact mobile workspace, with expressive starting points and
+            familiar tools you can make your own.</p>
+          <p>Your photographs and editing instructions are processed on your
+            device. You choose what to import, how far to take an edit, and
+            when to save a copy.</p>
+          <div class="about-links">
+            <a class="text-link" href="tools.html">Get to know the tools
+              <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg></a>
+            <a class="quiet-link" href="privacy.html">Privacy and your photos</a>
+          </div>
         </div>
       </section>
     </main>
@@ -596,8 +680,11 @@
       >
       <p>Your photograph. Still yours.</p>
       <div>
-        <a href="mailto:akistudio.mobile@gmail.com"
-          >Get in touch
+        <a href="tools.html">Tools guide</a
+        ><a href="privacy.html">Privacy</a
+        ><a href="licenses.html">Licenses</a
+        ><a href="support.html"
+          >Support
           <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg></a
         ><a href="../"
           >Aki Portfolio
