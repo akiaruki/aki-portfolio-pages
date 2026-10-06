@@ -31,7 +31,7 @@
   });
   matchMedia("(min-width:901px)").addEventListener("change", () => closeMenu());
 
-  // Lightweight illustrative UI. One scheduled read per scroll/resize event;
+  // App interface captures. One scheduled read per scroll/resize event;
   // native scrolling and CSS transitions provide the motion, with no idle loop.
   const story = document.querySelector(".scrollytelling");
   const chapters = [...story.querySelectorAll(".story-chapter")];
@@ -77,7 +77,7 @@
     cancelAnimationFrame(storyFrame);
     storyFrame = 0;
     activeChapter = -1;
-    story.dataset.renderer = "html-illustration";
+    story.dataset.renderer = "build70-captures";
     story.dataset.storyMode = storyEnhanced() ? "motion" : "static";
     chapters.forEach((chapter) => {
       chapter.inert = false;
