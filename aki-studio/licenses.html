@@ -24,7 +24,7 @@
       <h2 id="copyright">Copyright and website assets</h2>
       <p>© 2026 Aki Studio. The Aki Studio identity, original interface artwork, and original website content are reserved to their respective rights holders. Photographs remain the property of their photographers or other rights holders. Third-party software retains the copyrights and permissions in its own license.</p>
       <p>This website uses Aki Studio artwork and supplied photographs. Its interactive demonstrations are website previews; they do not contain the app's image-decoding or advertising libraries listed below.</p>
-      <p>Apple, iPhone, iPad, App Store, and TestFlight are trademarks of Apple Inc. Google and AdMob are trademarks of Google LLC. References describe compatibility and services used; they do not imply endorsement.</p>
+      <p>Apple, iPhone, iPad, and App Store are trademarks of Apple Inc. Google and AdMob are trademarks of Google LLC. References describe compatibility and services used; they do not imply endorsement.</p>
     </section>
     <section class="questions" aria-labelledby="components">
       <h2 id="components">Open-source components in the iOS app</h2>
@@ -36,12 +36,12 @@
       <article>
         <h3>LibRaw and its WebAssembly bindings</h3>
         <p>Support camera RAW decoding. The app bundles @colorhythm/libraw-wasm 1.1.1, LibRaw 0.22.1-Release, and typed-cstruct 0.10.2. The bindings and typed-cstruct use the MIT License. LibRaw is offered under LGPL 2.1 or CDDL 1.0 and includes additional attributed code.</p>
-        <p><a href="https://github.com/colorhythm/libraw-wasm/tree/9b0f59a5e0f6d3d12a8f6fa594015ef4f30a6e95">Bindings source</a> · <a href="https://github.com/LibRaw/LibRaw/tree/b860248a89d9082b8e0a1e202e516f46af9adb29">LibRaw source</a> · <a href="https://github.com/ssssota/typed-cstruct">typed-cstruct source</a></p>
+        <p><a href="https://github.com/colorhythm/libraw-wasm/tree/9b0f59a5e0f6d3d12a8f6fa594015ef4f30a6e95">Bindings source</a> · <a href="sources/aki-libraw-source.zip">Download LibRaw source and build materials</a> · <a href="https://github.com/LibRaw/LibRaw/tree/b860248a89d9082b8e0a1e202e516f46af9adb29">LibRaw source</a> · <a href="https://github.com/ssssota/typed-cstruct">typed-cstruct source</a></p>
       </article>
       <article>
         <h3>libheif-js 1.23.2 and libde265</h3>
         <p>Provide HEIF decoding support. The libheif WebAssembly build uses libde265 for HEVC decoding. These libraries are covered by LGPL 3.0 notices, with the accompanying GPL 3.0 text included in the full notices.</p>
-        <p><a href="https://github.com/catdad-experiments/libheif-js/tree/v1.23.2">JavaScript package</a> · <a href="https://github.com/catdad-experiments/libheif-emscripten/tree/v1.23.2">WebAssembly build</a> · <a href="https://github.com/strukturag/libheif/tree/ac1cb05c39008f01525c991ff8b88f84ddf70fd2">libheif source</a> · <a href="https://github.com/strukturag/libde265/tree/v1.0.15">libde265 source</a></p>
+        <p><a href="https://github.com/catdad-experiments/libheif-js/tree/v1.23.2">JavaScript package</a> · <a href="sources/legacy-heif-source.zip">Download HEIF source and build materials</a> · <a href="https://github.com/catdad-experiments/libheif-emscripten/tree/v1.23.2">WebAssembly build</a> · <a href="https://github.com/strukturag/libheif/tree/ac1cb05c39008f01525c991ff8b88f84ddf70fd2">libheif source</a> · <a href="https://github.com/strukturag/libde265/tree/v1.0.15">libde265 source</a></p>
       </article>
       <article>
         <h3>UTIF 3.1.0 and pako 1.0.11</h3>
@@ -61,7 +61,7 @@
     </section>
     <section aria-labelledby="rights">
       <h2 id="rights">License texts and source information</h2>
-      <p>The <a href="third-party-notices.txt">full notices</a> preserve the applicable license texts and copyright acknowledgements collected for these components. The links above identify their upstream source projects. Each third-party license applies to its covered component; this page does not grant a license to Aki Studio's unrelated code or artwork.</p>
+      <p>The <a href="third-party-notices.txt">full notices</a> preserve the applicable license texts and copyright acknowledgements for these components. The links above identify their upstream source projects. The <a href="sources/index.html">source download index</a> provides archived third-party source, build recipes, Emscripten runtime source and download checksums. Each third-party license applies to its covered component; this page does not grant a license to Aki Studio's unrelated code or artwork.</p>
       <p>For licensing questions or source-material requests, contact <a href="mailto:akistudio.mobile@gmail.com?subject=Aki%20Studio%20Licensing">akistudio.mobile@gmail.com</a>.</p>
     </section>
   </main>
