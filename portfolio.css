@@ -84,7 +84,8 @@ main { max-width: 1512px; margin-inline: auto; }
 }
 .opening-text { padding-bottom: 48px; }
 .opening-text .eyebrow { margin-bottom: 28px; font-size: 10px; }
-#intro { font-size: clamp(36px, 3.45vw, 54px); line-height: 1.12; letter-spacing: -.05em; text-wrap: balance; }
+#intro { font-size: clamp(42px, 4.8vw, 76px); line-height: 1.06; letter-spacing: -.065em; text-wrap: balance; }
+#intro .intro-emphasis { display: block; color: #a9b2ac; }
 .intro-note { color: var(--muted); margin-top: 24px; font-size: 14px; }
 #featured { min-width: 0; }
 .showcase-track { position: relative; display: flex; width: 100%; min-width: 0; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; }
@@ -252,7 +253,7 @@ dialog::backdrop { background: #080a09f5; }
   .opening { grid-template-columns: 1fr; gap: 40px; padding-block: 64px; min-height: auto; }
   .opening-text { max-width: 660px; padding-bottom: 0; }
   .opening-text .eyebrow { max-width: none; margin-bottom: 24px; }
-  #intro { font-size: 44px; max-width: 25ch; }
+  #intro { font-size: clamp(52px, 6.4vw, 64px); max-width: 25ch; }
   .showcase-track .photo-button { height: clamp(360px, 52vw, 520px); }
 }
 @media (max-width: 760px) {
@@ -269,7 +270,7 @@ dialog::backdrop { background: #080a09f5; }
   .opening { grid-template-columns: 1fr; gap: 32px; padding-block: 52px 64px; min-height: auto; }
   .opening-text { max-width: 620px; padding-bottom: 0; }
   .opening-text .eyebrow { max-width: none; margin-bottom: 20px; font-size: 10px; }
-  #intro { font-size: clamp(33px, 6.4vw, 48px); line-height: 1.13; max-width: 20ch; text-wrap: balance; }
+  #intro { font-size: clamp(42px, 11.5vw, 56px); max-width: 20ch; }
   .showcase-track .photo-button { height: var(--showcase-mobile-height, 55svh); }
   .showcase-track img { object-position: center top; }
   .showcase-dots { margin-top: 12px; }
@@ -325,7 +326,6 @@ dialog::backdrop { background: #080a09f5; }
 @media (max-width: 360px) {
   :root { --gutter: 18px; }
   nav > a { font-size: 11px; padding-inline: 3px; }
-  #intro { font-size: 32px; }
   .showcase-dots { padding-inline: 40px; }
   .showcase-dot { width: 44px; }
   .year-trigger { padding-inline: 12px; }

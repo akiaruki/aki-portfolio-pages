@@ -24,7 +24,15 @@ const formatDate=value=>{if(!PortfolioContent.realDate(value))return value;retur
 const sampleLabel=item=>item.sample?'<span class="sample-label">Sample</span>':'';
 function photoMarkup(p,{featured=false,framed=false,index=0}={}){return `<figure class="${featured?'featured-figure':escape(p.shape)+' reveal'} ${framed?'glass-frame':''}"><button class="photo-button" data-photo="${photos.indexOf(p)}" aria-label="View ${escape(PortfolioContent.photoTitle(p)||'photograph')}"><img src="${escape(imageURL(p))}" alt="${escape(p.alt||PortfolioContent.photoTitle(p)||'Photograph')}" ${featured?'fetchpriority="high"':'loading="lazy"'} decoding="async"></button><figcaption><div><h3>${escape(PortfolioContent.photoTitle(p))}</h3>${p.place?`<p>${escape(p.place)}</p>`:''}</div><span class="photo-number">${String(index+1).padStart(2,'0')}</span></figcaption></figure>`}
 document.querySelectorAll('.wordmark,.signature').forEach(el=>{el.textContent=data.name;if(el.tagName==='A')el.setAttribute('aria-label',data.name+' home')});
-$('#intro').textContent=data.intro;$('#intro').style.whiteSpace='pre-line';$('#about-copy').textContent=data.about;
+const intro=$('#intro'),introPause=data.intro.indexOf(',');
+intro.textContent=data.intro;intro.style.whiteSpace='pre-line';
+// Give the second clause the same quiet emphasis as the app landing headlines.
+if(introPause>=0&&data.intro.slice(introPause+1).trim()){
+ const emphasis=document.createElement('span');emphasis.className='intro-emphasis';
+ emphasis.textContent=data.intro.slice(introPause+1);
+ intro.replaceChildren(document.createTextNode(data.intro.slice(0,introPause+1)),emphasis);
+}
+$('#about-copy').textContent=data.about;
 const copyTargets={siteLabel:'.header-label,footer>span',heroEyebrow:'.opening-text>.eyebrow',heroNote:'.intro-note',japaneseNote:'.japanese',archiveTitle:'#archive-title',archiveEyebrow:'#photographs .section-heading>.eyebrow',aboutLabel:'.about>.eyebrow',journalEyebrow:'.journal-heading>.eyebrow',journalTitle:'.journal-heading>h2',journalNote:'.journal-heading>p',sampleNotice:'.demo-note',collectionsTitle:'#collections-title',collectionsNote:'.collections-note'};
 for(const [key,selector]of Object.entries(copyTargets))document.querySelectorAll(selector).forEach(el=>el.textContent=data.copy[key]);
 function linkText(selector,text,arrow){const el=$(selector);el.replaceChildren(document.createTextNode(text+' '));const span=document.createElement('span');span.textContent=arrow;span.setAttribute('aria-hidden','true');el.append(span)}
@@ -176,4 +184,5 @@ function wireImageErrors(root){root.querySelectorAll('img').forEach(img=>{img.ad
 function reveal(root){if(!('IntersectionObserver'in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;document.body.classList.add('motion-ready');const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.06});root.querySelectorAll('.reveal').forEach(el=>observer.observe(el))}
 wireImageErrors(document);reveal(document);window.portfolioReady=true;window.dispatchEvent(new Event('portfolio-ready'));
 })();
+
 
