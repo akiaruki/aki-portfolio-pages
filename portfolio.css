@@ -59,7 +59,7 @@ header > nav { grid-column: 3; grid-row: 1; display: flex; align-items: center; 
 nav > a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 9px 15px; border: 1px solid transparent; border-radius: 14px; color: #c1c5c3; font-size: 13px; white-space: nowrap; }
 nav > a span { margin-left: 7px; font-size: 12px; }
 nav > a:is(:hover, [aria-current="page"]) { color: var(--ink); background: #ffffff0d; border-color: #ffffff0a; }
-nav > .aki-studio-link { color: var(--ink); }
+nav > :is(.aki-studio-link, .aki-gazette-link) { color: var(--ink); }
 .year-picker { position: relative; order: 1; flex: none; margin-left: 12px; }
 .year-trigger, .glass-control, .close, .lightbox-stage button {
   display: inline-flex; align-items: center; justify-content: center; gap: 20px;
@@ -240,7 +240,7 @@ dialog::backdrop { background: #080a09f5; }
   body > header, .story-toolbar { background: #17191bd9; backdrop-filter: blur(24px) saturate(110%); -webkit-backdrop-filter: blur(24px) saturate(110%); }
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 1240px) {
   .header-label { display: none; }
   body > header { grid-template-columns: auto 1fr; gap: 16px; }
   header > nav { grid-column: 2; justify-content: flex-end; }
@@ -260,9 +260,9 @@ dialog::backdrop { background: #080a09f5; }
   html { scroll-padding-top: 140px; }
   body > header { top: 10px; margin-top: 10px; padding: 9px 12px 7px; grid-template-columns: 1fr; gap: 5px; border-radius: 20px; }
   header > .wordmark { font-size: 24px; margin-left: 6px; width: fit-content; }
-  header > nav { grid-column: 1; grid-row: 2; display: grid; grid-template-columns: .8fr 1.2fr 1.2fr .85fr; gap: 2px; }
-  nav > a { padding: 9px 6px; font-size: 12px; min-width: 0; border-radius: 12px; }
-  nav > a span { margin-left: 4px; font-size: 10px; }
+  header > nav { grid-column: 1; grid-row: 2; display: grid; grid-template-columns: .7fr 1.15fr 1.1fr .9fr .85fr; gap: 2px; }
+  nav > a { padding: 9px 3px; font-size: 12px; min-width: 0; border-radius: 12px; }
+  nav > a span { display: none; }
   .year-picker { position: absolute; right: 12px; top: 9px; margin: 0; }
   .year-trigger { min-height: 44px; padding: 10px 13px; font-size: 11px; gap: 20px; }
   .year-options { width: 156px; }
