@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-release="20261006-black-display-1">
+<html lang="en" data-release="20261009-looks-catalog-1">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -45,6 +45,54 @@
     <link rel="stylesheet" href="release.css?v=20261006-black-display-1" />
     <script src="studio.js?v=20261006-black-display-1" defer></script>
     <script src="tools-demo.js?v=20261006-release-1" defer></script>
+
+    <style>
+      /* The complete built-in catalog replaces the Looks screenshot. */
+      .looks-catalog {
+        width: 100%; max-width: 600px; min-width: 0; margin: 0 auto;
+        padding: clamp(20px, 2vw, 30px); border: 1px solid var(--release-edge);
+        border-radius: 25px; pointer-events: auto;
+      }
+      .catalog-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 18px; }
+      .catalog-heading h3 { margin: 0; color: #edf2ee; font-size: 21px; font-weight: 400; letter-spacing: -.03em; }
+      .catalog-heading > span { color: #a9b7ad; font-size: 10px; line-height: 1.5; text-align: right; }
+      .catalog-group { display: grid; grid-template-columns: 86px minmax(0, 1fr); align-items: start; gap: 18px; padding: 15px 0; border-top: 1px solid rgb(255 255 255 / 9%); }
+      .catalog-group h4 { margin: 0; font-size: 13px; line-height: 1.65; font-weight: 500; color: #edf2ee; }
+      .catalog-group h4 small { display: block; margin-top: 2px; color: #93a297; font-size: 10px; font-weight: 400; }
+      .catalog-roman { color: #a9b7ad; font-weight: 400; }
+      .catalog-group ul { display: flex; flex-wrap: wrap; gap: 4px 14px; list-style: none; margin: 0; padding: 0; }
+      .catalog-group li { color: #c1cbc3; font-size: 12px; line-height: 1.65; }
+      .catalog-note { margin: 0; padding-top: 15px; border-top: 1px solid rgb(255 255 255 / 9%); color: #a9b7ad; font-size: 11px; line-height: 1.7; }
+      .catalog-note strong { color: #edf2ee; font-weight: 400; }
+      @media (min-width: 901px) and (max-width: 1100px) {
+        .catalog-group { grid-template-columns: 70px minmax(0, 1fr); gap: 12px; padding-block: 12px; }
+        .catalog-group ul { gap: 3px 11px; }
+        .catalog-group li { font-size: 11px; }
+      }
+      @media (min-width: 901px) and (max-height: 740px) {
+        .looks-catalog { padding: 16px 20px; }
+        .catalog-heading { padding-bottom: 12px; }
+        .catalog-group { padding-block: 8px; }
+        .catalog-group h4 small { margin-top: 0; }
+        .catalog-note { padding-top: 10px; }
+      }
+      @media (max-width: 900px) {
+        .looks-catalog { margin-top: 36px; max-width: 600px; }
+      }
+      @media (max-width: 480px) {
+        .looks-catalog { padding: 21px; border-radius: 22px; }
+        .catalog-heading { align-items: start; flex-direction: column; gap: 4px; }
+        .catalog-heading > span { text-align: left; }
+        .catalog-group { grid-template-columns: minmax(0, 1fr); gap: 8px; padding-block: 16px; }
+        .catalog-group h4 { display: flex; align-items: baseline; gap: 5px; font-size: 14px; }
+        .catalog-group h4 small { margin: 0 0 0 auto; }
+        .catalog-group ul { gap: 5px 14px; }
+        .catalog-group li { font-size: 12px; }
+      }
+      @media (forced-colors: active) {
+        .looks-catalog, .catalog-group, .catalog-note { border-color: CanvasText; }
+      }
+    </style>
     <noscript
       ><style>
         .look-choices,
@@ -67,22 +115,6 @@
       aria-hidden="true"
     >
       <defs>
-        <filter id="looks-black-background" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
-          <feColorMatrix in="SourceGraphic" type="matrix" values="1 -1 0 0 0  0 1 -1 0 0  -1 0 1 0 0  0 0 0 0 1" result="positive-chroma" />
-          <feColorMatrix in="SourceGraphic" type="matrix" values="-1 1 0 0 0  0 -1 1 0 0  1 0 -1 0 0  0 0 0 0 1" result="negative-chroma" />
-          <feComposite in="positive-chroma" in2="negative-chroma" operator="arithmetic" k2="1" k3="1" result="chroma" />
-          <feColorMatrix in="chroma" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  4 4 4 0 -0.45" result="photo-mask" />
-          <feComposite in="SourceGraphic" in2="photo-mask" operator="out" result="neutral-ui" />
-          <feFlood flood-color="black" x="6.62%" y="22%" width="16%" height="22.2%" result="tile-one" />
-          <feFlood flood-color="black" x="26.65%" y="22%" width="16%" height="22.2%" result="tile-two" />
-          <feFlood flood-color="black" x="46.94%" y="22%" width="16%" height="22.2%" result="tile-three" />
-          <feFlood flood-color="black" x="67.15%" y="22%" width="16%" height="22.2%" result="tile-four" />
-          <feFlood flood-color="black" x="87.27%" y="22%" width="9.2%" height="22.2%" result="tile-five" />
-          <feMerge result="tile-backgrounds"><feMergeNode in="tile-one" /><feMergeNode in="tile-two" /><feMergeNode in="tile-three" /><feMergeNode in="tile-four" /><feMergeNode in="tile-five" /></feMerge>
-          <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  10 10 10 0 -24" result="heart-marks" />
-          <feComposite in="heart-marks" in2="tile-backgrounds" operator="in" result="original-hearts" />
-          <feMerge><feMergeNode in="neutral-ui" /><feMergeNode in="tile-backgrounds" /><feMergeNode in="original-hearts" /></feMerge>
-        </filter>
         <symbol id="arrow" viewBox="0 0 24 24">
           <path d="M5 19 19 5M5 5h14v14" />
         </symbol>
@@ -177,12 +209,80 @@
                     <use href="#arrow" /></svg
                 ></a>
               </div>
-              <figure class="editor-illustration native-looks">
-                <div class="native-controls-frame">
-                  <img class="native-controls-capture" src="ui-looks.webp" alt="Native iOS Looks panel with Daily collection, Original, Daymark, Brightside and Terracotta previews, favorite hearts and strength slider." width="1178" height="850" loading="lazy" decoding="async" />
+              <section class="looks-catalog glass" aria-labelledby="catalog-title">
+                <header class="catalog-heading">
+                  <h3 id="catalog-title">The collections</h3>
+                  <span>5 collections · 40 Looks</span>
+                </header>
+                <div class="catalog-groups">
+                  <section class="catalog-group" aria-labelledby="catalog-daily">
+                    <h4 id="catalog-daily">Daily<small>5 Looks</small></h4>
+                    <ul role="list">
+                      <li>Daymark</li>
+                      <li>Brightside</li>
+                      <li>Terracotta</li>
+                      <li>Breeze</li>
+                      <li>Verdant</li>
+                    </ul>
+                  </section>
+                  <section class="catalog-group" aria-labelledby="catalog-bw">
+                    <h4 id="catalog-bw">B&amp;W<small>7 Looks</small></h4>
+                    <ul role="list">
+                      <li>Chalk</li>
+                      <li>Silver</li>
+                      <li>Noir</li>
+                      <li>Mono</li>
+                      <li>Platinum</li>
+                      <li>Newsprint</li>
+                      <li>Ivory</li>
+                    </ul>
+                  </section>
+                  <section class="catalog-group" aria-labelledby="catalog-aki">
+                    <h4 id="catalog-aki"><span lang="ja">アキ</span> <span class="catalog-roman">/ Aki</span><small>8 Looks</small></h4>
+                    <ul role="list" lang="ja">
+                      <li>名残</li>
+                      <li>胡桃</li>
+                      <li>白雪</li>
+                      <li>朝凪</li>
+                      <li>晴れ</li>
+                      <li>若葉</li>
+                      <li>黄金</li>
+                      <li>時雨</li>
+                    </ul>
+                  </section>
+                  <section class="catalog-group" aria-labelledby="catalog-film">
+                    <h4 id="catalog-film">Film<small>10 Looks</small></h4>
+                    <ul role="list">
+                      <li>Prism</li>
+                      <li>Highland</li>
+                      <li>Silk</li>
+                      <li>Pressroom</li>
+                      <li>Cornerstore</li>
+                      <li>Studio</li>
+                      <li>Luster</li>
+                      <li>Carmine</li>
+                      <li>Silverglass</li>
+                      <li>Trueprint</li>
+                    </ul>
+                  </section>
+                  <section class="catalog-group" aria-labelledby="catalog-cinematic">
+                    <h4 id="catalog-cinematic">Cinematic<small>10 Looks</small></h4>
+                    <ul role="list">
+                      <li>Rosette</li>
+                      <li>Neon</li>
+                      <li>Copper</li>
+                      <li>Harvest</li>
+                      <li>Cobalt</li>
+                      <li>Terminal</li>
+                      <li>Twilight</li>
+                      <li>Vermilion</li>
+                      <li>Badlands</li>
+                      <li>Steel</li>
+                    </ul>
+                  </section>
                 </div>
-                <figcaption>Aki Studio · Looks</figcaption>
-              </figure>
+                <p class="catalog-note">Start with <strong>Original</strong>, or make any Look your own.</p>
+              </section>
             </article>
             <article class="story-chapter" data-chapter="2">
               <div class="chapter-copy">
@@ -676,3 +776,4 @@
     </footer>
   </body>
 </html>
+
