@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-release="20261009-looks-catalog-1">
+<html lang="en" data-release="20261010-studio-184-captures-1">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -40,7 +40,7 @@
     />
     <title>Aki Studio: Photo Editor for iPhone &amp; iPad</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="preload" as="image" href="ui-tools.webp" />
+    <link rel="preload" as="image" href="ui-build71-tools.png" />
     <link rel="stylesheet" href="studio.css?v=20261002-scroll-refined-1" />
     <link rel="stylesheet" href="release.css?v=20261006-black-display-1" />
     <script src="studio.js?v=20261006-black-display-1" defer></script>
@@ -78,6 +78,9 @@
       }
       @media (max-width: 900px) {
         .looks-catalog { margin-top: 36px; max-width: 600px; }
+        .scrollytelling:not([data-story-mode="motion"]) .story-chapter:first-child { min-height: 100svh; }
+        .scrollytelling:not([data-story-mode="motion"]) .story-chapter:first-child .chapter-copy { margin-top: 18svh; }
+        .scrollytelling:not([data-story-mode="motion"]) .story-chapter:first-child .editor-illustration { margin-top: calc(36px + 27svh); }
       }
       @media (max-width: 480px) {
         .looks-catalog { padding: 21px; border-radius: 22px; }
@@ -92,6 +95,19 @@
       @media (forced-colors: active) {
         .looks-catalog, .catalog-group, .catalog-note { border-color: CanvasText; }
       }
+      /* Show only the unchanged control detail from earlier panel captures. */
+      .editor-illustration--panel .editor-phone {
+        width: min(390px, 100%); padding: 0; aspect-ratio: 390 / 310;
+        overflow: hidden; border-radius: 25px;
+      }
+      .editor-illustration--panel .editor-capture {
+        aspect-ratio: 390 / 844; border-radius: 0;
+        transform: translateY(-52.5%);
+      }
+      .current-look-proof { margin: 52px auto 36px; }
+      .install-steps { max-width: 440px; margin: 24px 0 0; padding-left: 20px; color: #c5cec6; font-size: 12px; line-height: 1.8; }
+      .install-steps li + li { margin-top: 5px; }
+      .install-steps li::marker { color: #f1f5ef; }
     </style>
     <noscript
       ><style>
@@ -183,13 +199,13 @@
                   >
                 </div>
                 <p class="availability">
-                  Try it on TestFlight · App Store release coming soon
+                  Try it on TestFlight · App Store release under review
                   <span>Android coming soon</span>
                 </p>
               </div>
               <figure class="editor-illustration">
                 <div class="editor-phone">
-                  <img class="editor-capture" src="ui-tools.webp" alt="Aki Studio tools panel showing the twelve editing tools over a photograph" width="390" height="844" fetchpriority="high" decoding="async" />
+                  <img class="editor-capture" src="ui-build71-tools.png" alt="Aki Studio tools panel showing the twelve editing tools over a photograph" width="390" height="844" fetchpriority="high" decoding="async" />
                 </div>
                 <figcaption>Aki Studio · Tools</figcaption>
               </figure>
@@ -297,9 +313,9 @@
                   >Develop <i></i> Curves <i></i> Detail</span
                 >
               </div>
-              <figure class="editor-illustration">
+              <figure class="editor-illustration editor-illustration--panel">
                 <div class="editor-phone">
-                  <img class="editor-capture" src="ui-curves.webp" alt="Aki Studio Curves panel with tone and color channel controls" width="390" height="844" loading="lazy" decoding="async" />
+                  <img class="editor-capture" src="ui-curves.webp" alt="Detail of Aki Studio Curves controls and tone graph" width="390" height="844" loading="lazy" decoding="async" />
                 </div>
                 <figcaption>Aki Studio · Curves</figcaption>
               </figure>
@@ -317,9 +333,9 @@
                   >Color Mixer <i></i> B&amp;W Mixer <i></i> Effects</span
                 >
               </div>
-              <figure class="editor-illustration">
+              <figure class="editor-illustration editor-illustration--panel">
                 <div class="editor-phone">
-                  <img class="editor-capture" src="ui-color.webp" alt="Aki Studio Color Mixer panel with color and adjustment controls" width="390" height="844" loading="lazy" decoding="async" />
+                  <img class="editor-capture" src="ui-color.webp" alt="Detail of Aki Studio Color Mixer controls" width="390" height="844" loading="lazy" decoding="async" />
                 </div>
                 <figcaption>Aki Studio · Color Mixer</figcaption>
               </figure>
@@ -340,7 +356,7 @@
               </div>
               <figure class="editor-illustration">
                 <div class="editor-phone">
-                  <img class="editor-capture" src="ui-tools.webp" alt="Aki Studio tools panel in the photo editing workspace" width="390" height="844" loading="lazy" decoding="async" />
+                  <img class="editor-capture" src="ui-build71-tools.png" alt="Aki Studio tools panel in the photo editing workspace" width="390" height="844" loading="lazy" decoding="async" />
                 </div>
                 <figcaption>Aki Studio · Workspace</figcaption>
               </figure>
@@ -464,7 +480,7 @@
         ></p>
         <div class="look-footnote">
           <p>
-            Each preview uses Aki Studio’s native Look renderer on the same
+            These prepared previews show five Aki Looks on the same
             photograph. Your image will have its own result.
           </p>
           <a class="text-link" href="#get-aki"
@@ -499,6 +515,12 @@
             <p>Seven monochrome moods. Let light, texture and contrast carry the feeling.</p>
           </article>
         </div>
+        <figure class="editor-illustration current-look-proof">
+          <div class="editor-phone">
+            <img class="editor-capture" src="ui-build71-looks.png" alt="Current Aki Studio Looks selector on iPhone, showing Daily Looks over a yellow flower photograph" width="1206" height="2622" loading="lazy" decoding="async" />
+          </div>
+          <figcaption>Aki Studio · Looks on iPhone</figcaption>
+        </figure>
         <p class="release-values">Every collection. Every tool. Free, with no subscriptions or in-app purchases.</p>
       </section>
 
@@ -547,7 +569,7 @@
           <noscript>
             <figure class="editor-illustration">
               <div class="editor-phone">
-                <img class="editor-capture" src="ui-tools.webp" alt="Aki Studio photo editing workspace with the twelve tools panel open" width="390" height="844" loading="lazy" decoding="async" />
+                <img class="editor-capture" src="ui-build71-tools.png" alt="Aki Studio photo editing workspace with the twelve tools panel open" width="390" height="844" loading="lazy" decoding="async" />
               </div>
               <figcaption>Aki Studio · Workspace</figcaption>
             </figure>
@@ -643,8 +665,15 @@
             >Try it on TestFlight
             <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
           ></a>
+          <ol class="install-steps" aria-label="Install with TestFlight">
+            <li>Download <a href="https://apps.apple.com/app/testflight/id899247664" target="_blank" rel="noopener noreferrer">TestFlight from the App Store</a>.</li>
+            <li>If TestFlight asks for an invitation code, skip that step and close TestFlight.</li>
+            <li>Return here and tap the Try it on TestFlight invitation above.</li>
+            <li>When the link opens TestFlight, tap Accept, then Install.</li>
+          </ol>
+          <p class="beta-note">No redemption code is needed for this public link. If you already joined, TestFlight may show Update or Open instead.</p>
           <div class="beta-availability">
-            <span>iPhone &amp; iPad<br />App Store release coming soon</span
+            <span>iPhone &amp; iPad<br />App Store release under review</span
             ><span>Android<br />Coming soon</span>
           </div>
           <p class="beta-note">
@@ -670,7 +699,19 @@
             </summary>
             <p>
               You can try Aki Studio on iPhone and iPad through TestFlight now.
-              The public App Store release is coming soon. Android is coming soon.
+              The public App Store release is under review. Android is coming soon.
+            </p>
+          </details>
+          <details>
+            <summary>
+              How do I install with TestFlight?<span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Download <a href="https://apps.apple.com/app/testflight/id899247664">TestFlight from the App Store</a> first. If it asks for an invitation
+              code, close TestFlight without entering one. Return to this page, tap
+              <a href="#get-aki">Try Aki Studio</a> to reach the invitation, then tap
+              Try it on TestFlight. New testers tap Accept and Install there; returning
+              testers may see Update or Open. No redemption code is needed.
             </p>
           </details>
           <details>
@@ -688,9 +729,9 @@
               When will I see ads?<span aria-hidden="true">+</span>
             </summary>
             <p>
-              An ad may appear after your photograph has successfully saved to
-              Photos. Ads are spaced apart, so you won’t see one after every save.
-              The current TestFlight version uses Google test ads.
+              An ad may appear after an edited copy has been successfully saved.
+              Ads are spaced apart, so you won't see one after every save.
+              Ad availability and appearance may differ by installed build and region.
               Read our <a href="privacy.html">privacy policy</a> for more details.
             </p>
           </details>
@@ -776,4 +817,3 @@
     </footer>
   </body>
 </html>
-
