@@ -42,6 +42,8 @@
     <link rel="preload" as="image" href="ui-build71-tools.png" />
     <link rel="stylesheet" href="studio.css?v=20261002-scroll-refined-1" />
     <link rel="stylesheet" href="release.css?v=20261006-black-display-1" />
+    <link rel="stylesheet" href="color-mixer-demo.css?v=20261012-1" />
+    <script src="color-mixer-demo.js?v=20261012-1" defer></script>
     <script src="studio.js?v=20261006-black-display-1" defer></script>
     <script src="tools-demo.js?v=20261006-release-1" defer></script>
 
@@ -345,12 +347,31 @@
                   >Color Mixer <i></i> B&amp;W Mixer <i></i> Effects</span
                 >
               </div>
-              <figure class="editor-illustration editor-illustration--panel">
-                <div class="editor-phone">
-                  <img class="editor-capture" src="ui-color.webp" alt="Detail of Aki Studio Color Mixer controls" width="390" height="844" loading="lazy" decoding="async" />
-                </div>
-                <figcaption>Aki Studio · Color Mixer</figcaption>
-              </figure>
+                <figure class="color-mixer-demo" aria-labelledby="mixer-title">
+                  <div class="mixer-heading"><h3 id="mixer-title">Color Mixer</h3><span>Interactive preview</span></div>
+                  <div class="mixer-photo">
+                    <img src="assets/look-v3-original.webp" alt="Yellow flower surrounded by green foliage" width="736" height="414" loading="lazy" decoding="async" />
+                    <canvas hidden role="img" aria-label="Flower photograph with selective color adjustments"></canvas>
+                  </div>
+                  <div class="mixer-controls" hidden>
+                    <div class="mixer-channels" role="group" aria-label="Color channel">
+                      <button type="button" data-channel="0" aria-label="Red" aria-pressed="false"><span class="mixer-red"></span></button>
+                      <button type="button" data-channel="1" aria-label="Orange" aria-pressed="false"><span class="mixer-orange"></span></button>
+                      <button type="button" data-channel="2" aria-label="Yellow" aria-pressed="true"><span class="mixer-yellow"></span></button>
+                      <button type="button" data-channel="3" aria-label="Green" aria-pressed="false"><span class="mixer-green"></span></button>
+                      <button type="button" data-channel="4" aria-label="Aqua" aria-pressed="false"><span class="mixer-aqua"></span></button>
+                      <button type="button" data-channel="5" aria-label="Blue" aria-pressed="false"><span class="mixer-blue"></span></button>
+                      <button type="button" data-channel="6" aria-label="Purple" aria-pressed="false"><span class="mixer-purple"></span></button>
+                      <button type="button" data-channel="7" aria-label="Magenta" aria-pressed="false"><span class="mixer-magenta"></span></button>
+                    </div>
+                    <div class="mixer-selection"><p aria-live="polite"><strong id="mixer-channel">Yellow</strong> channel</p><button class="mixer-reset" type="button">Reset all</button></div>
+                    <div class="mixer-slider"><label for="mixer-hue">Hue</label><output aria-live="off" for="mixer-hue">0</output><input id="mixer-hue" data-adjustment="0" type="range" min="-100" max="100" value="0" /></div>
+                    <div class="mixer-slider"><label for="mixer-saturation">Saturation</label><output aria-live="off" for="mixer-saturation">0</output><input id="mixer-saturation" data-adjustment="1" type="range" min="-100" max="100" value="0" /></div>
+                    <div class="mixer-slider"><label for="mixer-luminance">Luminance</label><output aria-live="off" for="mixer-luminance">0</output><input id="mixer-luminance" data-adjustment="2" type="range" min="-100" max="100" value="0" /></div>
+                  </div>
+                  <figcaption class="mixer-note">Explore one color at a time. A web preview of selective color editing.</figcaption>
+                  <noscript><p class="mixer-note">Enable JavaScript to try the interactive controls.</p></noscript>
+                </figure>
             </article>
             <article class="story-chapter" data-chapter="4">
               <div class="chapter-copy">
@@ -829,4 +850,3 @@
     </footer>
   </body>
 </html>
-
