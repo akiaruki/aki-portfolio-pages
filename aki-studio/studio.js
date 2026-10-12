@@ -68,7 +68,7 @@
     }
     const bounds = story.getBoundingClientRect();
     const progress = Math.max(0, Math.min(1, -bounds.top / Math.max(1, bounds.height - innerHeight)));
-    selectChapter(Math.min(4, Math.floor(progress * 5)));
+    selectChapter(Math.min(chapters.length - 1, Math.floor(progress * chapters.length)));
   };
   const scheduleStory = () => {
     if (!storyFrame) storyFrame = requestAnimationFrame(updateStory);
@@ -97,7 +97,7 @@
     }
     const bounds = story.getBoundingClientRect();
     window.scrollTo({
-      top: bounds.top + scrollY + (bounds.height - innerHeight) * (index === 0 ? 0 : (index + 0.3) / 5),
+      top: bounds.top + scrollY + (bounds.height - innerHeight) * (index === 0 ? 0 : (index + 0.3) / chapters.length),
       behavior: "smooth",
     });
   }));

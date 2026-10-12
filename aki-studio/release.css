@@ -441,7 +441,7 @@
   text-align: center;
 }
 .scrollytelling[data-story-mode="motion"] {
-  height: 560svh;
+  height: 468svh;
 }
 .scrollytelling[data-story-mode="motion"] .story-chapter {
   display: grid;
