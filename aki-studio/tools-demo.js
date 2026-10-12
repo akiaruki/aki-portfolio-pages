@@ -2,6 +2,7 @@
   "use strict";
   const grid = document.querySelector("#tool-grid");
   const status = document.querySelector("#organizer-status");
+  if (!grid || !status) return;
   const reduced = matchMedia("(prefers-reduced-motion: reduce)");
   const catalog = [
     ["crop", "Crop"],
@@ -59,7 +60,7 @@
       node.setAttribute("aria-pressed", String(active?.id === id));
       node.classList.toggle(
         "is-picked",
-        active?.id === id && active.mode !== "drag",
+        active?.id === id && active.mode === "keyboard",
       );
     }
   };
@@ -188,9 +189,7 @@
     } else {
       grid.dataset.arranging = mode;
       announce(
-        mode === "tap"
-          ? `${names.get(id)} selected. Tap another tool to place it there.`
-          : `${names.get(id)} selected. Arrow keys move; Enter places; Escape cancels.`,
+        `${names.get(id)} selected. Arrow keys move; Enter places; Escape cancels.`,
       );
     }
     labels();
@@ -336,15 +335,9 @@
     ) {
       const state = pending;
       clearPending();
-      if (state.kind === "pointer") {
-        start(state.id, "drag", state.point);
-        active.kind = state.kind;
-        active.identifier = state.identifier;
-        grid.setPointerCapture(state.identifier);
-      } else {
-        suppress();
-        return;
-      }
+      // Movement before pickup cancels the hold. This lets pointer and touch
+      // scrolling begin naturally, and prevents an early move from becoming a drag.
+      if (state.kind === "touch") return;
     }
     const a = active;
     if (!a || a.mode !== "drag") return;
@@ -395,10 +388,7 @@
         event.preventDefault();
         return;
       }
-      if (active && active.mode !== "drag") {
-        if (active.id !== id) choose((active.draft || order).indexOf(id));
-        finish(true);
-      } else start(id, "tap");
+      // Pointer clicks do not rearrange. Keyboard users use arrows and Enter.
     });
     node.addEventListener("keydown", (event) => {
       const deltas = {

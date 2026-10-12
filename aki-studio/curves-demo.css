@@ -1,0 +1,59 @@
+.curves-demo { box-sizing: border-box; width: min(100%, 560px); min-width: 0; margin: 0 auto; padding: 18px; border: 1px solid #ffffff24; border-radius: 24px; background: #101311; box-shadow: 0 24px 70px #0005; color: #edf0e9; }
+.curves-demo *, .curves-demo *::before, .curves-demo *::after { box-sizing: border-box; }
+.curves-demo [hidden] { display: none !important; }
+.curves-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.curves-heading h3 { margin: 0; font-size: 17px; font-weight: 550; letter-spacing: -.02em; }
+.curves-heading > span { color: #a8b0a5; font-size: 10px; letter-spacing: .06em; }
+.curves-photo { overflow: hidden; border-radius: 12px; background: #080a08; height: 200px; }
+.curves-photo img, .curves-photo canvas { display: block; width: 100%; height: 100%; object-fit: contain; }
+.curves-panel { max-height: 300px; overflow: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #495047 #080a08; margin-top: 12px; padding: 0 12px 6px; border: 1px solid #ffffff24; border-radius: 18px; background: #080a08; }
+.curves-panel-heading { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.curves-panel-heading h4 { margin: 0; font-size: 13px; font-weight: 600; }
+.curves-demo button, .curves-demo input, .curves-demo select { font: inherit; }
+.curves-demo button { cursor: pointer; color: #edf0e9; }
+.curves-icon { display: grid; place-items: center; width: 44px; height: 44px; min-width: 44px; padding: 0; border: 0; background: transparent; border-radius: 50%; }
+.curves-icon svg { width: 17px; height: 17px; }
+.curves-channels { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)) 44px; gap: 2px; margin-bottom: 4px; }
+.curves-channels button { min-height: 44px; padding: 0 5px; border: 0; border-radius: 24px; background: transparent; font-size: 11px; }
+.curves-channels button[aria-pressed="true"] { background: #ffffff0e; }
+.curves-channels [data-channel="red"] { color: #e58d94; }
+.curves-channels [data-channel="green"] { color: #9ed3af; }
+.curves-channels [data-channel="blue"] { color: #8db9e8; }
+.curves-graph { position: relative; width: min(288px, calc(100% - 44px)); height: auto; aspect-ratio: 255 / 120; margin: 0 auto; touch-action: pan-y; user-select: none; }
+.curves-graph > svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.curves-grid { stroke: #ffffff0b; stroke-width: 1; vector-effect: non-scaling-stroke; fill: none; }
+.curves-histogram { fill: #626665; opacity: .38; }
+.curves-reference { stroke: #ffffff12; stroke-width: 1; vector-effect: non-scaling-stroke; }
+.curves-demo { --curve-ink: #eef0ee; }
+.curves-demo[data-channel="red"] { --curve-ink: #ff858f; }
+.curves-demo[data-channel="green"] { --curve-ink: #8fe8a6; }
+.curves-demo[data-channel="blue"] { --curve-ink: #8aafff; }
+.curves-line { fill: none; stroke: var(--curve-ink); stroke-width: 1.8; vector-effect: non-scaling-stroke; }
+.curves-point { position: absolute; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: transparent; transform: translate(-50%, -50%); touch-action: none; }
+.curves-point::after { content: ""; width: 8px; height: 8px; border: 1.5px solid var(--curve-ink); border-radius: 50%; background: #080a08; }
+.curves-point[aria-pressed="true"]::after { width: 10px; height: 10px; background: var(--curve-ink); }
+.curves-values { display: grid; grid-template-columns: minmax(0, 1.3fr) repeat(2, minmax(0, 1fr)) 44px 44px; gap: 3px; align-items: center; margin-top: 12px; }
+.curves-values label { display: flex; align-items: center; gap: 3px; color: #a8ada5; font-size: 10px; }
+.curves-values input, .curves-values select { width: 100%; min-width: 0; min-height: 44px; padding: 0 2px; color: #edf0e9; border: 0; border-radius: 6px; background: transparent; font-size: 13px; }
+.curves-values input { appearance: textfield; -moz-appearance: textfield; }
+.curves-values input::-webkit-outer-spin-button, .curves-values input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.curves-values select { color-scheme: dark; }
+.curves-values output { color: #edf0e9; font-size: 13px; font-variant-numeric: tabular-nums; }
+.curves-region { min-height: 44px; display: grid; grid-template-columns: 82px minmax(0, 1fr) 28px; gap: 8px; align-items: center; }
+.curves-region label { color: #c4ccbe; font-size: 11px; }
+.curves-region output { grid-column: 3; grid-row: 1; color: #edf0e9; font-size: 11px; font-variant-numeric: tabular-nums; text-align: right; }
+.curves-region input { grid-column: 2; grid-row: 1; width: 100%; min-height: 44px; margin: 0; accent-color: #d6dfcd; cursor: pointer; }
+.curves-regions summary { min-height: 44px; align-content: center; font-size: 11px; color: #c4ccbe; cursor: pointer; }
+.curves-demo[data-channel="tone"] .curves-graph { touch-action: pan-y; }
+.curves-demo button:disabled, .curves-demo input:disabled { cursor: default; opacity: .35; }
+.curves-demo button:hover:enabled { background-color: #ffffff0b; }
+.curves-demo button:focus-visible, .curves-demo input:focus-visible, .curves-demo select:focus-visible { outline: 2px solid #edf0e9; outline-offset: 2px; }
+.curves-sample { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 6px; }
+.curves-sample p { margin: 0; font-size: 11px; color: #bac2b5; }
+.curves-sample button { min-height: 44px; padding: 0 10px; border: 0; border-radius: 9px; background: #ffffff08; font-size: 11px; }
+.curves-note { margin: 3px 0 0; color: #9fa79b; font-size: 10px; line-height: 1.5; }
+.scrollytelling[data-story-mode="motion"] .story-chapter.is-active .curves-demo,
+.scrollytelling[data-story-mode="static"] .curves-demo { pointer-events: auto; }
+@media (max-width: 900px) { .curves-demo { margin-top: 32px; } }
+@media (max-width: 420px) { .curves-demo { padding: 14px; border-radius: 20px; }.curves-photo { height: auto; aspect-ratio: 736 / 414; }.curves-panel { padding-right: 8px; padding-left: 8px; }.curves-values { grid-template-columns: minmax(0, 1.1fr) repeat(2, minmax(0, 1fr)) 44px 44px; gap: 0; }.curves-heading > span { font-size: 9px; }.curves-graph { width: calc(100% - 36px); max-width: 288px; } }
+@media (min-width: 901px) and (max-height: 760px) { .curves-demo { max-width: 440px; padding: 14px; }.curves-photo { height: 120px; }.curves-heading { margin-bottom: 10px; }.curves-panel { margin-top: 8px; max-height: 254px; }.curves-graph { width: min(230px, calc(100% - 44px)); }.curves-note { margin-top: 0; } }

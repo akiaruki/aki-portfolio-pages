@@ -41,11 +41,13 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preload" as="image" href="ui-build71-tools.png" />
     <link rel="stylesheet" href="studio.css?v=20261002-scroll-refined-1" />
-    <link rel="stylesheet" href="release.css?v=20261006-black-display-1" />
+    <link rel="stylesheet" href="release.css?v=20261012-curves-1" />
     <link rel="stylesheet" href="color-mixer-demo.css?v=20261012-1" />
     <script src="color-mixer-demo.js?v=20261012-1" defer></script>
-    <script src="studio.js?v=20261006-black-display-1" defer></script>
-    <script src="tools-demo.js?v=20261006-release-1" defer></script>
+    <link rel="stylesheet" href="curves-demo.css?v=20261012-1" />
+    <script src="curves-demo.js?v=20261012-1" defer></script>
+    <script src="studio.js?v=20261012-curves-1" defer></script>
+    <script src="tools-demo.js?v=20261012-hold-1" defer></script>
 
     <style>
       /* The complete built-in catalog replaces the Looks screenshot. */
@@ -327,11 +329,54 @@
                   >Develop <i></i> Curves <i></i> Detail</span
                 >
               </div>
-              <figure class="editor-illustration editor-illustration--panel">
-                <div class="editor-phone">
-                  <img class="editor-capture" src="ui-curves.webp" alt="Detail of Aki Studio Curves controls and tone graph" width="390" height="844" loading="lazy" decoding="async" />
+              <figure class="curves-demo" aria-labelledby="curves-title">
+                <div class="curves-heading"><h3 id="curves-title">Curves</h3><span>Interactive preview</span></div>
+                <div class="curves-photo">
+                  <img src="assets/look-v3-original.webp" alt="Yellow flower surrounded by green foliage" width="736" height="414" loading="lazy" decoding="async" />
+                  <canvas hidden role="img" aria-label="Flower photograph with a subtle lifted-black fade"></canvas>
                 </div>
-                <figcaption>Aki Studio · Curves</figcaption>
+                <div class="curves-controls" hidden>
+                  <div class="curves-panel">
+                    <div class="curves-panel-heading"><h4>Curves</h4><button type="button" class="curves-icon curves-reset-all" aria-label="Reset all curves"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 9a7 7 0 1 1 .6 7M5 4v5h5" /></svg></button></div>
+                    <div class="curves-channels" role="group" aria-label="Curve channel">
+                      <button type="button" data-channel="rgb" aria-label="RGB curve" aria-pressed="true">RGB</button>
+                      <button type="button" data-channel="red" aria-label="Red curve" aria-pressed="false">R</button>
+                      <button type="button" data-channel="green" aria-label="Green curve" aria-pressed="false">G</button>
+                      <button type="button" data-channel="blue" aria-label="Blue curve" aria-pressed="false">B</button>
+                      <button type="button" data-channel="tone" aria-label="Tone curve" aria-pressed="false">Tone</button>
+                      <button type="button" class="curves-icon curves-reset-channel" aria-label="Reset RGB curve"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 9a7 7 0 1 1 .6 7M5 4v5h5" /></svg></button>
+                    </div>
+                    <div class="curves-graph" aria-label="Tone curve graph. Input runs from black to white; output runs from dark to light.">
+                      <svg viewBox="0 0 256 128" preserveAspectRatio="none" aria-hidden="true">
+                        <path class="curves-grid" d="M0 0H256V128H0Z M64 0V128 M128 0V128 M192 0V128 M0 32H256 M0 64H256 M0 96H256" />
+                        <path class="curves-histogram" d="" />
+                        <path class="curves-reference" d="M0 128L256 0" />
+                        <path class="curves-line" d="M0 119L256 0" />
+                      </svg>
+                      <div class="curves-points"></div>
+                    </div>
+                    <div class="curves-values">
+                      <label for="curves-point">Point <select id="curves-point" aria-label="Selected curve point"><option value="0">1</option><option value="1">2</option></select></label>
+                      <label for="curves-in">In <output id="curves-in" aria-label="Curve point input">0</output></label>
+                      <label for="curves-out">Out <output id="curves-out" aria-label="Curve point output">18</output></label>
+                      <button type="button" class="curves-icon curves-add" aria-label="Add curve point"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg></button>
+                      <button type="button" class="curves-icon curves-remove" aria-label="Remove selected curve point" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14" /></svg></button>
+                    </div>
+                    <div class="curves-regions" hidden role="group" aria-label="Tonal regions">
+                      <div class="curves-region"><label for="curve-highlights">Highlights</label><output for="curve-highlights">0</output><input id="curve-highlights" data-region="curveHighlights" type="range" min="-100" max="100" value="0" /></div>
+                      <div class="curves-region"><label for="curve-lights">Lights</label><output for="curve-lights">0</output><input id="curve-lights" data-region="curveLights" type="range" min="-100" max="100" value="0" /></div>
+                      <div class="curves-region"><label for="curve-darks">Darks</label><output for="curve-darks">0</output><input id="curve-darks" data-region="curveDarks" type="range" min="-100" max="100" value="0" /></div>
+                      <div class="curves-region"><label for="curve-shadows">Shadows</label><output for="curve-shadows">0</output><input id="curve-shadows" data-region="curveShadows" type="range" min="-100" max="100" value="0" /></div>
+                      <details><summary>Region boundaries</summary>
+                        <div class="curves-region"><label for="curve-split1">Shadow boundary</label><output for="curve-split1">25</output><input id="curve-split1" data-region="curveSplit1" type="range" min="5" max="98" value="25" /></div>
+                        <div class="curves-region"><label for="curve-split2">Midtone boundary</label><output for="curve-split2">50</output><input id="curve-split2" data-region="curveSplit2" type="range" min="5" max="98" value="50" /></div>
+                        <div class="curves-region"><label for="curve-split3">Highlight boundary</label><output for="curve-split3">75</output><input id="curve-split3" data-region="curveSplit3" type="range" min="5" max="98" value="75" /></div>
+                      </details>
+                    </div>                  </div>
+                  <div class="curves-sample"><p id="curves-status" aria-live="polite">RGB shadows gently lifted.</p><button type="button" class="curves-soft-fade">Soft fade sample</button></div>
+                </div>
+                <figcaption class="curves-note">Lift the lower-left point to soften the blacks. A web preview of the Curves panel.</figcaption>
+                <noscript><p class="curves-note">Enable JavaScript to try the curve controls.</p></noscript>
               </figure>
             </article>
             <article class="story-chapter" data-chapter="3">
@@ -373,27 +418,6 @@
                   <noscript><p class="mixer-note">Enable JavaScript to try the interactive controls.</p></noscript>
                 </figure>
             </article>
-            <article class="story-chapter" data-chapter="4">
-              <div class="chapter-copy">
-                <p class="eyebrow">04 / Your rhythm</p>
-                <h2>Less searching.<br /><span>More creating.</span></h2>
-                <p class="chapter-description">
-                  Move the glass panels. Reorder your tools. Keep your favorite
-                  Looks close. A workspace that follows the way you edit.
-                </p>
-                <a class="text-link" href="#workspace"
-                  >Arrange a studio of your own
-                  <svg class="icon" aria-hidden="true">
-                    <use href="#arrow" /></svg
-                ></a>
-              </div>
-              <figure class="editor-illustration">
-                <div class="editor-phone">
-                  <img class="editor-capture" src="ui-build71-tools.png" alt="Aki Studio tools panel in the photo editing workspace" width="390" height="844" loading="lazy" decoding="async" />
-                </div>
-                <figcaption>Aki Studio · Workspace</figcaption>
-              </figure>
-            </article>
           </div>
           <div class="story-bottom">
             <span class="scroll-cue"
@@ -408,8 +432,6 @@
               ><button aria-label="Light and tone" data-go="2">
                 <span></span></button
               ><button aria-label="Color and character" data-go="3">
-                <span></span></button
-              ><button aria-label="Your rhythm" data-go="4">
                 <span></span>
               </button>
             </nav>
@@ -575,7 +597,7 @@
               that feels like you.
             </p>
             <p class="organizer-instructions" id="organizer-instructions">
-              Hold a tool, then move it. Or tap a tool and tap its new position.
+              Press and hold a tool, drag it into place, then release.
               <span class="sr-only"
                 >Keyboard: Space to pick up, arrow keys to move, Enter to place,
                 Escape to cancel.</span
