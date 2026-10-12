@@ -131,6 +131,17 @@
         .scrollytelling .studio-hero .chapter-description { font-size: 15px; margin-top: 24px; }
         .scrollytelling .studio-hero .editor-phone { width: min(100%, 252px); }
       }
+      /* Let the opening copy finish before the phone preview enters on small screens. */
+      @media (max-width: 900px) {
+        .scrollytelling:not([data-story-mode="motion"]) .studio-hero:first-child {
+          --studio-hero-top: calc(145px + env(safe-area-inset-top, 0px));
+          padding-top: var(--studio-hero-top);
+        }
+        .scrollytelling:not([data-story-mode="motion"]) .studio-hero:first-child .chapter-copy {
+          min-height: calc(100vh - var(--studio-hero-top));
+          min-height: calc(100svh - var(--studio-hero-top));
+        }
+      }
     </style>
     <noscript
       ><style>
