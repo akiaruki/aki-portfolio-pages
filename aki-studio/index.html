@@ -107,6 +107,26 @@
       .install-steps { max-width: 440px; margin: 24px 0 0; padding-left: 20px; color: #c5cec6; font-size: 12px; line-height: 1.8; }
       .install-steps li + li { margin-top: 5px; }
       .install-steps li::marker { color: #f1f5ef; }
+      /* Gazette's first-screen hierarchy in Studio's existing dark palette. */
+      .scrollytelling .studio-hero { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(42px, 7vw, 100px); }
+      .scrollytelling .studio-hero .chapter-copy { width: 100%; max-width: 680px; }
+      .scrollytelling .studio-hero h1 { font-size: clamp(55px, 6.1vw, 98px); }
+      .scrollytelling .studio-hero .chapter-description { max-width: 470px; margin: 30px 0 22px; font-size: 17px; line-height: 1.85; }
+      .studio-hero .studio-release-status { display: inline-flex; align-items: center; gap: 10px; max-width: 100%; margin: 0 0 12px; padding: 7px 12px; border: 1px solid #80857d50; border-radius: 99px; color: #c5cec6; font-size: 11px; line-height: 1.5; }
+      .studio-hero .studio-release-status .status-dot { flex: none; }
+      .studio-hero .studio-release-detail { margin: 0 0 24px; color: #a0aaa2; font-size: 12px; line-height: 1.7; }
+      .scrollytelling .studio-hero .hero-actions { margin-top: 0; flex-wrap: wrap; gap: 16px 24px; }
+      .scrollytelling .studio-hero .quiet-link { display: inline-flex; min-height: 44px; align-items: center; }
+      .scrollytelling .studio-hero .editor-illustration { width: 100%; padding: 28px 24px 22px; border: 1px solid #80857d40; border-radius: 28px; background: linear-gradient(145deg, #ffffff05, #80917c08); }
+      .scrollytelling .studio-hero .editor-phone { width: min(100%, 252px, calc((100svh - 245px) * (390 / 844))); }
+      @media (max-width: 900px) {
+        .scrollytelling:not([data-story-mode="motion"]) .studio-hero:first-child { min-height: 0; padding-top: 145px; padding-bottom: 48px; }
+        .scrollytelling:not([data-story-mode="motion"]) .studio-hero:first-child .chapter-copy { margin-top: 0; }
+        .scrollytelling:not([data-story-mode="motion"]) .studio-hero:first-child .editor-illustration { max-width: 440px; margin-top: 36px; }
+        .scrollytelling .studio-hero h1 { font-size: clamp(45px, 10.5vw, 74px); }
+        .scrollytelling .studio-hero .chapter-description { font-size: 15px; margin-top: 24px; }
+        .scrollytelling .studio-hero .editor-phone { width: min(100%, 252px); }
+      }
     </style>
     <noscript
       ><style>
@@ -178,7 +198,7 @@
         <div class="story-viewport">
           
           <div class="story-chapters">
-            <article class="story-chapter" data-chapter="0">
+            <article class="story-chapter studio-hero" data-chapter="0">
               <div class="chapter-copy">
                 <p class="eyebrow">
                   <span class="status-dot"></span> Your free photo studio
@@ -188,19 +208,12 @@
                   Find your feeling. Shape the light.<br />Make every photograph
                   unmistakably yours.
                 </p>
+                <p class="studio-release-status"><span class="status-dot" aria-hidden="true"></span>Available on TestFlight for iPhone &amp; iPad</p>
+                <p class="studio-release-detail">Free to use · No subscriptions or in-app purchases</p>
                 <div class="hero-actions">
-                  <a class="button button-white" href="#get-aki"
-                    >Try Aki Studio
-                    <svg class="icon" aria-hidden="true">
-                      <use href="#arrow" /></svg></a
-                  ><a class="quiet-link" href="#looks"
-                    >Discover Adaptive Looks</a
-                  >
+                  <a class="button button-white" href="#get-aki">Try Aki Studio <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg></a>
+                  <a class="quiet-link" href="#looks">Explore Studio</a>
                 </div>
-                <p class="availability">
-                  Try it on TestFlight · App Store release under review
-                  <span>Android coming soon</span>
-                </p>
               </div>
               <figure class="editor-illustration">
                 <div class="editor-phone">
