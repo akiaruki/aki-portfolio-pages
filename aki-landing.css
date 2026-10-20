@@ -1,0 +1,344 @@
+/* Shared foundations for Aki's product landing pages. */
+.aki-landing {
+  --aki-width: 1280px;
+  --aki-gutter: clamp(22px, 4vw, 64px);
+  --aki-space: clamp(64px, 7vw, 104px);
+  --aki-gap: clamp(40px, 6vw, 88px);
+  --aki-radius: 28px;
+  --aki-paper: #f8f7f1;
+  --aki-ink: #263025;
+  --aki-muted: #636d60;
+  --aki-line: #26302526;
+  --aki-surface: #eeeee4;
+  --aki-glass: #f8f7f1eb;
+  --aki-accent: #956349;
+  font: 16px/1.75 Arial, Helvetica, sans-serif;
+  background: var(--aki-paper);
+  color: var(--aki-ink);
+}
+.aki-studio {
+  --aki-paper: #080a09;
+  --aki-ink: #f1f3f1;
+  --aki-muted: #a9b2ac;
+  --aki-line: #ffffff24;
+  --aki-surface: #111612;
+  --aki-glass: #111513ed;
+  --aki-accent: #b9cbb7;
+}
+.aki-landing main { padding-top: 100px; }
+.aki-landing .wrap {
+  width: min(calc(100% - 2 * var(--aki-gutter)), var(--aki-width));
+  max-width: var(--aki-width);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+.aki-landing h1, .aki-landing h2 { line-height: 1.06; letter-spacing: -.065em; font-weight: 500; }
+.aki-landing h2, .aki-studio .chapter-copy h2,
+.aki-studio .depth-section .section-heading h2, .aki-studio .beta-content h2 {
+  font-size: clamp(36px, 4.4vw, 66px);
+}
+.aki-landing .eyebrow, .aki-landing .index {
+  color: var(--aki-accent); font-size: 10px; line-height: 1.6;
+  font-weight: 500; letter-spacing: .17em;
+}
+.aki-landing .eyebrow, .aki-landing .index { margin-bottom: 24px; }
+.aki-landing p { color: var(--aki-muted); }
+.aki-landing a:focus-visible, .aki-landing button:focus-visible,
+.aki-landing summary:focus-visible { outline: 2px solid var(--aki-accent); outline-offset: 5px; }
+
+/* One navigation frame and touch target scale in both palettes. */
+.aki-landing .aki-header {
+  position: fixed; top: 16px; left: 50%; right: auto; transform: translateX(-50%);
+  width: min(calc(100% - 48px), 1440px); max-width: 1440px;
+  min-height: 68px; height: auto; margin: 0; z-index: 50;
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 20px;
+  padding: 10px 18px 10px 26px; border: 1px solid var(--aki-line); border-radius: 22px;
+  background: var(--aki-glass); box-shadow: 0 12px 36px #00000008;
+  -webkit-backdrop-filter: blur(22px); backdrop-filter: blur(22px);
+}
+.aki-landing .aki-brand {
+  display: inline-flex; align-items: center; gap: 12px; min-height: 44px;
+  margin: 0; text-decoration: none; white-space: nowrap;
+}
+.aki-landing .aki-brand > svg, .aki-landing .aki-brand > .brand-mark {
+  width: 52px; height: 34px; flex: none; object-fit: contain;
+}
+.aki-landing .aki-brand > span {
+  padding-left: 14px; border-left: 1px solid var(--aki-line); color: var(--aki-ink);
+  font-size: 9px; font-weight: 400; letter-spacing: .23em; line-height: 22px;
+}
+.aki-landing .aki-nav { display: flex; justify-content: center; align-items: center; gap: 4px; margin: 0; }
+.aki-landing .aki-nav a {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 10px 12px; border: 1px solid transparent; border-radius: 14px;
+  font-size: 12px; line-height: 1.4; color: var(--aki-muted); text-decoration: none; white-space: nowrap;
+}
+.aki-landing .aki-nav a:hover, .aki-landing .aki-nav a[aria-current="location"] {
+  color: var(--aki-ink); border-color: var(--aki-line); background: var(--aki-surface);
+}
+.aki-landing .nav-cta {
+  display: inline-flex; justify-content: center; align-items: center; gap: 17px;
+  min-height: 44px; padding: 10px 18px; border: 1px solid var(--aki-line); border-radius: 99px;
+  font-size: 12px; line-height: 1.4; text-decoration: none; background: transparent; color: var(--aki-ink);
+}
+.aki-landing .nav-cta:hover { background: var(--aki-surface); }
+.aki-landing .menu-toggle { display: none; width: 44px; height: 44px; flex: none; border: 1px solid var(--aki-line); border-radius: 50%; background: transparent; }
+
+/* The same content grid, headline scale and authentic screen frame. */
+.aki-landing .aki-hero, .aki-studio .scrollytelling .studio-hero {
+  width: min(calc(100% - 2 * var(--aki-gutter)), var(--aki-width));
+  max-width: var(--aki-width); margin-inline: auto;
+  display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  align-items: center; gap: var(--aki-gap); min-height: calc(100svh - 100px);
+  padding: 44px 0 64px; position: relative;
+}
+.aki-gazette .aki-hero { width: 100%; }
+.aki-landing .aki-hero-copy, .aki-studio .scrollytelling .studio-hero .chapter-copy {
+  width: 100%; max-width: 640px; min-width: 0; min-height: 0; margin: 0; padding: 0;
+}
+.aki-landing .aki-hero h1, .aki-studio .scrollytelling .studio-hero h1 {
+  font-size: clamp(52px, 5.6vw, 92px); margin: 0 0 26px;
+}
+.aki-landing .aki-hero .eyebrow { display: block; margin-bottom: 24px; color: var(--aki-muted); }
+.aki-landing .aki-hero .intro, .aki-studio .scrollytelling .studio-hero .chapter-description {
+  max-width: 490px; margin: 0 0 24px; font-size: 17px; line-height: 1.75;
+}
+.aki-landing .aki-status {
+  display: inline-flex; align-items: center; gap: 9px; max-width: 100%;
+  margin: 0 0 10px; padding: 7px 12px; border: 1px solid var(--aki-line); border-radius: 99px;
+  background: transparent; font-size: 11px; line-height: 1.5; color: var(--aki-ink);
+}
+.aki-landing .aki-status::before { content: ""; width: 5px; height: 5px; flex: none; border-radius: 50%; background: var(--aki-accent); }
+.aki-landing .aki-status .status-dot { display: none; }
+.aki-landing .aki-detail { margin: 0 0 24px; font-size: 12px; line-height: 1.7; color: var(--aki-muted); }
+.aki-landing .aki-actions, .aki-studio .scrollytelling .studio-hero .hero-actions {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 14px 24px; margin: 0;
+}
+.aki-landing .button {
+  display: inline-flex; align-items: center; justify-content: space-between; gap: 28px;
+  min-height: 52px; padding: 13px 22px; margin: 0; border: 1px solid var(--aki-ink); border-radius: 99px;
+  background: var(--aki-ink); color: var(--aki-paper); font-size: 12px; font-weight: 500; line-height: 1.5; text-decoration: none;
+}
+.aki-landing .button:hover { filter: brightness(.93); }
+.aki-landing .aki-actions > a:not(.button) {
+  display: inline-flex; align-items: center; min-height: 44px;
+  color: var(--aki-ink); font-size: 12px; text-decoration: underline; text-underline-offset: 5px;
+}
+.aki-landing .aki-preview, .aki-studio .scrollytelling .studio-hero .editor-illustration {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 16px; width: 100%; max-width: 460px; min-width: 0; margin: 0; justify-self: center;
+  padding: 28px 24px; border: 1px solid var(--aki-line); border-radius: var(--aki-radius);
+  background: linear-gradient(145deg, #ffffff05, #80917c08); box-shadow: none; transform: none;
+}
+.aki-gazette .aki-preview { background: linear-gradient(145deg, #ffffff80, #e6e7dc75); }
+.aki-landing .aki-device, .aki-studio .scrollytelling .studio-hero .editor-phone {
+  width: min(100%, 252px, calc((100svh - 300px) * (390 / 844))); max-width: 252px; padding: 5px;
+  border: 1px solid var(--aki-line); border-radius: 29px;
+  background: var(--aki-paper); box-shadow: 0 18px 40px #00000012;
+}
+.aki-landing .aki-device img, .aki-studio .scrollytelling .studio-hero .editor-capture {
+  display: block; width: 100%; height: auto; max-height: none; aspect-ratio: auto;
+  border: 0; border-radius: 23px; box-shadow: none; transform: none;
+}
+.aki-landing .aki-preview figcaption, .aki-landing .aki-preview-caption {
+  margin: 0; color: var(--aki-muted); font-size: 11px; line-height: 1.5; text-align: center;
+}
+
+/* Full-page rhythm and a consistent scale for feature copy and captures. */
+.aki-landing .section { padding-block: var(--aki-space); }
+.aki-studio .section-space, .aki-studio .aki-feature {
+  width: min(calc(100% - 2 * var(--aki-gutter)), var(--aki-width)); max-width: var(--aki-width);
+  margin-inline: auto; padding: var(--aki-space) 0; border-top: 1px solid var(--aki-line); background: none;
+}
+.aki-studio .scrollytelling, .aki-studio .story-viewport, .aki-studio .story-chapters { height: auto; position: relative; }
+.aki-studio .aki-feature {
+  min-height: 0; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  gap: var(--aki-gap); align-items: center;
+}
+.aki-studio .aki-feature .chapter-copy { max-width: 590px; }
+.aki-studio .aki-feature .chapter-description { max-width: 490px; margin-top: 24px; font-size: 16px; line-height: 1.75; }
+.aki-studio .aki-feature .chapter-detail { margin-top: 24px; font-size: 12px; color: var(--aki-muted); }
+.aki-studio .looks-catalog { max-width: 560px; border-radius: var(--aki-radius); background: var(--aki-surface); }
+.aki-studio .color-mixer-demo, .aki-studio .curves-demo { width: 100%; max-width: 560px; margin: 0 auto; border-radius: var(--aki-radius); box-shadow: none; }
+.aki-studio .section-heading { max-width: 760px; margin-inline: auto; text-align: center; }
+.aki-studio .section-heading > p:last-child:not(.eyebrow) { font-size: 16px; line-height: 1.75; }
+.aki-studio .look-experience { max-width: 1060px; margin-top: 40px; }
+.aki-studio .aki-looks-spread { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, .5fr); align-items: center; gap: 40px; margin-top: 40px; }
+.aki-studio .aki-look-demo { min-width: 0; }
+.aki-studio .aki-look-demo .look-experience { margin-top: 0; }
+.aki-studio .aki-look-demo .look-footnote { max-width: none; gap: 20px; flex-wrap: wrap; }
+.aki-studio .aki-looks-spread .current-look-proof { width: 100%; margin: 0; padding: 0; }
+.aki-studio .aki-looks-spread .editor-phone { width: min(100%, 252px); }
+.aki-studio .collection-grid { max-width: none; margin-top: 36px; gap: 16px; }
+.aki-studio .collection-grid > article { padding: 24px 20px; border-radius: 22px; background: var(--aki-surface); }
+.aki-studio .collection-grid p, .aki-studio .capability-grid p { font-size: 14px; line-height: 1.75; }
+.aki-studio .release-values { font-size: 14px; }
+.aki-studio .current-look-proof { margin-top: 40px; }
+.aki-studio .editor-illustration:not(.aki-preview) { max-width: 460px; }
+.aki-landing .capture img { width: min(100%, 252px); border-radius: 24px; }
+.aki-landing .capture, .aki-landing .arrange, .aki-landing .closing { border-radius: var(--aki-radius); }
+.aki-landing .capture { padding: 28px 24px; box-shadow: none; }
+.aki-landing .section-head, .aki-landing .type-spread, .aki-landing .sticker-spread,
+.aki-landing .export-spread { gap: var(--aki-gap); }
+.aki-landing .collection-list li { padding: 28px; border-radius: 22px; }
+.aki-studio .organizer-heading { max-width: 760px; margin-inline: auto; }
+.aki-studio .organizer-shell { margin-top: 36px; }
+.aki-studio .workspace-note, .aki-studio .workspace-features { font-size: 14px; line-height: 1.75; }
+.aki-studio .capability-grid { max-width: none; margin-top: 40px; gap: 20px; }
+.aki-studio .capability-grid article { padding: 28px; border-radius: 22px; background: var(--aki-surface); }
+.aki-studio .capability-grid small { font-size: 11px; color: var(--aki-muted); }
+.aki-landing .arrange { margin-block: 0; padding: 44px; }
+.aki-landing .arrange-grid { gap: 28px; }
+.aki-landing .arrange-grid h3 { font-size: 18px; }
+.aki-landing .format-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 20px; overflow: visible; padding-bottom: 0; scroll-snap-type: none; }
+.aki-landing .format-model { height: 168px; }
+.aki-landing .format-model .ratio-box { max-height: 138px; }
+
+/* Installation and FAQs are recognizable across the two products. */
+.aki-studio .aki-install {
+  display: block; min-height: 0; padding: 48px; background: var(--aki-surface);
+  border: 1px solid var(--aki-line); border-radius: var(--aki-radius);
+  margin-block: 0 var(--aki-space); overflow: visible;
+}
+.aki-studio .beta-photo { display: none; }
+.aki-studio .beta-content { max-width: none; display: grid; grid-template-columns: 1fr 1fr; column-gap: var(--aki-gap); align-items: start; }
+.aki-studio .beta-content > * { min-width: 0; }
+.aki-studio .beta-content .install-heading { margin: 0 0 20px; font-size: 25px; line-height: 1.3; }
+.aki-studio .beta-content .install-steps { max-width: none; margin: 0; }
+.aki-studio .beta-content .beta-note { font-size: 12px !important; line-height: 1.75; color: var(--aki-muted); margin-top: 18px !important; }
+.aki-studio .aki-install-copy > p:not(.eyebrow) { font-size: 16px; line-height: 1.75; margin-top: 24px; }
+.aki-studio .beta-content .button { width: fit-content; margin-top: 24px; }
+.aki-landing .closing { padding: 48px; gap: var(--aki-gap); margin-block: 0 var(--aki-space); }
+.aki-landing .closing .aki-actions { margin-block: 26px; }
+.aki-landing .try-steps, .aki-studio .install-steps { color: var(--aki-muted); font-size: 14px; line-height: 1.75; padding-left: 22px; }
+.aki-landing .try-steps li, .aki-studio .install-steps li { margin-bottom: 12px; }
+.aki-studio .beta-availability { margin-top: 24px; gap: 22px; font-size: 12px; }
+.aki-studio .beta-availability > span + span { padding-left: 22px; }
+.aki-studio .questions, .aki-landing .faq {
+  display: grid; grid-template-columns: .85fr 1.15fr; gap: var(--aki-gap); align-items: start;
+}
+.aki-studio .questions h2 { margin-top: 0; }
+.aki-landing .faq summary, .aki-studio .faq-list summary { min-height: 64px; padding-block: 22px; font-size: 15px; line-height: 1.6; }
+.aki-landing .faq details p, .aki-studio .faq-list details > p { font-size: 14px; line-height: 1.75; max-width: none; }
+.aki-studio .about-section { grid-template-columns: .85fr 1.15fr; gap: var(--aki-gap); }
+.aki-studio .about-copy { padding-top: 0; max-width: none; }
+.aki-studio .about-copy p { font-size: 16px; line-height: 1.75; }
+
+/* Shared product footer, including a direct route to the sibling app. */
+.aki-landing .aki-footer {
+  width: min(calc(100% - 2 * var(--aki-gutter)), var(--aki-width)); max-width: var(--aki-width);
+  display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 36px;
+  margin: 0 auto; padding: 44px 0 20px; border-top: 1px solid var(--aki-line);
+  color: var(--aki-muted); font-size: 12px;
+}
+.aki-landing .aki-footer-brand { display: block; }
+.aki-landing .aki-footer-brand p { margin: 12px 0 0; font-size: 13px; text-align: left; }
+.aki-landing .aki-footer-links { display: flex; align-items: start; justify-content: flex-end; flex-wrap: wrap; gap: 0 24px; }
+.aki-landing .aki-footer-links a { display: inline-flex; align-items: center; min-height: 44px; font-size: 12px; text-decoration: none; }
+.aki-landing .aki-footer-links a:hover { text-decoration: underline; }
+.aki-landing .aki-footer-bottom {
+  grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center;
+  padding-top: 18px; border-top: 1px solid var(--aki-line); font-size: 11px;
+}
+.aki-landing .aki-footer-bottom a { min-height: 44px; display: inline-flex; align-items: center; font-size: 11px; text-decoration: none; }
+.aki-landing .aki-footer-bottom small { font-size: 11px; color: var(--aki-muted); }
+
+@media (max-width: 1100px) {
+  .aki-landing .aki-header { gap: 10px; padding-left: 20px; }
+  .aki-landing .aki-nav a { padding-inline: 9px; font-size: 11px; }
+  .aki-landing .format-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .aki-studio .collection-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .aki-landing { --aki-gap: 38px; --aki-space: 72px; }
+  .aki-landing main { padding-top: 96px; }
+  .aki-landing .aki-header { top: 12px; width: calc(100% - 28px); min-height: 64px; display: flex; flex-wrap: wrap; gap: 8px; padding: 9px 12px 9px 18px; border-radius: 20px; }
+  .aki-landing .aki-header .aki-brand { margin-right: auto; }
+  .aki-landing .aki-header .nav-cta { order: 2; }
+  .aki-landing .aki-header .menu-toggle { order: 3; }
+  .js .aki-landing .menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  .aki-landing .aki-nav { order: 4; width: 100%; margin: 0; padding-top: 10px; border-top: 1px solid var(--aki-line); flex-wrap: wrap; justify-content: flex-start; }
+  .js .aki-landing .aki-nav { display: none; }
+  .js .aki-landing .aki-nav.is-open { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+  .aki-landing .aki-nav a { justify-content: flex-start; padding: 12px 14px; font-size: 12px; }
+  .aki-landing .aki-hero, .aki-studio .scrollytelling .studio-hero { grid-template-columns: 1fr; min-height: calc(100svh - 96px); padding: 36px 0 52px; gap: 0; }
+  .aki-landing .aki-hero-copy, .aki-studio .scrollytelling .studio-hero .chapter-copy { max-width: 640px; margin-inline: auto; }
+  .aki-landing .aki-hero h1, .aki-studio .scrollytelling .studio-hero h1 { font-size: clamp(48px, 8.6vw, 76px); }
+  .aki-landing .aki-preview, .aki-studio .scrollytelling .studio-hero .editor-illustration { display: none; }
+  .aki-studio .aki-feature { grid-template-columns: 1fr 1fr; }
+  .aki-studio .aki-feature .chapter-copy { width: 100%; }
+  .aki-studio .aki-install, .aki-landing .closing, .aki-landing .arrange { padding: 32px; }
+}
+@media (max-width: 650px) {
+  .aki-landing { --aki-space: 64px; --aki-gap: 32px; }
+  .aki-landing .aki-brand { gap: 8px; }
+  .aki-landing .aki-brand > svg, .aki-landing .aki-brand > .brand-mark { width: 38px; height: 28px; }
+  .aki-landing .aki-brand > span { font-size: 8px; letter-spacing: .18em; padding-left: 9px; }
+  .aki-landing .nav-cta { padding: 9px 12px; gap: 10px; font-size: 11px; }
+  .aki-landing .aki-hero h1, .aki-studio .scrollytelling .studio-hero h1 { font-size: clamp(44px, 11vw, 68px); }
+  .aki-landing .aki-hero .intro, .aki-studio .scrollytelling .studio-hero .chapter-description { display: block; font-size: 16px; }
+  .aki-landing .aki-status { font-size: 10px; padding-inline: 10px; }
+  .aki-studio .aki-feature, .aki-landing .section-head, .aki-landing .type-spread,
+  .aki-landing .sticker-spread, .aki-landing .export-spread,
+  .aki-studio .questions, .aki-landing .faq, .aki-studio .about-section,
+  .aki-landing .closing, .aki-studio .beta-content { grid-template-columns: 1fr; }
+  .aki-studio .aki-feature .chapter-copy { max-width: none; }
+  .aki-studio .aki-feature .looks-catalog, .aki-studio .aki-feature .color-mixer-demo,
+  .aki-studio .aki-feature .curves-demo { margin-top: 0; }
+  .aki-studio .section-heading { text-align: left; }
+  .aki-studio .organizer-heading { text-align: left; }
+  .aki-studio .collection-grid { grid-template-columns: 1fr; }
+  .aki-studio .aki-looks-spread { grid-template-columns: 1fr; gap: 32px; }
+  .aki-studio .capability-grid { grid-template-columns: 1fr; }
+  .aki-landing .collection-list { grid-template-columns: 1fr; }
+  .aki-landing .arrange-grid { grid-template-columns: 1fr; }
+  .aki-landing .format-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .aki-landing .format-model { height: 168px; }
+  .aki-landing .capture { max-width: 460px; margin-inline: auto; }
+  .aki-landing .sticker-spread .capture, .aki-landing .export-spread .capture { order: 2; }
+  .aki-landing .sticker-spread .sticker-copy, .aki-landing .export-spread > div { order: 1; }
+  .aki-studio .aki-install, .aki-landing .closing, .aki-landing .arrange { padding: 26px; }
+  .aki-studio .beta-content > *, .aki-studio .beta-content .install-heading,
+  .aki-studio .beta-content .install-steps, .aki-studio .beta-content .beta-note { grid-column: auto; grid-row: auto; }
+  .aki-studio .beta-content .install-heading { margin-top: 32px; }
+  .aki-studio .beta-content .install-steps { margin-top: 24px; }
+  .aki-landing .aki-footer { grid-template-columns: 1fr; gap: 24px; }
+  .aki-landing .aki-footer-links { justify-content: flex-start; gap: 0 22px; }
+  .aki-landing .aki-footer-bottom { flex-wrap: wrap; gap: 12px; }
+}
+@media (max-width: 370px) {
+  .aki-landing .aki-header { gap: 6px; padding-inline: 10px; }
+  .aki-landing .nav-cta { padding-inline: 10px; gap: 6px; }
+  .aki-landing .nav-cta .icon, .aki-landing .nav-cta .arrow-icon { display: none; }
+  .aki-landing .aki-header .aki-brand { gap: 6px; }
+  .aki-landing .aki-header .aki-brand > svg, .aki-landing .aki-header .aki-brand > .brand-mark { width: 32px; height: 26px; }
+  .aki-landing .aki-header .aki-brand > span { font-size: 7px; padding-left: 8px; }
+}
+@media (max-height: 700px) and (max-width: 650px) {
+  .aki-landing .aki-hero, .aki-studio .scrollytelling .studio-hero { padding-block: 24px 36px; }
+  .aki-landing .aki-hero h1, .aki-studio .scrollytelling .studio-hero h1 { font-size: clamp(40px, 11vw, 56px); margin-bottom: 20px; }
+  .aki-landing .aki-hero .eyebrow { display: none; }
+  .aki-landing .aki-hero .intro, .aki-studio .scrollytelling .studio-hero .chapter-description { font-size: 15px; line-height: 1.65; margin-bottom: 18px; }
+  .aki-landing .aki-hero .aki-actions, .aki-studio .scrollytelling .studio-hero .hero-actions { gap: 12px 16px; }
+}
+@media (max-height: 520px) {
+  .aki-landing .aki-hero, .aki-studio .scrollytelling .studio-hero { min-height: calc(100svh - 96px); grid-template-columns: 1fr; padding-block: 32px; }
+  .aki-landing .aki-hero h1, .aki-studio .scrollytelling .studio-hero h1 { font-size: clamp(36px, 5vw, 50px); }
+  .aki-landing .aki-hero .eyebrow { display: block; }
+  .aki-landing .aki-preview, .aki-studio .scrollytelling .studio-hero .editor-illustration { display: none; }
+}
+@media (max-height: 450px) {
+  .aki-landing .aki-hero, .aki-studio .scrollytelling .studio-hero { padding-block: 16px; }
+  .aki-landing .aki-hero .eyebrow, .aki-landing .aki-hero .intro,
+  .aki-studio .scrollytelling .studio-hero .chapter-description { display: none; }
+  .aki-landing .aki-hero h1, .aki-studio .scrollytelling .studio-hero h1 { font-size: clamp(32px, 4.5vw, 44px); margin-bottom: 20px; }
+  .aki-landing .aki-detail { margin-bottom: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .aki-landing *, .aki-landing *::before, .aki-landing *::after { animation: none !important; transition: none !important; }
+}
+@media (forced-colors: active) {
+  .aki-landing .aki-header, .aki-landing .aki-preview, .aki-landing .aki-device,
+  .aki-landing .aki-status, .aki-landing .aki-footer, .aki-landing .button { border-color: CanvasText; }
+}
