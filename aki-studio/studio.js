@@ -1,9 +1,9 @@
 (() => {
   "use strict";
   document.documentElement.classList.add("js");
-  const motion = matchMedia("(prefers-reduced-motion: reduce)");
   const menu = document.querySelector(".menu-toggle"),
-    nav = document.querySelector(".main-nav");
+    nav = document.querySelector(".main-nav"),
+    header = document.querySelector(".site-header");
   const closeMenu = (focus = false) => {
     menu.setAttribute("aria-expanded", "false");
     menu.setAttribute("aria-label", "Open navigation");
@@ -20,7 +20,21 @@
     nav.classList.toggle("is-open", open);
   });
   nav.addEventListener("click", (event) => {
-    if (event.target.closest("a")) closeMenu();
+    const link = event.target.closest("a");
+    if (!link) return;
+    const wasOpen = menu.getAttribute("aria-expanded") === "true";
+    closeMenu();
+    if (!wasOpen || !link.hash) return;
+    const destination = document.getElementById(link.hash.slice(1));
+    if (!destination) return;
+    if (!destination.hasAttribute("tabindex")) {
+      destination.setAttribute("tabindex", "-1");
+      destination.addEventListener("blur", () => destination.removeAttribute("tabindex"), { once: true });
+    }
+    destination.focus({ preventScroll: true });
+  });
+  header.addEventListener("focusout", (event) => {
+    if (!header.contains(event.relatedTarget)) closeMenu();
   });
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && menu.getAttribute("aria-expanded") === "true")
@@ -30,78 +44,6 @@
     if (!event.target.closest(".site-header")) closeMenu();
   });
   matchMedia("(min-width:901px)").addEventListener("change", () => closeMenu());
-
-  // App interface captures. One scheduled read per scroll/resize event;
-  // native scrolling and CSS transitions provide the motion, with no idle loop.
-  const story = document.querySelector(".scrollytelling");
-  const chapters = [...story.querySelectorAll(".story-chapter")];
-  const chapterButtons = [...story.querySelectorAll("[data-go]")];
-  const compactScreen = matchMedia("(max-width:900px)");
-  const shortScreen = matchMedia("(max-height:620px)");
-  let storyFrame = 0, activeChapter = -1;
-  const storyEnhanced = () => !motion.matches && !compactScreen.matches && !shortScreen.matches;
-  const selectChapter = (index) => {
-    if (index === activeChapter) return;
-    activeChapter = index;
-    story.dataset.chapter = String(index);
-    chapters.forEach((chapter, i) => {
-      const active = i === index;
-      chapter.classList.toggle("is-active", active && storyEnhanced());
-      chapter.inert = storyEnhanced() && !active;
-      if (storyEnhanced()) chapter.setAttribute("aria-hidden", String(!active));
-      else chapter.removeAttribute("aria-hidden");
-    });
-    chapterButtons.forEach((button, i) => {
-      if (i === index) button.setAttribute("aria-current", "step");
-      else button.removeAttribute("aria-current");
-    });
-  };
-  const updateStory = () => {
-    storyFrame = 0;
-    if (!storyEnhanced()) {
-      let current = 0;
-      chapters.forEach((chapter, index) => {
-        if (chapter.getBoundingClientRect().top <= innerHeight * 0.45) current = index;
-      });
-      selectChapter(current);
-      return;
-    }
-    const bounds = story.getBoundingClientRect();
-    const progress = Math.max(0, Math.min(1, -bounds.top / Math.max(1, bounds.height - innerHeight)));
-    selectChapter(Math.min(chapters.length - 1, Math.floor(progress * chapters.length)));
-  };
-  const scheduleStory = () => {
-    if (!storyFrame) storyFrame = requestAnimationFrame(updateStory);
-  };
-  const configureStory = () => {
-    cancelAnimationFrame(storyFrame);
-    storyFrame = 0;
-    activeChapter = -1;
-    story.dataset.renderer = "app-captures";
-    story.dataset.storyMode = storyEnhanced() ? "motion" : "static";
-    chapters.forEach((chapter) => {
-      chapter.inert = false;
-      chapter.removeAttribute("aria-hidden");
-      chapter.classList.remove("is-active");
-    });
-    updateStory();
-  };
-  window.addEventListener("scroll", scheduleStory, { passive: true });
-  window.addEventListener("resize", scheduleStory, { passive: true });
-  [motion, compactScreen, shortScreen].forEach(query => query.addEventListener("change", configureStory));
-  chapterButtons.forEach((button) => button.addEventListener("click", () => {
-    const index = Number(button.dataset.go);
-    if (!storyEnhanced()) {
-      chapters[index].scrollIntoView({ behavior: motion.matches ? "auto" : "smooth", block: "start" });
-      return;
-    }
-    const bounds = story.getBoundingClientRect();
-    window.scrollTo({
-      top: bounds.top + scrollY + (bounds.height - innerHeight) * (index === 0 ? 0 : (index + 0.3) / chapters.length),
-      behavior: "smooth",
-    });
-  }));
-  configureStory();
 
   // Pre-rendered using the application's native Look recipes and renderer.
   // Decode offscreen before committing a matching image, label and selection.
