@@ -36,3 +36,14 @@
 !/photos/ccff1481-JPEG-image.jpeg
 
 !/photos/ccd1bd29-JPEG-image-2.jpeg
+
+# Reviewed public Moments landing-page files only.
+!/aki-moments/
+/aki-moments/*
+!/aki-moments/index.html
+!/aki-moments/moments.css
+!/aki-moments/moments.js
+!/aki-moments/moments-icon.png
+!/aki-moments/look-nagori.png
+!/aki-moments/look-neon.png
+!/aki-moments/look-prism.png
