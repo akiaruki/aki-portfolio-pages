@@ -47,3 +47,9 @@
 !/aki-moments/look-nagori.png
 !/aki-moments/look-neon.png
 !/aki-moments/look-prism.png
+!/aki-moments/privacy.html
+
+# Reviewed Android Camera privacy policy only.
+!/aki-camera/
+/aki-camera/*
+!/aki-camera/privacy-android.html
