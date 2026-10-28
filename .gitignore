@@ -48,6 +48,8 @@
 !/aki-moments/look-neon.png
 !/aki-moments/look-prism.png
 !/aki-moments/privacy.html
+!/aki-moments/screenshots/
+!/aki-moments/screenshots/*.webp
 
 # Reviewed Android Camera privacy policy only.
 !/aki-camera/
