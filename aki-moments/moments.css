@@ -64,6 +64,10 @@ a, button { -webkit-tap-highlight-color: transparent; }
 @media (max-width: 900px) {
   .aki-moments .aki-hero { grid-template-columns: 1fr; min-height: 0; gap: 40px; padding-block: 42px 60px; }
   .hero-screen { justify-self: center; max-width: 600px; }.aki-moments .aki-hero-copy { width: 100%; max-width: none; }
+  /* Keep the first mobile screen focused on the introduction; the real app
+     screenshot starts below it. The copy can still grow on short screens. */
+  .aki-moments .aki-hero-copy { display: flex; flex-direction: column; justify-content: center; min-height: calc(100vh - 138px); min-height: calc(100dvh - 138px); }
+  .aki-moments .aki-hero-copy .aki-status { align-self: flex-start; }
   .section-intro, .split { grid-template-columns: 1fr; gap: 34px; }.real-screen { justify-self: center; }
   .section-intro { margin-bottom: 34px; }.detail-card { grid-template-columns: 1fr; }.detail-card figure { max-width: 230px; margin: 0 auto; }
   html:not(.js) .aki-moments main { padding-top: 168px; }
@@ -71,10 +75,21 @@ a, button { -webkit-tap-highlight-color: transparent; }
 }
 @media (max-width: 650px) {
   .aki-moments .aki-hero h1 { font-size: clamp(44px,11vw,68px); }.aki-moments .aki-hero { padding-top: 36px; gap: 35px; }
+  .aki-moments .aki-hero-copy { min-height: calc(100vh - 132px); min-height: calc(100dvh - 132px); }
   .at-a-glance { grid-template-columns: 1fr 1fr; gap: 22px 18px; }.at-a-glance div + div { padding-left: 0; border: 0; }.at-a-glance div:nth-child(even) { padding-left: 18px; border-left: 1px solid var(--aki-line); }
   .at-a-glance strong { font-size: 15px; }.feature-grid { grid-template-columns: 1fr; gap: 27px; }.feature-number { margin-bottom: 18px; }
   .looks-grid { grid-template-columns: 1fr; gap: 12px; }.canvas-story { grid-template-columns: 1fr; gap: 25px; margin-top: 55px; }.detail-cards { grid-template-columns: 1fr; }.detail-card { grid-template-columns: 1fr minmax(0,150px); }.finish-row { grid-template-columns: 1fr; }.finish-row h3 { margin: 18px 0 10px; }.transition-list { grid-template-columns: repeat(3,1fr); gap: 8px; }.transition-list span { padding: 17px 8px; font-size: 12px; }
   .aki-moments .closing { grid-template-columns: 1fr; gap: 25px; }.aki-footer { grid-template-columns: 1fr; }.aki-footer-links { justify-content: flex-start; }
   .detail-card { grid-template-columns: 1fr; }.detail-card figure { max-width: 200px; margin: 0 auto; }
+}
+@media (max-width: 370px) and (max-height: 700px) {
+  .aki-moments .aki-hero h1 { font-size: clamp(36px,10vw,40px); margin-bottom: 16px; }
+  .aki-moments .aki-hero .intro { line-height: 1.55; margin-bottom: 14px; }
+  .aki-moments .aki-detail { margin-bottom: 16px; }
+}
+@media (max-width: 900px) and (max-height: 450px) {
+  .aki-moments .aki-hero { padding-top: 24px; }
+  .aki-moments .aki-hero-copy { min-height: calc(100vh - 120px); min-height: calc(100dvh - 120px); }
+  .aki-moments .aki-hero h1 { font-size: clamp(32px,4.5vw,44px); margin-bottom: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
