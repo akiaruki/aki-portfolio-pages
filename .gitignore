@@ -2,6 +2,10 @@
 /*
 !/.nojekyll
 !/app.js
+!/app-menu.js
+!/publisher-policy.json
+!/.github/
+!/.github/**
 !/content-model.js
 !/content.js
 !/exhibition.css
