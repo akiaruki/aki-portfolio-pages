@@ -42,3 +42,7 @@
 .media-row .content-block,.media-row figure {min-width:0;width:100%;margin:0}
 .media-row img,.media-row video {width:100%;height:auto;display:block}
 .media-row .content-block,.media-row .content-block[data-align] {grid-column:auto;justify-self:stretch;width:100%}
+
+.external-post-link {display:flex;gap:14px;align-items:center;padding:12px;border:1px solid #ffffff25;border-radius:12px;text-decoration:none;background:#ffffff08;color:#eef3ef;min-width:0}
+.external-post-link img {width:90px;height:70px;object-fit:cover;border-radius:7px;flex:none}
+.link-card-copy {display:grid;gap:5px;min-width:0}.link-card-copy strong {font-size:14px}.link-card-address {font-size:12px;color:#aab4af;overflow-wrap:anywhere}

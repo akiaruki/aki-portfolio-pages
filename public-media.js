@@ -1,5 +1,19 @@
 (() => {
   'use strict';
+  const seenLinks=new WeakSet(), spotifyCache=new Map();
+  function decorateLink(link){
+    let url;try{url=new URL(link.href);if(!['http:','https:'].includes(url.protocol))return;}catch{return;}
+    const domain=url.hostname.toLowerCase();let provider=domain.replace(/^www\./,'');
+    let videoId='';if(['youtube.com','www.youtube.com','m.youtube.com','music.youtube.com'].includes(domain)){videoId=url.searchParams.get('v')||url.pathname.match(/^\/(?:shorts|embed|live)\/([A-Za-z0-9_-]{11})(?:\/|$)/)?.[1]||'';}
+    else if(domain==='youtu.be')videoId=url.pathname.slice(1).split('/')[0];
+    if(!/^[A-Za-z0-9_-]{11}$/.test(videoId))videoId='';
+    const spotify=domain==='open.spotify.com'&&url.pathname.match(/^\/(?:intl-[A-Za-z-]+\/)?(track|album|artist|playlist|episode|show)\/([A-Za-z0-9]{22})(?:\/|$)/);
+    const label=document.createElement('span');label.className='link-card-copy';const name=document.createElement('strong');name.textContent=videoId?'YouTube':spotify?'Spotify':provider;const address=document.createElement('span');address.className='link-card-address';address.textContent=url.href;label.append(name,address);link.replaceChildren(label);
+    function thumbnail(src){const image=document.createElement('img');image.alt='';image.loading='lazy';image.referrerPolicy='no-referrer';image.onerror=()=>image.remove();image.src=src;link.prepend(image);}
+    if(videoId)thumbnail('https://i.ytimg.com/vi/'+videoId+'/hqdefault.jpg');
+    if(spotify){const canonical='https://open.spotify.com/'+spotify[1]+'/'+spotify[2];let request=spotifyCache.get(canonical);if(!request){request=fetch('https://open.spotify.com/oembed?url='+encodeURIComponent(canonical),{credentials:'omit',referrerPolicy:'no-referrer'}).then(r=>r.ok?r.json():null).catch(()=>null);spotifyCache.set(canonical,request);}request.then(meta=>{if(!meta||!link.isConnected)return;if(typeof meta.title==='string'&&meta.title.trim())name.textContent=meta.title.slice(0,300);try{const img=new URL(meta.thumbnail_url);if(img.protocol==='https:'&&img.hostname==='i.scdn.co')thumbnail(img.href);}catch{}});}
+  }
+  function discoverLinks(){document.querySelectorAll('a.external-post-link').forEach(link=>{if(!seenLinks.has(link)){seenLinks.add(link);decorateLink(link);}});}
   const observed = new WeakSet();
   const canPlay = video => !document.hidden && !video.closest('[hidden]') && (!video.closest('dialog') || video.closest('dialog').open);
   const observer = 'IntersectionObserver' in window ? new IntersectionObserver(entries => entries.forEach(({target,isIntersecting}) => {
@@ -48,8 +62,8 @@
   });
   document.addEventListener('visibilitychange',()=>{if(document.hidden)document.querySelectorAll('video.portfolio-video').forEach(video=>video.pause());else document.querySelectorAll('video.portfolio-video').forEach(video=>{const rect=video.getBoundingClientRect();if(canPlay(video)&&rect.bottom>0&&rect.top<innerHeight)video.play().catch(()=>{});});});
   document.addEventListener('close',event=>{if(event.target instanceof HTMLDialogElement)event.target.querySelectorAll('video').forEach(video=>video.pause());},true);
-  const mo=new MutationObserver(discoverVideos);mo.observe(document.body,{childList:true,subtree:true});
+  const mo=new MutationObserver(()=>{discoverVideos();discoverLinks();});mo.observe(document.body,{childList:true,subtree:true});
   window.addEventListener('portfolio-ready',()=>{buildFilters();discoverVideos();});
   window.addEventListener('hashchange',()=>{requestAnimationFrame(()=>{buildFilters();discoverVideos();});});
-  buildFilters();discoverVideos();
+  buildFilters();discoverVideos();discoverLinks();
 })();
