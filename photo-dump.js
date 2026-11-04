@@ -17,7 +17,7 @@
     const millis = Date.parse(entry.addedAt);
     if (!Number.isFinite(millis) || new Date(millis).toISOString().slice(0, 19) !== entry.addedAt.slice(0, 19)) return [];
     seenIds.add(entry.id);
-    return [{ id: entry.id, src: entry.src, addedAt: entry.addedAt, millis, index, alt: typeof entry.alt === 'string' ? entry.alt.slice(0, 500) : '' }];
+    return [{ id: entry.id, src: entry.src, addedAt: entry.addedAt, millis, index, alt: typeof entry.alt === 'string' ? entry.alt.slice(0, 500) : '', caption: typeof entry.caption === 'string' ? entry.caption.slice(0, 5000) : '' }];
   }).sort((a, b) => b.millis - a.millis || a.index - b.index);
 
   const heading = document.createElement('div');
@@ -53,6 +53,11 @@
   close.setAttribute('aria-label', 'Close photograph');
   viewerHeader.append(count, close);
   const image = document.createElement('img');
+  const detail = document.createElement('div'); detail.className = 'photo-dump-viewer-body';
+  const writing = document.createElement('aside'); writing.className = 'photo-dump-viewer-writing'; writing.setAttribute('aria-label', 'Photo writing');
+  const writingLabel = document.createElement('span'); writingLabel.className = 'eyebrow'; writingLabel.textContent = 'Photo dump';
+  const caption = document.createElement('p'); caption.className = 'photo-dump-viewer-caption';
+  writing.append(writingLabel, caption); detail.append(image, writing);
   const controls = document.createElement('div');
   controls.className = 'photo-dump-viewer-controls';
   const previous = document.createElement('button');
@@ -62,7 +67,7 @@
   next.type = 'button';
   next.textContent = 'Next →';
   controls.append(previous, next);
-  viewer.append(viewerHeader, image, controls);
+  viewer.append(viewerHeader, detail, controls);
   document.body.append(viewer);
 
   let current = 0;
@@ -74,10 +79,13 @@
     const item = displayed[current];
     image.src = item.src;
     image.alt = item.alt || 'Photo dump photograph';
+    caption.textContent = item.caption;
+    caption.hidden = !item.caption.trim();
     count.textContent = (current + 1) + ' / ' + displayed.length;
     previous.hidden = next.hidden = displayed.length < 2;
   }
   close.addEventListener('click', () => viewer.close());
+  viewer.addEventListener('click', event => { if (event.target !== viewer) return; const rect = viewer.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) viewer.close(); });
   previous.addEventListener('click', () => show(current - 1));
   next.addEventListener('click', () => show(current + 1));
   viewer.addEventListener('keydown', event => {
@@ -89,6 +97,7 @@
   function render() {
     if (viewer.open) viewer.close();
     const isFull = location.hash === '#photo-dump';
+    section.classList.toggle('photo-dump-full', isFull);
     displayed = isFull ? entries : entries.slice(0, 9);
     grid.replaceChildren();
     displayed.forEach((entry, index) => {
