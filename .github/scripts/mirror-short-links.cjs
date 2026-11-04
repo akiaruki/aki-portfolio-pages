@@ -7,7 +7,7 @@ const [sourceArg, targetArg] = process.argv.slice(2);
 if (!sourceArg || !targetArg) throw Error('Usage: node mirror-short-links.cjs SOURCE ROOT_PAGES');
 const source = path.resolve(sourceArg), target = path.resolve(targetArg);
 const appDirs = ['aki-studio', 'aki-camera', 'aki-gazette', 'aki-moments'];
-const portfolioFiles = ['index.html','app.js','app-menu.js','content-model.js','content.js','year-menu.js','portfolio.css','palette.css','exhibition.css','style.css','aki-landing.css','home-showcase.css','home-showcase.js','project-showcase.css','project-showcase.js','photo-dump.css','photo-dump.js','photo-dump-data.js'];
+const portfolioFiles = ['index.html','portfolio-icon.svg','app.js','app-menu.js','content-model.js','content.js','year-menu.js','portfolio.css','palette.css','exhibition.css','style.css','aki-landing.css','home-showcase.css','home-showcase.js','project-showcase.css','project-showcase.js','photo-dump.css','photo-dump.js','photo-dump-data.js'];
 const manifestName = 'portfolio/.aki-mirror-manifest.json';
 const digest = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 const allowed = name => /^(?:portfolio|aki-studio|aki-camera|aki-gazette|aki-moments)\/[A-Za-z0-9._ /-]+$/.test(name) && !name.split('/').some(p=>p==='.' || p==='..' || !p);
