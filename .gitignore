@@ -82,3 +82,5 @@
 !/aki-gazette/
 /aki-gazette/*
 !/aki-gazette/favicon-tab.svg
+
+!/public-media.js
