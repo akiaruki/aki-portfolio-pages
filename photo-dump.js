@@ -17,7 +17,7 @@
     const millis = Date.parse(entry.addedAt);
     if (!Number.isFinite(millis) || new Date(millis).toISOString().slice(0, 19) !== entry.addedAt.slice(0, 19)) return [];
     seenIds.add(entry.id);
-    return [{ id: entry.id, src: entry.src, addedAt: entry.addedAt, millis, index, pinned: entry.pinned===true, hashtags:Array.isArray(entry.hashtags)?entry.hashtags.filter(x=>typeof x==='string'&&/^[\p{L}\p{N}_]{1,30}$/u.test(x)).slice(0,30):[], alt: typeof entry.alt === 'string' ? entry.alt.slice(0, 500) : '', caption: typeof entry.caption === 'string' ? entry.caption.slice(0, 5000) : '' }];
+    return [{ id: entry.id, src: entry.src, addedAt: entry.addedAt, millis, index, pinned: entry.pinned===true, hashtags:Array.isArray(entry.hashtags)?entry.hashtags.filter(x=>typeof x==='string'&&/^[\p{L}\p{N}_]{1,80}$/u.test(x)).slice(0,30):[], alt: typeof entry.alt === 'string' ? entry.alt.slice(0, 500) : '', caption: typeof entry.caption === 'string' ? entry.caption.slice(0, 5000) : '' }];
   }).sort((a, b) => Number(b.pinned)-Number(a.pinned) || b.millis - a.millis || a.index - b.index);
 
   const heading = document.createElement('div');

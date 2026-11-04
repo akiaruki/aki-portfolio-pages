@@ -48,7 +48,7 @@
   function realDate(value){const d=new Date(value+'T12:00:00Z');return /^\d{4}-\d{2}-\d{2}$/.test(value)&&Number.isFinite(d.getTime())&&d.toISOString().slice(0,10)===value;}
   function tags(value){return list(value??[],'Tags').map(v=>text(v,'Tag',80)).slice(0,30);}
 
-  function publicMetadata(entry){return {pinned:entry.pinned===true,hashtags:Array.isArray(entry.hashtags)?entry.hashtags.filter(x=>typeof x==='string'&&/^[\p{L}\p{N}_]{1,30}$/u.test(x)).slice(0,30):[]};}
+  function publicMetadata(entry){return {pinned:entry.pinned===true,hashtags:Array.isArray(entry.hashtags)?entry.hashtags.filter(x=>typeof x==='string'&&/^[\p{L}\p{N}_]{1,80}$/u.test(x)).slice(0,30):[]};}
   function photoTitle(photo){
     const title=String(photo.title||'').trim();
     const filename=String(photo.src||'').split('/').pop().split('?')[0].replace(/^[a-f0-9]{8}-/i,'');
