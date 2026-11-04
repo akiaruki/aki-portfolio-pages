@@ -138,18 +138,20 @@ $('#view-all-photographs').setAttribute('href',photographsDestination);$('#view-
 let overviewHash=location.hash.startsWith('#post/')?photographsDestination:location.hash.startsWith('#collection/')?collectionsDestination:location.hash;
 let renderedMode=null;
 function renderOverview(){
- const view=overviewHash==='#collections'?'collections':overviewHash==='#journal'?'journal':overviewHash==='#photographs'||/^#year-/.test(overviewHash)?'posts':'home';
+ const view=overviewHash==='#collections'?'collections':overviewHash==='#journal'?'journal':overviewHash==='#photo-dump'?'photo-dump':overviewHash==='#photographs'||/^#year-/.test(overviewHash)?'posts':'home';
  document.body.dataset.view=view;
- if(view!=='home')setShowcaseVisible(false);$('.opening').hidden=view!=='home';if(view==='home')setShowcaseVisible(true);$('.about').hidden=view!=='home';$('#photographs').hidden=!['home','posts'].includes(view);$('#collections').hidden=view!=='collections';$('#journal').hidden=view!=='journal';
+ if(view!=='home')setShowcaseVisible(false);$('.opening').hidden=view!=='home';if(view==='home')setShowcaseVisible(true);$('.about').hidden=view!=='home';$('#photographs').hidden=!['home','posts'].includes(view);$('#collections').hidden=view!=='collections';$('#journal').hidden=view!=='journal';$('#projects-showcase').hidden=view!=='home';$('#home-personal').hidden=!['home','photo-dump'].includes(view);$('#home-personal').classList.toggle('dump-view',view==='photo-dump');$('#journal-preview').hidden=view!=='home';
  document.querySelectorAll('header nav a').forEach(link=>{if(link.hash===(view==='posts'?'#photographs':'#'+view))link.setAttribute('aria-current','page');else link.removeAttribute('aria-current')});
 
  const allPosts=overviewHash===photographsDestination||/^#year-[0-9]{4}$/.test(overviewHash),allCollections=overviewHash===collectionsDestination;
  const mode=String(allPosts)+String(allCollections);
  if(mode!==renderedMode){
   renderedMode=mode;
-  const visiblePosts=allPosts?posts:posts.slice(0,6);
-  $('#archive').innerHTML=years.map(year=>{const entries=visiblePosts.filter(post=>Number(post.date.slice(0,4))===year);return entries.length?'<section class="year-section" id="year-'+year+'" aria-label="Posts from '+year+'" tabindex="-1"><div class="year-marker">'+year+'<small>'+entries.length+' '+(entries.length===1?'entry':'entries')+'</small></div><div class="year-gallery post-feed">'+entries.map(postSummary).join('')+'</div></section>':'';}).join('')||'<p class="quiet-empty">The journey starts here. New photographic entries will appear as they are made.</p>';
-  $('#view-all-photographs').hidden=allPosts||posts.length<=6;
+  const visiblePosts=allPosts?posts:posts.slice(0,3);
+  const archive=$('#archive');
+  archive.classList.toggle('home-posts',!allPosts);
+  archive.innerHTML=(allPosts?years.map(year=>{const entries=visiblePosts.filter(post=>Number(post.date.slice(0,4))===year);return entries.length?'<section class="year-section" id="year-'+year+'" aria-label="Posts from '+year+'" tabindex="-1"><div class="year-marker">'+year+'<small>'+entries.length+' '+(entries.length===1?'entry':'entries')+'</small></div><div class="year-gallery post-feed">'+entries.map(postSummary).join('')+'</div></section>':'';}).join(''):visiblePosts.map(post=>'<div class="home-post-item"><div class="home-post-year">'+escape(post.date.slice(0,4))+'</div>'+postSummary(post)+'</div>').join(''))||'<p class="quiet-empty">The journey starts here. New photographic entries will appear as they are made.</p>';
+  $('#view-all-photographs').hidden=allPosts||posts.length<=3;
   $('#collection-wall').innerHTML=(allCollections?collections:collections.slice(0,3)).map((collection,i)=>{const collectionPhotos=collection.photoIds.map(id=>photoMap.get(id)).filter(Boolean);return '<article class="collection-preview reveal" data-collection-id="'+escape(collection.id)+'"><div class="collection-frame collection-grid" data-count="'+collectionPhotos.length+'" role="group" aria-label="'+escape(collection.title)+'">'+collectionPhotos.map(p=>'<button type="button" class="collection-photo-frame" data-photo="'+photos.indexOf(p)+'" aria-label="View '+escape(PortfolioContent.photoTitle(p)||'photograph')+'"><img src="'+escape(imageURL(p))+'" alt="'+escape(p.alt||PortfolioContent.photoTitle(p)||'Photograph')+'" loading="lazy" decoding="async"></button>').join('')+'</div><div class="collection-caption"><div><p class="eyebrow">Collection '+String(i+1).padStart(2,'0')+' '+sampleLabel(collection)+'</p><h3>'+escape(collection.title)+'</h3>'+(collection.subtitle?'<p>'+escape(collection.subtitle)+'</p>':'')+'</div></div></article>';}).join('')||'<p class="quiet-empty">A space for photographs that belong together.</p>';
   $('#view-all-collections').hidden=allCollections||collections.length<=3;
   for(const host of [$('#archive'),$('#collection-wall')]){wireImageErrors(host);arrangePostPhotos(host);reveal(host);}
@@ -175,7 +177,7 @@ function route(){
  if(match){try{openStory(match[1],decodeURIComponent(match[2]));}catch{closeStory();}}
  else{
   if(story.open)closeStory(false);overviewHash=location.hash;renderOverview();
-  if(/^#(?:photographs|collections|journal|year-\d{4})$/.test(overviewHash)){const target=document.getElementById(overviewHash.slice(1));requestAnimationFrame(()=>{target?.focus({preventScroll:true});if(overviewHash==='#photographs')window.scrollTo({top:0,behavior:'instant'});else target?.scrollIntoView({behavior:motion()});});}
+  if(/^#(?:photographs|collections|journal|photo-dump|year-\d{4})$/.test(overviewHash)){const target=document.getElementById(overviewHash.slice(1));requestAnimationFrame(()=>{target?.focus({preventScroll:true});if(overviewHash==='#photographs')window.scrollTo({top:0,behavior:'instant'});else target?.scrollIntoView({behavior:motion()});});}
  }
 }
 document.querySelectorAll('header .posts-link').forEach(link=>link.addEventListener('click',event=>{if(location.hash==='#photographs'){event.preventDefault();window.scrollTo({top:0,behavior:'instant'});}}));

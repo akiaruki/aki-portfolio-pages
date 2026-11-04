@@ -1,0 +1,61 @@
+/* Home page projects: original icons with small, in-place introductions. */
+#projects-showcase {
+  width: calc(100% - var(--gutter) * 2);
+  max-width: 1360px;
+  margin-inline: auto;
+  padding-block: clamp(42px, 5vw, 72px);
+}
+#projects-showcase .project-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 28px);
+  align-items: start;
+  margin-top: 32px;
+}
+#projects-showcase .project-showcase-item { min-width: 0; }
+#projects-showcase .project-showcase-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  color: var(--ink);
+}
+#projects-showcase .project-showcase-icon {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #101114;
+}
+#projects-showcase .project-showcase-name {
+  display: block;
+  margin-top: 14px;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -.025em;
+}
+#projects-showcase .project-showcase-subtitle {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+#projects-showcase .project-showcase-button:hover .project-showcase-name,
+#projects-showcase .project-showcase-button[aria-expanded="true"] .project-showcase-name { color: var(--accent); }
+#projects-showcase .project-showcase-introduction {
+  margin: 15px 0 0;
+  color: #c7cdca;
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 760px) {
+  #projects-showcase .project-showcase-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 25px 16px; }
+  #projects-showcase .project-showcase-name { font-size: 16px; margin-top: 10px; }
+}

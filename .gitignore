@@ -59,3 +59,15 @@
 !/aki-camera/
 /aki-camera/*
 !/aki-camera/privacy-android.html
+
+# Portfolio showcase and separately managed Photo dump.
+!/home-showcase.css
+!/home-showcase.js
+!/project-showcase.css
+!/project-showcase.js
+!/photo-dump.css
+!/photo-dump.js
+!/photo-dump-data.js
+!/photo-dump-media/
+!/photo-dump-media/**
+!/aki-camera/app-icon.png
