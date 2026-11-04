@@ -9,7 +9,7 @@ window.PORTFOLIO = {
     "featuredLabel": "Selected photographs",
     "archiveLink": "Wander through",
     "japaneseNote": "",
-    "archiveTitle": "The days, as they unfold",
+    "archiveTitle": "Written thoughts",
     "archiveEyebrow": "A photographic journal",
     "aboutLabel": "",
     "journalNav": "Journal",
