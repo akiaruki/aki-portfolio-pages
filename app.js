@@ -32,7 +32,7 @@ if(introPause>=0&&data.intro.slice(introPause+1).trim()){
  emphasis.textContent=data.intro.slice(introPause+1);
  intro.replaceChildren(document.createTextNode(data.intro.slice(0,introPause+1)),emphasis);
 }
-$('#about-copy').textContent=data.about;
+const aboutCopy=$('#about-copy');if(aboutCopy)aboutCopy.textContent=data.about;
 const copyTargets={siteLabel:'.header-label,footer>span',heroEyebrow:'.opening-text>.eyebrow',heroNote:'.intro-note',japaneseNote:'.japanese',archiveTitle:'#archive-title',archiveEyebrow:'#photographs .section-heading>.eyebrow',aboutLabel:'.about>.eyebrow',journalEyebrow:'.journal-heading>.eyebrow',journalTitle:'.journal-heading>h2',journalNote:'.journal-heading>p',sampleNotice:'.demo-note',collectionsTitle:'#collections-title',collectionsNote:'.collections-note'};
 for(const [key,selector]of Object.entries(copyTargets))document.querySelectorAll(selector).forEach(el=>el.textContent=data.copy[key]);
 function linkText(selector,text,arrow){const el=$(selector);el.replaceChildren(document.createTextNode(text+' '));const span=document.createElement('span');span.textContent=arrow;span.setAttribute('aria-hidden','true');el.append(span)}
@@ -137,10 +137,26 @@ const photographsDestination=$('.header-label').getAttribute('href'),collections
 $('#view-all-photographs').setAttribute('href',photographsDestination);$('#view-all-collections').setAttribute('href',collectionsDestination);
 let overviewHash=location.hash.startsWith('#post/')?photographsDestination:location.hash.startsWith('#collection/')?collectionsDestination:location.hash;
 let renderedMode=null;
+let stopHomeLayout=()=>{};
+function setupHomePostLayout(archive){
+ stopHomeLayout();
+ const items=[...archive.querySelectorAll('.home-post-item')];
+ if(!items.length||!('ResizeObserver'in window))return;
+ const wide=matchMedia('(min-width:1024px)');let frame=0;
+ const measure=()=>{
+  frame=0;
+  if(!wide.matches){archive.classList.remove('is-masonry');items.forEach(item=>item.style.removeProperty('grid-row-end'));return;}
+  archive.classList.add('is-masonry');
+  items.forEach(item=>{const span=Math.max(1,Math.ceil(item.getBoundingClientRect().height/2));const value='span '+span;if(item.style.gridRowEnd!==value)item.style.gridRowEnd=value;});
+ };
+ const schedule=()=>{if(!frame)frame=requestAnimationFrame(measure)};
+ const observer=new ResizeObserver(schedule);items.forEach(item=>observer.observe(item));observer.observe(archive);wide.addEventListener('change',schedule);schedule();
+ stopHomeLayout=()=>{observer.disconnect();wide.removeEventListener('change',schedule);if(frame)cancelAnimationFrame(frame);archive.classList.remove('is-masonry');items.forEach(item=>item.style.removeProperty('grid-row-end'));};
+}
 function renderOverview(){
  const view=overviewHash==='#collections'?'collections':overviewHash==='#journal'?'journal':overviewHash==='#photo-dump'?'photo-dump':overviewHash==='#photographs'||/^#year-/.test(overviewHash)?'posts':'home';
  document.body.dataset.view=view;
- if(view!=='home')setShowcaseVisible(false);$('.opening').hidden=view!=='home';if(view==='home')setShowcaseVisible(true);$('.about').hidden=view!=='home';$('#photographs').hidden=!['home','posts'].includes(view);$('#collections').hidden=view!=='collections';$('#journal').hidden=view!=='journal';$('#projects-showcase').hidden=view!=='home';$('#home-personal').hidden=!['home','photo-dump'].includes(view);$('#home-personal').classList.toggle('dump-view',view==='photo-dump');$('#journal-preview').hidden=view!=='home';
+ if(view!=='home')setShowcaseVisible(false);$('.opening').hidden=view!=='home';if(view==='home')setShowcaseVisible(true);const aboutSection=$('.about');if(aboutSection)aboutSection.hidden=view!=='home';$('#photographs').hidden=!['home','posts'].includes(view);$('#collections').hidden=view!=='collections';$('#journal').hidden=view!=='journal';$('#projects-showcase').hidden=view!=='home';$('#home-personal').hidden=!['home','photo-dump'].includes(view);$('#home-personal').classList.toggle('dump-view',view==='photo-dump');$('#journal-preview').hidden=view!=='home';
  document.querySelectorAll('header nav a').forEach(link=>{if(link.hash===(view==='posts'?'#photographs':'#'+view))link.setAttribute('aria-current','page');else link.removeAttribute('aria-current')});
 
  const allPosts=overviewHash===photographsDestination||/^#year-[0-9]{4}$/.test(overviewHash),allCollections=overviewHash===collectionsDestination;
@@ -156,6 +172,7 @@ function renderOverview(){
   $('#view-all-collections').hidden=allCollections||collections.length<=3;
   for(const host of [$('#archive'),$('#collection-wall')]){wireImageErrors(host);arrangePostPhotos(host);reveal(host);}
  }
+ if(view==='home')setupHomePostLayout($('#archive'));else stopHomeLayout();
  $('#year-select').value=/^#year-[0-9]{4}$/.test(overviewHash)?overviewHash.slice(6):'';
  $('#year-select').dispatchEvent(new Event('portfolio-year-sync'));
 }
