@@ -73,3 +73,12 @@
 !/aki-camera/app-icon.png
 
 !/portfolio-icon.svg
+
+!/aki-studio/favicon-tab.svg
+!/aki-camera/favicon-tab.svg
+!/aki-gazette/favicon-tab.svg
+!/aki-moments/favicon-tab.svg
+
+!/aki-gazette/
+/aki-gazette/*
+!/aki-gazette/favicon-tab.svg
