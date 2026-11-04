@@ -11,7 +11,5 @@
 .journal-preview-item p { font-size: 14px; line-height: 1.8; color: #c7cdca; margin: 9px 0 0; white-space: pre-line; overflow-wrap: anywhere; }
 .journal-preview-empty { font-size: 14px; color: var(--muted); padding: 21px 0; margin: 0; }
 @media (max-width: 760px) {
-  html { scroll-padding-top: 190px; }
-  header > nav { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .home-personal { grid-template-columns: 1fr; gap: 38px; padding: 38px 0; }
 }

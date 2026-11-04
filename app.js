@@ -37,10 +37,10 @@ if(introPause>=0&&data.intro.slice(introPause+1).trim()){
  intro.replaceChildren(document.createTextNode(data.intro.slice(0,introPause+1)),emphasis);
 }
 const aboutCopy=$('#about-copy');if(aboutCopy)aboutCopy.textContent=data.about;
-const copyTargets={siteLabel:'.header-label,footer>span',heroEyebrow:'.opening-text>.eyebrow',heroNote:'.intro-note',japaneseNote:'.japanese',archiveTitle:'#archive-title',archiveEyebrow:'#photographs .section-heading>.eyebrow',aboutLabel:'.about>.eyebrow',journalEyebrow:'.journal-heading>.eyebrow',journalTitle:'.journal-heading>h2',journalNote:'.journal-heading>p',sampleNotice:'.demo-note',collectionsTitle:'#collections-title',collectionsNote:'.collections-note'};
+const copyTargets={siteLabel:'.header-label,footer>span',heroEyebrow:'.opening-text>.eyebrow',heroNote:'.intro-note',japaneseNote:'.japanese',archiveEyebrow:'#photographs .section-heading>.eyebrow',aboutLabel:'.about>.eyebrow',sampleNotice:'.demo-note',collectionsTitle:'#collections-title',collectionsNote:'.collections-note'};
 for(const [key,selector]of Object.entries(copyTargets))document.querySelectorAll(selector).forEach(el=>el.textContent=data.copy[key]);
 function linkText(selector,text,arrow){const el=$(selector);el.replaceChildren(document.createTextNode(text+' '));const span=document.createElement('span');span.textContent=arrow;span.setAttribute('aria-hidden','true');el.append(span)}
-linkText('.journal-link',data.copy.journalNav,'↗');linkText('footer>a:last-of-type',data.copy.backToTop,'↑');
+linkText('footer>a:last-of-type',data.copy.backToTop,'↑');
 
 document.title=data.name+' — '+data.copy.siteLabel;
 const showcase=data.showcaseIds.map(id=>photoMap.get(id));
@@ -142,11 +142,10 @@ function composedContent(item){
   return textValue?'<div class="content-block writing-block" data-align="'+alignment+'"><p class="post-excerpt story-introduction">'+escape(textValue)+'</p></div>':'';
  });if(item.composition==='split'){const left=blocks.map((block,i)=>block.key.startsWith('photo:')?pieces[i]:'').join('');const right=blocks.map((block,i)=>!block.key.startsWith('photo:')?pieces[i]:'').join('');return '<div class="split-entry"><div class="split-photo-stack post-photos">'+left+'</div><div class="split-writing">'+right+'</div></div>';}let rendered='';for(let i=0;i<blocks.length;){const group=blocks[i].group;let end=i+1;if(group&&blocks[i].key.startsWith('photo:'))while(end<blocks.length&&blocks[end].group===group&&blocks[end].key.startsWith('photo:'))end++;if(end-i>=2&&end-i<=3){rendered+='<div class="media-row" style="--row-count:'+String(end-i)+'">'+pieces.slice(i,end).join('')+'</div>';i=end;}else{rendered+=pieces[i];i++;}}return '<div class="post-photos composed-content">'+rendered+'</div>';
 }
-function postSummary(post){const items=post.photoIds.map(id=>photoMap.get(id));return `<article class="post-summary reveal" data-post-id="${escape(post.id)}"${metadata(post)}><div class="post-summary-text"><p class="eyebrow"><time datetime="${escape(post.date)}">${escape(formatDate(post.date))}</time> ${sampleLabel(post)}</p>${post.title.trim()?`<h3><a href="#post/${encodeURIComponent(post.id)}">${escape(post.title)}</a></h3>`:''}${post.location?`<p class="story-location">${escape(post.location)}</p>`:''}</div>${composedContent(post)}<div class="hashtag-list">${tagMarkup(post)}</div><a class="story-link" href="#post/${encodeURIComponent(post.id)}">Open post <span aria-hidden="true">↗</span></a></article>`;}
+function postSummary(post){const items=post.photoIds.map(id=>photoMap.get(id));return `<article class="post-summary reveal" data-post-id="${escape(post.id)}"${metadata(post)}><div class="post-summary-text"><p class="eyebrow"><a href="#post/${encodeURIComponent(post.id)}" aria-label="View post from ${escape(formatDate(post.date))}"><time datetime="${escape(post.date)}">${escape(formatDate(post.date))}</time></a> ${sampleLabel(post)}</p>${post.title.trim()?`<h3><a href="#post/${encodeURIComponent(post.id)}">${escape(post.title)}</a></h3>`:''}${post.location?`<p class="story-location">${escape(post.location)}</p>`:''}</div>${composedContent(post)}<div class="hashtag-list">${tagMarkup(post)}</div></article>`;}
 
-for(const year of years){const option=document.createElement('option');option.value=year;option.textContent=year;$('#year-select').append(option);}
 const collections=data.collections.filter(c=>c.published).sort((a,b)=>Number(b.pinned)-Number(a.pinned));
-const photographsDestination=$('.header-label').getAttribute('href'),collectionsDestination=$('nav .collections-link').getAttribute('href');
+const photographsDestination=$('nav .posts-link').getAttribute('href'),collectionsDestination=$('nav .collections-link').getAttribute('href');
 $('#view-all-photographs').setAttribute('href',photographsDestination);$('#view-all-collections').setAttribute('href',collectionsDestination);
 let overviewHash=location.hash.startsWith('#post/')?photographsDestination:location.hash.startsWith('#collection/')?collectionsDestination:location.hash;
 let renderedMode=null;
@@ -186,13 +185,10 @@ function renderOverview(){
   for(const host of [$('#archive'),$('#collection-wall')]){wireImageErrors(host);arrangePostPhotos(host);reveal(host);}
  }
  if(view==='home')setupHomePostLayout($('#archive'));else stopHomeLayout();
- $('#year-select').value=/^#year-[0-9]{4}$/.test(overviewHash)?overviewHash.slice(6):'';
- $('#year-select').dispatchEvent(new Event('portfolio-year-sync'));
 }
 renderOverview();
-$('#year-select').addEventListener('change',event=>{const hash=event.target.value?'#year-'+event.target.value:photographsDestination;if(location.hash===hash)route();else location.hash=hash;});
 const journal=data.journal.filter(j=>j.published).sort((a,b)=>Number(b.pinned)-Number(a.pinned)||b.date.localeCompare(a.date));
-$('#journal-entries').innerHTML=journal.map((entry,i)=>`<details class="journal-entry reveal" data-journal-id="${escape(entry.id)}"${metadata(entry)} ${i===0?'open':''}><summary><time datetime="${escape(entry.date)}">${escape(formatDate(entry.date))} ${entry.sample?'· Sample':''}</time><h3>${escape(entry.title)}</h3></summary>${entry.layout?composedContent({...entry,description:entry.body}):`<p class="entry-body" style="text-align:${entry.textAlign||'left'}">${escape(entry.body)}</p>${entry.photoIds.length?`<div class="journal-photos" aria-label="Journal photographs">${entry.photoIds.map((id,index)=>photoMarkup(photoMap.get(id),{index})).join('')}</div>`:''}`}<div class="hashtag-list">${tagMarkup(entry)}</div></details>`).join('')||'<p class="quiet-empty">A few thoughts will find their way here soon.</p>';
+$('#journal-entries').innerHTML=journal.map(entry=>`<article class="journal-entry" data-journal-id="${escape(entry.id)}"${metadata(entry)}><div class="journal-entry-heading"><time datetime="${escape(entry.date)}">${escape(formatDate(entry.date))} ${entry.sample?'· Sample':''}</time>${entry.title.trim()?`<h3>${escape(entry.title)}</h3>`:''}</div>${entry.layout?composedContent({...entry,description:entry.body}):`<p class="entry-body" style="text-align:${entry.textAlign||'left'}">${escape(entry.body)}</p>${entry.photoIds.length?`<div class="journal-photos" aria-label="Journal photographs">${entry.photoIds.map((id,index)=>photoMarkup(photoMap.get(id),{index})).join('')}</div>`:''}`}<div class="hashtag-list">${tagMarkup(entry)}</div></article>`).join('')||'<p class="quiet-empty">A few thoughts will find their way here soon.</p>';
 $('.demo-note').hidden=![...showcase,...posts,...collections,...journal].some(item=>item.sample);
 let active=0,viewerPhotos=showcase,storyPhotos=[],previousFocus=null;
 const dialog=$('#lightbox'),story=$('#story-view');
