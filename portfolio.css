@@ -168,16 +168,22 @@ figcaption p, .photo-number { color: var(--muted); font-size: 11px; }
 .split-writing { min-width: 0; padding-top: 3px; }
 .split-writing p { font-size: 14px; line-height: 1.8; }
 
-/* Home showcases complete posts in a staggered two-column arrangement. */
+/* Home showcases complete posts, aligned at the top. */
 body[data-view="home"] .home-posts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 42px; align-items: start; padding-top: 48px; }
 body[data-view="home"] .home-post-item { min-width: 0; }
-body[data-view="home"] .home-post-item:nth-child(even) { padding-top: 52px; }
+body[data-view="home"] .home-posts.is-masonry { grid-auto-rows: 2px; row-gap: 0; }
+body[data-view="home"] .home-posts.is-masonry .home-post-item { align-self: start; padding-bottom: 42px; }
+body[data-view="home"] .home-posts.is-masonry .home-post-item:nth-child(odd) { grid-column: 1; }
+body[data-view="home"] .home-posts.is-masonry .home-post-item:nth-child(even) { grid-column: 2; }
 body[data-view="home"] .home-post-year { margin-bottom: 20px; color: var(--ink); font-size: 19px; line-height: 1.4; letter-spacing: -.025em; font-variant-numeric: tabular-nums; }
-body[data-view="home"] .home-post-item .post-summary { margin: 0; }
+body[data-view="home"] .home-post-item .post-summary { margin: 0; padding-bottom: 0; border-bottom: 0; }
+body[data-view="home"] .home-post-item .post-summary > .story-link { display: none; }
 body[data-view="home"] .home-post-item .split-entry { gap: clamp(18px, 2vw, 32px); }
 @media (max-width: 1023px) {
   body[data-view="home"] .home-posts { grid-template-columns: 1fr; gap: 36px; padding-top: 36px; }
-  body[data-view="home"] .home-post-item:nth-child(even) { padding-top: 0; }
+  body[data-view="home"] .home-posts.is-masonry { grid-auto-rows: auto; row-gap: 36px; }
+  body[data-view="home"] .home-posts.is-masonry .home-post-item { padding-bottom: 0; }
+  body[data-view="home"] .home-posts.is-masonry .home-post-item:nth-child(n) { grid-column: auto; }
 }
 
 /* Collections use neutral, even frames with uncropped images. */

@@ -4,6 +4,7 @@
   max-width: 1360px;
   margin-inline: auto;
   padding-block: clamp(42px, 5vw, 72px);
+  border-top: 1px solid var(--line);
 }
 #projects-showcase .project-showcase-grid {
   display: grid;
@@ -28,8 +29,14 @@
   height: auto;
   aspect-ratio: 1;
   object-fit: contain;
-  border-radius: 12px;
+  /* A shared rounded-square silhouette keeps the original icon artwork intact. */
+  border-radius: 19%;
   background: #101114;
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 9%), 0 0 22px rgb(228 236 232 / 7%);
+  transition: box-shadow .25s ease;
+}
+#projects-showcase .project-showcase-button:is(:hover, :focus-visible, [aria-expanded="true"]) .project-showcase-icon {
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 16%), 0 0 28px rgb(228 236 232 / 13%);
 }
 #projects-showcase .project-showcase-name {
   display: block;
@@ -58,4 +65,7 @@
 @media (max-width: 760px) {
   #projects-showcase .project-showcase-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 25px 16px; }
   #projects-showcase .project-showcase-name { font-size: 16px; margin-top: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #projects-showcase .project-showcase-icon { transition: none; }
 }
