@@ -342,3 +342,21 @@
   .aki-landing .aki-header, .aki-landing .aki-preview, .aki-landing .aki-device,
   .aki-landing .aki-status, .aki-landing .aki-footer, .aki-landing .button { border-color: CanvasText; }
 }
+
+/* App Store actions: paired marks and a quiet availability pulse. */
+.aki-landing .app-store-button {
+  position: relative; justify-content: center; gap: 10px; margin-right: 18px;
+  padding-inline: 20px; white-space: nowrap;
+}
+.aki-landing .store-button-icons { display: inline-flex; align-items: center; gap: 6px; flex: none; }
+.aki-landing .store-button-icons svg { display: block; width: 19px; height: 19px; flex: 0 0 19px; }
+.aki-landing .app-store-button::after {
+  content: ""; position: absolute; top: 50%; right: -16px; width: 7px; height: 7px;
+  border-radius: 50%; background: #48ba75; box-shadow: 0 0 7px #48ba7599;
+  transform: translateY(-50%); animation: store-availability-pulse 2.4s ease-in-out infinite;
+}
+@keyframes store-availability-pulse {
+  0%, 100% { opacity: .65; box-shadow: 0 0 4px #48ba7566; }
+  50% { opacity: 1; box-shadow: 0 0 9px #48ba75cc; }
+}
+@media (prefers-reduced-motion: reduce) { .aki-landing .app-store-button::after { animation: none; } }
